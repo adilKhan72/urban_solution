@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>The Urban Solutions</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -12,12 +12,14 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-image: url("{{ asset('project_images/frontwallpaper.jpg') }}");
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+                background-position: center;
+                background-size: cover;
             }
 
             .full-height {
@@ -28,6 +30,8 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                background-color: black;
+                opacity: 0.7;
             }
 
             .position-ref {
@@ -46,6 +50,8 @@
 
             .title {
                 font-size: 84px;
+                border: 4px solid #636b6f;
+                padding: 5px 15px;
             }
 
             .links > a {
@@ -59,6 +65,7 @@
             }
 
             .m-b-md {
+                margin: 0px 10px;
                 margin-bottom: 30px;
             }
         </style>
@@ -81,10 +88,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                Urban solutions
                 </div>
 
-                <div class="links">
+                <!-- <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
@@ -93,7 +100,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>
