@@ -1,5 +1,5 @@
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" ></script>
+<!--this is default app script which bootstraped  but disabled due to theme files was not working fine  <script src="{{ asset('js/app.js') }}" ></script> -->
 <!-- Theme Includes Start here  -->
 <!-- jQuery -->
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -34,8 +34,16 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- PAGE SCRIPTS -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+
+<!--
+Disabled because these are for other dashboard designs of this theme and showing js errors 
+when page loads.
+NOTE : load or take parts from the bellow files if needed the functionality or some design of other design
+pages.
 <script src="{{ asset('dist/js/pages/dashboard2.js') }}"></script>
 <script src="{{ asset('dist/js/pages/dashboard3.js') }}"></script>
+-->
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- Theme Includes End here  -->

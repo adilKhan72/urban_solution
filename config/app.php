@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'The Urban solutions'),
+    'name' => env('APP_NAME', 'The Urban Solutions'),
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://urban-solutions.com/'),
 
     'asset_url' => env('ASSET_URL', null),
 

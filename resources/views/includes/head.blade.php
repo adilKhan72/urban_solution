@@ -4,10 +4,13 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <!-- Custom Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  
+  <!-- setting a favicon icon for the app -->
+  <link rel="icon" href="{{ URL::asset('/project_images/urbanLogoExact.png') }}" type="image/x-icon"/>
+  
+  <!-- Custom Styles -->
+  <!-- this is default bootstraped app.css file but disabled due to theme files was not working fine <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 
 <!-- Theme Includes Start here  -->
   <!-- Font Awesome -->
