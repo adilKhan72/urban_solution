@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//registration and login page
 Auth::routes();
+//without registration page
+//Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

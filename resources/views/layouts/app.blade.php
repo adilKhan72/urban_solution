@@ -4,6 +4,10 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{{ config('app.name', 'The Urban Solutions') }}</title>
+
+  <!-- setting a favicon icon for the app -->
+  <link rel="icon" href="{{ URL::asset('/project_images/urbanLogoExact.png') }}" type="image/x-icon"/>
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
