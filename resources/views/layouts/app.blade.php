@@ -6,7 +6,7 @@
   <title>{{ config('app.name', 'The Urban Solutions') }}</title>
 
   <!-- setting a favicon icon for the app -->
-  <link rel="icon" href="{{ URL::asset('/project_images/urbanLogoExact.png') }}" type="image/x-icon"/>
+  <link rel="icon" href="{{ URL::asset('/project_images/favcion_navbar_logo.png') }}" type="image/x-icon"/>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'The Urban Solutions') }}
+                <img src="{{ URL::asset('/project_images/urbanLogo.png') }}" alt="" width="90px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -84,6 +84,17 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <nav class=" fixed-bottom ">
+            <footer class="main-footer" style="text-align: center; border-top: 1px solid #d5cece; background-color: white;padding: 10px 1%;">
+                <strong>Copyright &copy; 2014-2020 <a href="{{ url('/') }}">The Urban Solution (Pvt.) Ltd</a>.</strong>
+                All rights reserved.
+                <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> {{ config('app.version', '1.0.0') }}
+                </div>
+            </footer>
+        </nav>
+
     </div>
 
 </body>

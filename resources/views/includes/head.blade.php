@@ -7,7 +7,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
   <!-- setting a favicon icon for the app -->
-  <link rel="icon" href="{{ URL::asset('/project_images/urbanLogoExact.png') }}" type="image/x-icon"/>
+  <link rel="icon" href="{{ URL::asset('/project_images/favcion_navbar_logo.png') }}" type="image/x-icon"/>
   
   <!-- Custom Styles -->
   <!-- this is default bootstraped app.css file but disabled due to theme files was not working fine <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->

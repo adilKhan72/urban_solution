@@ -4,7 +4,37 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        
+
+        @if (session('no_role_sign_in'))
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="alert-heading">Cannot Sign-In Without any Role!</h4>
+  {!! Session::get('no_role_sign_in') !!}
+  <p></p>
+
+</div>
+@endif
+
+@if (session('un_authorise_access'))
+            <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="alert-heading">Cannot Sign-In Without any Role!</h4>
+  {!! Session::get('un_authorise_access') !!}
+  <p></p>
+
+</div>
+@endif
+
+
+
+
             <div class="card">
+            
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -67,7 +97,10 @@
                     </form>
                 </div>
             </div>
+            
         </div>
+        
     </div>
+    
 </div>
 @endsection

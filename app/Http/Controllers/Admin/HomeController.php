@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //dd("admin-HomeController");
         //this returns to home view after successfully login.
         return view('admin_dashboard.home');
     }

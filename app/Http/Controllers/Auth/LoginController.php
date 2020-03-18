@@ -6,7 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Illuminate\Http\Request as REQ;
-use Request, Helper;
+use Session, Request, Helper;
 use App\User;
 
 class LoginController extends Controller
@@ -42,7 +42,7 @@ class LoginController extends Controller
     }
 
     public function showLoginForm() {
-		$current_url = Request::path();
+        $current_url = Request::path();
 		return view('auth.login');
     }
     
@@ -56,7 +56,9 @@ class LoginController extends Controller
         }elseif($user_role->contains('assistants')){
             return redirect()->route('assistant_dashboard');
         }else{
+
             $this->performLogOut($request);
+            $request->session()->flash('no_role_sign_in', "For signing in a role must be defined. No roles found in these list 'admin, principals, assistants'. May be Unfamiliar OR No role Assigned.");
             return redirect()->route('main_home_page_login');
         }
 

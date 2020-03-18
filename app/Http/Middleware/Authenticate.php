@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-
+use Session;
 class Authenticate extends Middleware
 {
     /**
@@ -16,6 +16,7 @@ class Authenticate extends Middleware
     {
 
         if (! $request->expectsJson()) {
+            Session::flash('un_authorise_access', "Please Sign in before you access the dashboards.");
             return route('main_home_page_login');
         }
     }
