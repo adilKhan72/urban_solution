@@ -24,7 +24,7 @@
   </div>
 
 <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2020 <a href="{{ url('/') }}">The Urban Solution (Pvt.) Ltd</a>.</strong>
+    <strong>Copyright &copy; 2014-2020 <a href="{{ url('/') }}">{{ config('app.name') }} (Pvt.) Ltd</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> {{ config('app.version', '1.0.0') }}

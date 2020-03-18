@@ -10,7 +10,8 @@
   <link rel="icon" href="{{ URL::asset('/project_images/favcion_navbar_logo.png') }}" type="image/x-icon"/>
   
   <!-- Custom Styles -->
-  <!-- this is default bootstraped app.css file but disabled due to theme files was not working fine <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+  <!-- this is default bootstraped app.css file but disabled due to theme files was not working fine
+   <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 
 <!-- Theme Includes Start here  -->
   <!-- Font Awesome -->

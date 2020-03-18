@@ -1,6 +1,6 @@
 
     <!-- Brand Logo -->
-    <a href="{{ url('/home') }}" class="brand-link">
+    <a href="{{ url('/') }}" class="brand-link">
       <img src="{{ asset('project_images/favcion_navbar_logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">{{ config('app.name', 'The Urban Solutions') }}</span>
