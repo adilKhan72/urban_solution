@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+use Illuminate\Http\Request as REQ;
+use Request, Helper;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -19,14 +22,14 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers { logout as performLogOut; }
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,4 +40,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function showLoginForm() {
+		$current_url = Request::path();
+		return view('auth.login');
+    }
+    
+    protected function authenticated($request, $user) {
+        
+        $user_role = $user->roles->pluck('display_name');
+		if ($user_role->contains('admin')) {
+			return redirect()->route('admin_dashboard');
+		}elseif($user_role->contains('principals')){
+            return redirect()->route('principal_dashboard');
+        }elseif($user_role->contains('assistants')){
+            return redirect()->route('assistant_dashboard');
+        }else{
+            $this->performLogOut($request);
+            return redirect()->route('main_home_page_login');
+        }
+
+    }
+    
+    
 }

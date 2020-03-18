@@ -2,24 +2,41 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/','Auth\LoginController@showLoginForm')->name('main_home_page_login');
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes(['register' => false]);
+
+//overall authentication of user by user table
+Route::group(['middleware'=>'auth'], function () {
+
+    //Admin Check middleware where if Role = admin so then the routes in this group can be accessed.
+    //otherwise redirect to login page.
+    Route::group(['middleware'=>'admin'], function () {
+        Route::get('admindashboard', 'Admin\HomeController@index')->name('admin_dashboard');
+    });
+    //Admin Rights Ends Here. 
+
+    //Principal Check middleware where if Role = admin so then the routes in this group can be accessed.
+    //otherwise redirect to login page.
+    Route::group(['middleware'=>'principal'], function () {
+        Route::get('principaldashboard', 'Principal\HomeController@index')->name('principal_dashboard');
+    });
+    //Principal Rights Ends Here. 
+
+    //Principal Check middleware where if Role = admin so then the routes in this group can be accessed.
+    //otherwise redirect to login page.
+    Route::group(['middleware'=>'assistant'], function () {
+        Route::get('assistantdashboard', 'Assistant\HomeController@index')->name('assistant_dashboard');
+    });
+    //Assistant Rights Ends Here. 
+
 });
 
-//registration and login page
-Auth::routes();
-//without registration page
-//Auth::routes(['register' => false]);
+// Route::group(['middleware' => ['role:admin', 'auth', 'verified']], function () use ($perms) {
+//     Route::get('/dashboard', 'HomeController@index')->name('admin_dashboard');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// });
+
+// Route::get('/home', function () {
+//     echo "am logged in";
+// })->name('home');

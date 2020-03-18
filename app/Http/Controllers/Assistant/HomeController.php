@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Assistant;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd("assistant-controller");
+        dd("assistant-HomeController");
         //this returns to home view after successfully login.
         //return view('admin_dashboard.home');
     }

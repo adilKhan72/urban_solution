@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -13,6 +14,10 @@ class User extends Authenticatable
     /**
      * The roles that belong to the user.
      */
+    protected $guarded = ['id'];
+
+    
+
     public function roles()
     {
         return $this->belongsToMany('App\Role');

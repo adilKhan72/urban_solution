@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
 			$table->date('dob')->nullable();
             $table->string('picture', 255)->nullable();
             $table->string('password');
-            $table->integer('city_id')->unsigned();
+            $table->integer('city_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

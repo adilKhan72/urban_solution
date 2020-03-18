@@ -2,36 +2,34 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+class CheckAssistant
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
+        //dd(Auth::user()->roles->pluck('display_name'));
+        $user_role = Auth::user()->roles->pluck('display_name');
+        if(!$user_role->contains('assistants')){
 
-            $user_role = Auth::user()->roles->pluck('display_name');
             if ($user_role->contains('admin')) {
                 return redirect()->route('admin_dashboard');
             }elseif($user_role->contains('principals')){
                 return redirect()->route('principal_dashboard');
-            }elseif($user_role->contains('assistants')){
-                return redirect()->route('assistant_dashboard');
             }else{
-                echo "not a roled user logged in";
+                echo "For signing in a role must be defined. No roles found in these list 'admin, principals, assistants'. May be Unfamiliar OR No role Assigned.";
             }
-        }
 
+        }else{
         return $next($request);
+        }
     }
 }
