@@ -24,6 +24,6 @@ class HomeController extends Controller
     public function index()
     {
         //this returns to home view after successfully login.
-        return view('admin_dashboard.home');
+        return view('assistant_dashboard.home');
     }
 }

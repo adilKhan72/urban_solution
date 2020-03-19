@@ -21,11 +21,12 @@ class CheckAssistant
         if(!$user_role->contains('assistants')){
 
             if ($user_role->contains('admin')) {
-                return redirect()->route('admin_dashboard');
+                return redirect()->route('admin_dashboard')->with('cant_access_direct', 'Cannot Access Assistants Dashboard Directly!');;
             }elseif($user_role->contains('principals')){
-                return redirect()->route('principal_dashboard');
+                return redirect()->route('principal_dashboard')->with('cant_access_direct', 'Cannot Access Assistants Dashboard Directly!');;
             }else{
-                echo "For signing in a role must be defined. No roles found in these list 'admin, principals, assistants'. May be Unfamiliar OR No role Assigned.";
+                $request->session()->flash('no_role_sign_in', "For signing in a role must be defined. No roles found in these list 'admin, principals, assistants'. May be Unfamiliar OR No role Assigned.");
+                return redirect()->route('main_home_page_login');    
             }
 
         }else{

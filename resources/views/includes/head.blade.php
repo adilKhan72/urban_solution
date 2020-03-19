@@ -1,6 +1,18 @@
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ config('app.name', 'The Urban Solutions') }}</title>
+  <title>{{ config('app.name', 'The Urban Solutions') }} | 
+          @php
+            $user_role = Auth::user()->roles->pluck('display_name');
+          @endphp
+
+          @if ($user_role->contains('assistants'))
+            Assistant Dashboard
+          @elseif ($user_role->contains('principals'))
+            Principal Dashboard
+          @elseif ($user_role->contains('admin'))
+            Admin Dashboard
+          @endif
+  </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
@@ -19,6 +31,11 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
+
+   <!-- SweetAlert2 -->
+   <link rel="stylesheet" href="{{ asset('plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
+   <!-- Toastr -->
+   <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
   <!-- JQVMap -->
   <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }}">
   <!-- Theme style -->
