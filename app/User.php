@@ -16,11 +16,36 @@ class User extends Authenticatable
      */
     protected $guarded = ['id'];
 
-    
 
     public function roles()
     {
         return $this->belongsToMany('App\Role');
+    }
+
+    public function skills()
+    {
+        return $this->belongsToMany('App\Skill');
+    }
+    
+    public function skilluser()
+    {
+        return $this->hasMany('App\SkillUser');
+    }
+
+    public function userinformation()
+    {
+        return $this->hasOne('App\UserInformation');
+    }
+
+
+    public function userqualification()
+    {
+        return $this->hasMany('App\UserQualification');
+    }
+
+    public function userexperience()
+    {
+        return $this->hasMany('App\UserExperience');
     }
 
     /**

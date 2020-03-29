@@ -12,22 +12,22 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        $task = new Role;
-        $task->name = 'Admin';
-        $task->display_name = 'admin';
-        $task->description = 'Ceo, Directors, Admins of the company and have Admin rights';
-        $task->save();
+        $role = new Role;
+        $role->name = 'Admin';
+        $role->display_name = 'admin';
+        $role->description = 'Ceo, Directors, Admins of the company and have Admin rights';
+        $role->save();
 
-        $task = new Role;
-        $task->name = 'Principals';
-        $task->display_name = 'principals';
-        $task->description = 'Principals are architects, project managers, Cordinators etc. the project will be assigned to them';
-        $task->save();
+        $role = new Role;
+        $role->name = 'Principals';
+        $role->display_name = 'principals';
+        $role->description = 'Principals are architects, project managers, Cordinators etc. the project will be assigned to them';
+        $role->save();
 
-        $task = new Role;
-        $task->name = 'Assistants';
-        $task->display_name = 'assistants';
-        $task->description = 'Darftsman, Helpers who can help managers in their project through tasks to complete the projects';
-        $task->save();
+        $role = new Role;
+        $role->name = 'Assistants';
+        $role->display_name = 'assistants';
+        $role->description = 'Darftsman, Helpers who can help managers in their project through tasks to complete the projects';
+        $role->save();
     }
 }
