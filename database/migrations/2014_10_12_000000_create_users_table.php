@@ -14,9 +14,10 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('fname');
-            $table->string('lname')->nullable();
+            $table->increments('id');
+            $table->string('first_name')->nullable();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -25,10 +26,13 @@ class CreateUsersTable extends Migration
             $table->dateTime('leaving_date')->nullable();
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
             $table->string('id_card_number', 20)->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('profile_pic', 255)->nullable();
-            $table->string('idcard_scan', 255)->nullable();
+            $table->string('id_card_scan', 255)->nullable();
             $table->string('cv_scan', 255)->nullable();
+            $table->string('police_clearance_scan', 255)->nullable();
+            $table->string('personal_portfoliio_scan', 255)->nullable();
+            $table->string('pec_number', 255)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

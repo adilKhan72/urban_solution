@@ -8,6 +8,6 @@ class EducationalDegree extends Model
 {
     public function userqualification()
     {
-        return $this->belongsTo('App\UserQualification');
+        return $this->hasOne('App\UserQualification');
     }
 }

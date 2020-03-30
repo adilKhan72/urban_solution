@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserExperiencesTable extends Migration
+class CreateUserPersonalProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateUserExperiencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_experiences', function (Blueprint $table) {
+        Schema::create('user_personal_projects', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('organisation');
-            $table->string('designation');
+            $table->string('project_name');
+            $table->string('client_name');
             $table->text('description')->nullable();
-            $table->string('experience_letter_scan', 255)->nullable();
-            $table->dateTime('from_date');
-            $table->dateTime('to_date');
+            $table->json('address');
+            $table->json('google_location_pin')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ class CreateUserExperiencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_experiences');
+        Schema::dropIfExists('user_personal_projects');
     }
 }

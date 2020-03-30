@@ -48,6 +48,16 @@ class User extends Authenticatable
         return $this->hasMany('App\UserExperience');
     }
 
+    public function useremergencycontact()
+    {
+        return $this->hasMany('App\UserEmergencyContact');
+    }
+
+    public function userpersonalproject()
+    {
+        return $this->hasMany('App\UserPersonalProject');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
