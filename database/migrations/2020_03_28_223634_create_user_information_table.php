@@ -21,7 +21,8 @@ class CreateUserInformationTable extends Migration
             $table->enum('gender', ['male', 'female', 'other'])->default('other');
             $table->string('phone', 15)->nullable();
             $table->date('dob')->nullable();
-            $table->json('address')->nullable();
+            $table->json('primary_address')->nullable();
+            $table->json('secondary_address')->nullable();
             $table->json('google_location_pin')->nullable();
             $table->string('blood_group')->nullable();
             $table->timestamps();

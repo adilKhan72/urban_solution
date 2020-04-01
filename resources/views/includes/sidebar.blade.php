@@ -14,7 +14,7 @@
           <img src="dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->fname }} {{ Auth::user()->lname }}</a>
+          <a href="#" class="d-block">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}  {{ Auth::user()->last_name }}</a>
         </div>
       </div>
 
