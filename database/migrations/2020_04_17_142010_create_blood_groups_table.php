@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSkillUsersTable extends Migration
+class CreateBloodGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSkillUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('skill_user', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('skill_id');
-            $table->enum('profeciency', ['beginner','intermediate', 'expert'])->default('beginner');
+        Schema::create('blood_groups', function (Blueprint $table) {
+            $table->id();
+            $table->string('blood_type');
+            $table->json('donate_blood_to');
+            $table->json('receive_blood_from');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSkillUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('skill_users');
+        Schema::dropIfExists('blood_groups');
     }
 }

@@ -9,10 +9,33 @@ Auth::routes(['register' => false]);
 //overall authentication of user by user table
 Route::group(['middleware'=>'auth'], function () {
 
+    Route::post('user_select_gender', ['as' => 'user_select_gender', 'uses' => 'UserController@SelectGender']);
+    Route::post('user_select_employee_status', ['as' => 'user_select_employee_status', 'uses' => 'UserController@SelectEmployeeStatus']);
+    Route::post('blood_group_select', ['as' => 'blood_group_select', 'uses' => 'BloodGroupController@BloodGroupSelect']);
+    Route::post('country_select', ['as' => 'country_select', 'uses' => 'CountryController@CountrySelect']);
+    Route::post('city_select', ['as' => 'city_select', 'uses' => 'CityController@CitySelect']);
+
     //Admin Check middleware where if Role = admin so then the routes in this group can be accessed.
     //otherwise redirect to login page.
     Route::group(['middleware'=>'admin'], function () {
         Route::get('admindashboard', ['as' => 'admin_dashboard', 'uses' => 'Admin\HomeController@index']);
+ 
+        Route::group(['prefix' => 'option','as'=>'option.'], function () {
+            //Route::get('view', ['as' => 'view', 'uses' => 'Admin\ProfileController@index']);
+        });
+
+        Route::group(['prefix' => 'profile','as'=>'profile.'], function () {
+            Route::get('view', ['as' => 'view', 'uses' => 'Admin\ProfileController@index']);
+            Route::get('informations', ['as' => 'informations', 'uses' => 'Admin\ProfileController@Informations']);
+            Route::get('informations_store', ['as' => 'informations_store', 'uses' => 'Admin\ProfileController@InformationsStore']);
+            Route::get('projects', ['as' => 'projects', 'uses' => 'Admin\ProfileController@Projects']);
+            Route::get('qualitifcations', ['as' => 'qualitifcations', 'uses' => 'Admin\ProfileController@Qualitifcations']);
+            Route::get('experiences', ['as' => 'experiences', 'uses' => 'Admin\ProfileController@Experiences']);
+            Route::get('skills', ['as' => 'skills', 'uses' => 'Admin\ProfileController@Skills']);
+        });
+
+
+
     });
     //Admin Rights Ends Here. 
 

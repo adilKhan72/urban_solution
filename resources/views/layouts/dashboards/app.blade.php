@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+@php
+$user_role = Auth::user()->roles->pluck('display_name');
+@endphp
 @include('includes.head')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -14,8 +17,14 @@
 
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-@include('includes.sidebar')
-  </aside>
+    @if ($user_role->contains('assistants'))
+      @include('includes.sidebars.assistant_sidebar')
+    @elseif ($user_role->contains('principals'))
+      @include('includes.sidebars.principal_sidebar')
+    @elseif ($user_role->contains('admin'))
+      @include('includes.sidebars.admin_sidebar')
+    @endif  
+</aside>
  <!-- /.sidebar -->
 
   <!-- Content Wrapper. Contains page content -->
@@ -26,17 +35,8 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          @php
-            $user_role = Auth::user()->roles->pluck('display_name');
-          @endphp
 
-          @if ($user_role->contains('assistants'))
-            <h1 class="m-0 text-dark">Assistant Dashboard</h1>
-          @elseif ($user_role->contains('principals'))
-            <h1 class="m-0 text-dark">Principal Dashboard</h1>
-          @elseif ($user_role->contains('admin'))
-            <h1 class="m-0 text-dark">Admin Dashboard</h1>
-          @endif
+        <h1 class="m-0 text-dark" style="text-transform: capitalize;" >{{ request()->segment(count(request()->segments())) }}</h1>
 
           </div><!-- /.col -->
           <div class="col-sm-6">

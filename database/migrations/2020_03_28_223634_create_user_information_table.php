@@ -13,9 +13,10 @@ class CreateUserInformationTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_informations', function (Blueprint $table) {
+        Schema::create('user_information', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('blood_group_id');
             $table->unsignedInteger('city_id');
             $table->unsignedInteger('country_id');
             $table->enum('gender', ['male', 'female', 'other'])->default('other');
@@ -24,7 +25,7 @@ class CreateUserInformationTable extends Migration
             $table->json('primary_address')->nullable();
             $table->json('secondary_address')->nullable();
             $table->json('google_location_pin')->nullable();
-            $table->string('blood_group')->nullable();
+
             $table->timestamps();
         });
     }
