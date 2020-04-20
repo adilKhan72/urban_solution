@@ -62,31 +62,31 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('profile.informations')}}" class="nav-link {{ (request()->is('profile/informations')) ? 'active' : '' }}">
+                <a href="{{route('profile.informations.index')}}" class="nav-link {{ (request()->is('profile/informations')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Personal Information</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('profile.projects')}}" class="nav-link {{ (request()->is('profile/projects')) ? 'active' : '' }}">
+                <a href="{{route('profile.projects.index')}}" class="nav-link {{ (request()->is('profile/projects')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Personal Projects</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('profile.qualitifcations')}}" class="nav-link {{ (request()->is('profile/qualitifcations')) ? 'active' : '' }}">
+                <a href="{{route('profile.qualitifcations.index')}}" class="nav-link {{ (request()->is('profile/qualitifcations')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Personal Qualitifcation</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('profile.experiences')}}" class="nav-link {{ (request()->is('profile/experiences')) ? 'active' : '' }}">
+                <a href="{{route('profile.experiences.index')}}" class="nav-link {{ (request()->is('profile/experiences')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Personal Experience</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('profile.skills')}}" class="nav-link {{ (request()->is('profile/skills')) ? 'active' : '' }}">
+                <a href="{{route('profile.skills.index')}}" class="nav-link {{ (request()->is('profile/skills')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Personal Skills</p>
                 </a>

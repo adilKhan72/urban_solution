@@ -24,14 +24,37 @@ Route::group(['middleware'=>'auth'], function () {
             //Route::get('view', ['as' => 'view', 'uses' => 'Admin\ProfileController@index']);
         });
 
-        Route::group(['prefix' => 'profile','as'=>'profile.'], function () {
-            Route::get('view', ['as' => 'view', 'uses' => 'Admin\ProfileController@index']);
-            Route::get('informations', ['as' => 'informations', 'uses' => 'Admin\ProfileController@Informations']);
-            Route::get('informations_store', ['as' => 'informations_store', 'uses' => 'Admin\ProfileController@InformationsStore']);
-            Route::get('projects', ['as' => 'projects', 'uses' => 'Admin\ProfileController@Projects']);
-            Route::get('qualitifcations', ['as' => 'qualitifcations', 'uses' => 'Admin\ProfileController@Qualitifcations']);
-            Route::get('experiences', ['as' => 'experiences', 'uses' => 'Admin\ProfileController@Experiences']);
-            Route::get('skills', ['as' => 'skills', 'uses' => 'Admin\ProfileController@Skills']);
+        Route::group(['prefix' => 'profile','as'=>'profile.'], function () 
+        {
+
+            Route::get('view', ['as' => 'view', 'uses' => 'Admin\Profile\HomeController@index']);
+
+            Route::group(['prefix' => 'informations','as'=>'informations.'], function () 
+            {
+                Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\InformationController@index']);
+                Route::get('store', ['as' => 'store', 'uses' => 'Admin\Profile\ProfileController@Store']);
+            });
+            
+            Route::group(['prefix' => 'projects','as'=>'projects.'], function () 
+            {
+                Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\ProjectController@index']);
+            });
+
+            Route::group(['prefix' => 'qualitifcations','as'=>'qualitifcations.'], function () 
+            {
+                Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\QualificationController@index']);
+            });
+
+            Route::group(['prefix' => 'experiences','as'=>'experiences.'], function () 
+            {
+                Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\ExperienceController@index']);
+            });
+
+            Route::group(['prefix' => 'skills','as'=>'skills.'], function () 
+            {
+                Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\SkillController@index']);
+            });
+
         });
 
 

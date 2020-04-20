@@ -1,7 +1,7 @@
 @extends('layouts.dashboards.app')
 
     @section('content')
-    <form action="{{route('profile.informations_store')}}" method="post" class="" name="personal_information"  enctype="multipart/form-data"  role="form">  
+    
             <!-- Main content -->
     <section class="content">
       <div class="row">
@@ -36,17 +36,17 @@
               <div class="form-group">
                 <label for="phone_number">Phone Number</label>
                 @if ($user->userinformation != null && $user->userinformation->phone != null)
-                <input name="phone" type="text" id="phone_number" class="form-control" value="{{$user->userinformation->phone}}" placeholder="Enter Your Phone Number" >
+                <input  name="phone" type="text" id="phone" class="form-control" value="{{$user->userinformation->phone}}" placeholder="Enter Your Phone Number" >
                 @else
-                <input name="phone" type="text" id="phone_number" class="form-control"  placeholder="Enter Your Phone Number">
+                <input name="phone" type="text" id="phone" class="form-control"  placeholder="Enter Your Phone Number">
                 @endif
               </div>
               <div class="form-group">
                 <label for="inputEstimatedDuration">Date of Birth</label>
                 @if ($user->userinformation != null && $user->userinformation->phone != null)
-                <input name="dob" type="date" id="inputName" class="form-control" value="{{$user->userinformation->dob}}" placeholder="Enter Your Date of Birth">
+                <input name="dob" type="date" id="dob" class="form-control" value="{{$user->userinformation->dob}}" placeholder="Enter Your Date of Birth">
                 @else
-                <input name="dob" type="date" id="inputName" class="form-control" placeholder="Enter Your Date of Birth">
+                <input name="dob" type="date" id="dob" class="form-control" placeholder="Enter Your Date of Birth">
                 @endif
                 
               </div>
@@ -55,7 +55,6 @@
                 <label for="inputEstimatedDuration">Blood Group</label>
                 <select name="blood_group_id" class="select2" id="select_blood_group" data-placeholder="Select a Blood Group" style="width: 100%;">
                 @if ($user->userinformation != null && $user->userinformation->blood_group_id != '')
-
                 <option value="{{$user->userinformation->blood_group_id}}" selected="">{{ $user->userinformation->bloodgroup->blood_type }}</option>
                 @endif
                 </select>
@@ -99,27 +98,27 @@
               <div class="form-group">
                 <label for="inputEstimatedDuration">Primary Address</label>
                 @if ($user->userinformation != null && $user->userinformation->primary_address != null)
-                <textarea name="primary_address" class="form-control" rows="3" value="{{$user->userinformation->primary_address}}" placeholder="Enter Primary Address e.g(house ,town, city, teh, distt)"></textarea>
+                <textarea name="primary_address" id="primary_address" class="form-control" rows="3" value="{{$user->userinformation->primary_address}}" placeholder="Enter Primary Address e.g(house ,town, city, teh, distt)"></textarea>
                 @else                
-                <textarea name="primary_address" class="form-control" rows="4"  placeholder="Enter Primary Address in the same order &#10; e.g(House/Muhallah, &#10;Village/Town, &#10;City, &#10;Teh, &#10;Distt)"></textarea>
+                <textarea name="primary_address" id="primary_address" class="form-control" rows="4"  placeholder="Enter Primary Address in the same order &#10; e.g(House/Muhallah, &#10;Village/Town, &#10;City, &#10;Teh, &#10;Distt)"></textarea>
                 @endif
               </div>
               <div class="form-group">
                 <label for="inputEstimatedDuration">Secondary Address</label>
                 @if ($user->userinformation != null && $user->userinformation->secondary_address != null)
-                <textarea name="secondary_address" class="form-control" rows="4" value="{{$user->userinformation->secondary_address}}"  placeholder="Enter Primary Address in the same order &#10; e.g(House/Muhallah, &#10;Village/Town, &#10;City, &#10;Teh, &#10;Distt)"></textarea>
+                <textarea name="secondary_address" id="secondary_address" class="form-control" rows="4" value="{{$user->userinformation->secondary_address}}"  placeholder="Enter Primary Address in the same order &#10; e.g(House/Muhallah, &#10;Village/Town, &#10;City, &#10;Teh, &#10;Distt)"></textarea>
 
                 @else
-                <textarea name="secondary_address" class="form-control" rows="4"  placeholder="Enter Primary Address in the same order &#10; e.g(House/Muhallah, &#10;Village/Town, &#10;City, &#10;Teh, &#10;Distt)"></textarea>
+                <textarea name="secondary_address" id="secondary_address" class="form-control" rows="4"  placeholder="Enter Primary Address in the same order &#10; e.g(House/Muhallah, &#10;Village/Town, &#10;City, &#10;Teh, &#10;Distt)"></textarea>
 
                 @endif
               </div>
               <div class="form-group">
                 <label for="inputEstimatedDuration">Google Location Pin</label>
                 @if ($user->userinformation != null && $user->userinformation->google_location_pin != null)
-                <textarea name="google_location_pin" class="form-control" rows="4" value="{{$user->userinformation->google_location_pin}}"  placeholder="Google Location Pin e.g(copied from google API..)"></textarea>
+                <textarea name="google_location_pin" id="google_location_pin" class="form-control" rows="4" value="{{$user->userinformation->google_location_pin}}"  placeholder="Google Location Pin e.g(copied from google API..)"></textarea>
                 @else
-                <textarea name="google_location_pin" class="form-control" rows="4" placeholder="Google Location Pin e.g(copied from google API..)"></textarea>
+                <textarea name="google_location_pin"id="google_location_pin" class="form-control" rows="4" placeholder="Google Location Pin e.g(copied from google API..)"></textarea>
                 @endif
               </div>
             </div>
@@ -145,24 +144,26 @@
                     <div class="input-group">
                       <div class="custom-file">
 
-                        <input name="profile_pic" type="file" class="custom-file-input" id="exampleInputFile">
-                        
+                        <input name="profile_pic" type="file" class="custom-file-input" id="exampleInputFile" >
+
                         <label class="custom-file-label" for="exampleInputFile">Choose Profile Picture</label>
                       </div>
+
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>
                       </div>
+                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">ID Card Picture</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input name="id_card_scan" type="file" class="custom-file-input" id="exampleInputFile">
+                        <input name="id_card_scan" type="file" class="custom-file-input" id="id_card_scan">
                         <label class="custom-file-label" for="exampleInputFile">Choose ID Card Picture</label>
                       </div>
                       <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
+                        <span class="input-group-text" id="id_card_scan_upload_button">Upload</span>
                       </div>
                     </div>
                   </div>
@@ -170,11 +171,11 @@
                     <label for="exampleInputFile">CV Picture</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input name="cv_scan" type="file" class="custom-file-input" id="exampleInputFile">
+                        <input name="cv_scan" type="file" class="custom-file-input" id="cv_scan">
                         <label class="custom-file-label" for="exampleInputFile">Choose CV Picture</label>
                       </div>
                       <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
+                        <span class="input-group-text" id="cv_scan_upload_button">Upload</span>
                       </div>
                     </div>
                   </div>
@@ -182,11 +183,11 @@
                     <label for="exampleInputFile">Police Clearance Picture</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input name="police_clearance_scan" type="file" class="custom-file-input" id="exampleInputFile">
+                        <input name="police_clearance_scan" type="file" class="custom-file-input" id="police_clearance_scan">
                         <label class="custom-file-label" for="exampleInputFile">Choose Police Clearance Picture</label>
                       </div>
                       <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
+                        <span class="input-group-text" id="police_clearance_scan_upload_button">Upload</span>
                       </div>
                     </div>
                   </div>
@@ -194,11 +195,11 @@
                     <label for="exampleInputFile">Personal Portfolio Picture</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input name="personal_portfoliio_scan" value="asdfsad" type="file" class="custom-file-input" id="exampleInputFile">
+                        <input name="personal_portfoliio_scan" value="asdfsad" type="file" class="custom-file-input" id="personal_portfoliio_scan">
                         <label class="custom-file-label" for="exampleInputFile">Choose Personal Portfolio Picture</label>
                       </div>
                       <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
+                        <span class="input-group-text" id="personal_portfoliio_scan_upload_button">Upload</span>
                       </div>
                     </div>
                   </div>
@@ -222,49 +223,49 @@
               <div class="form-group">
                 <label for="inputName">First Name</label>
                 @if ($user->first_name != null)
-              <input name="first_name" type="text" id="inputName" class="form-control" value="{{$user->first_name}}" placeholder="Enter Your First Name">
+              <input name="first_name" type="text" id="first_name" class="form-control" value="{{$user->first_name}}" placeholder="Enter Your First Name">
                @else
-               <input name="first_name" type="text" id="inputName" class="form-control" placeholder="Enter Your First Name">
+               <input name="first_name" type="text" id="first_name" class="form-control" placeholder="Enter Your First Name">
                @endif
                 
               </div>
               <div class="form-group">
                 <label for="inputName">Middle Name</label>
                 @if ($user->middle_name != null)
-                <input name="middle_name" type="text" id="inputName" class="form-control" value="{{$user->middle_name}}" placeholder="Enter Your Middle Name">
+                <input name="middle_name" type="text" id="middle_name" class="form-control" value="{{$user->middle_name}}" placeholder="Enter Your Middle Name">
                @else
-               <input name="middle_name" type="text" id="inputName" class="form-control" placeholder="Enter Your Middle Name">
+               <input name="middle_name" type="text" id="middle_name" class="form-control" placeholder="Enter Your Middle Name">
                @endif
                
               </div>
               <div class="form-group">
                 <label for="inputName">Last Name</label>
                 @if ($user->last_name != null)
-                <input name="last_name" type="text" id="inputName" class="form-control" value="{{$user->last_name}}" placeholder="Enter Your Last Name">
+                <input name="last_name" type="text" id="last_name" class="form-control" value="{{$user->last_name}}" placeholder="Enter Your Last Name">
                @else
-               <input name="last_name" type="text" id="inputName" class="form-control"  placeholder="Enter Your Last Name">
+               <input name="last_name" type="text" id="last_name" class="form-control"  placeholder="Enter Your Last Name">
                @endif
                 
               </div>
               <div class="form-group">
                 <label for="inputName">Email</label>
                 @if ($user->email != null)
-                <input type="email" name="email" class="form-control" id="inputEmail3" value="{{$user->email}}" placeholder="Enter Your Email">
+                <input type="email" name="email" class="form-control" id="email" value="{{$user->email}}" placeholder="Enter Your Email">
                @else
-               <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Enter Your Email">
+               <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email">
                @endif
                 
               </div>
               <div class="form-group">
                 <label for="inputName">Password</label>
           
-               <input name="password" type="password" class="form-control" value="" id="inputPassword" placeholder="Enter Your New Password">
+               <input name="password" type="password" class="form-control" value="" id="password" placeholder="Enter Your New Password" disabled>
                 
               </div>
               <div class="form-group">
                 <label for="inputName">Confirm Password</label>
                
-               <input name="confirm-password" type="password" class="form-control" value="" id="confirmInputPassword"  placeholder="Enter Confirm Password">
+               <input name="confirm-password" type="password" class="form-control" value="" id="confirmInputPassword"  placeholder="Enter Confirm Password" disabled>
               
                 
               </div>
@@ -287,24 +288,24 @@
               <div class="form-group">
                 <label for="inputEstimatedBudget">Joining Date</label>
                 @if ($user->joining_date != null)
-                  <input name="joining_date" type="date" id="inputName" class="form-control" value="{{$user->joining_date}}" placeholder="Enter Your Joining Date">
+                  <input name="joining_date" type="date" id="joining_date" class="form-control" value="{{$user->joining_date}}" placeholder="Enter Your Joining Date">
                 @else
-                  <input name="joining_date" type="date" id="inputName" class="form-control" placeholder="Enter Your Joining Date">
+                  <input name="joining_date" type="date" id="joining_date" class="form-control" placeholder="Enter Your Joining Date">
                 @endif
 
               </div>
               <div class="form-group">
                 <label for="inputSpentBudget">Leaving Date</label>
                 @if ($user->leaving_date != null)
-                <input name="leaving_date" type="date" id="inputName" class="form-control" value="{$user->leaving_date}}" placeholder="Enter Your Leaving Date">
+                <input name="leaving_date" type="date" id="leaving_date" class="form-control" value="{$user->leaving_date}}" placeholder="Enter Your Leaving Date">
                 @else
-                <input name="leaving_date" type="date" id="inputName" class="form-control" placeholder="Enter Your Leaving Date">
+                <input name="leaving_date" type="date" id="leaving_date" class="form-control" placeholder="Enter Your Leaving Date">
                 @endif
               </div>
               <div class="form-group">
                 <label for="inputEstimatedDuration">Employee Status</label>
 
-                <select name="country_id" class="select2" id="select_employee_status" data-placeholder="Select an Employee Status" style="width: 100%;">
+                <select name="status" class="select2" id="select_employee_status" data-placeholder="Select an Employee Status" style="width: 100%;">
 
                     @if ($user->status != '' )
                     <option value="{{$user->status}}" selected="">{{ $user->status }}</option>
@@ -319,9 +320,9 @@
                 <label for="inputEstimatedDuration">Id Card Number</label>
 
                 @if ($user->id_card_number != null)
-                <input name="id_card_number" type="text" id="inputName" class="form-control" value="{{$user->id_card_number}}" placeholder="Enter Your Id Card Number">
+                <input name="id_card_number" type="text" id="id_card_number" class="form-control" value="{{$user->id_card_number}}" placeholder="Enter Your Id Card Number">
                 @else
-                <input name="id_card_number" type="text" id="inputName" class="form-control" placeholder="Enter Your Id Card Number">
+                <input name="id_card_number" type="text" id="id_card_number" class="form-control" placeholder="Enter Your Id Card Number">
                 @endif
 
               </div>
@@ -329,9 +330,9 @@
                 <label for="inputEstimatedDuration">Employee Number</label>
 
                 @if ($user->employee_number != null)
-                <input name="employee_number" type="text" id="inputName" class="form-control" value="{{$user->employee_number}}" placeholder="Enter Your Employee Number">
+                <input name="employee_number" type="text" id="employee_number" class="form-control" value="{{$user->employee_number}}" placeholder="Enter Your Employee Number" readonly >
                 @else
-                <input name="employee_number" type="text" id="inputName" class="form-control" placeholder="Enter Your Employee Number">
+                <input name="employee_number" type="text" id="employee_number" class="form-control" placeholder="Enter Your Employee Number" readonly>
                 @endif
 
               </div>
@@ -339,9 +340,9 @@
                 <label for="inputEstimatedDuration">Personal Description</label>
 
                 @if ($user->description != null)
-                <textarea name="description" class="form-control" value="$user->description" rows="3" placeholder="Enter about me discription..."></textarea>
+                <textarea name="description" id="description" class="form-control" value="$user->description" rows="3" placeholder="Enter about me discription..."></textarea>
                 @else
-                <textarea name="description" class="form-control"  rows="3" placeholder="Enter about me discription..."></textarea>
+                <textarea name="description" id="description" class="form-control"  rows="3" placeholder="Enter about me discription..."></textarea>
                 @endif
 
               </div>
@@ -358,15 +359,10 @@
         </div>
       
       </div>
-      <div class="row">
-        <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Save Changes" class="btn btn-success float-right">
-        </div>
-      </div>
+
     </section>
     <!-- /.content -->
-    </form>
+
     @endsection
   
   @section('javascript')
