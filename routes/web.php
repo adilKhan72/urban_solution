@@ -32,7 +32,7 @@ Route::group(['middleware'=>'auth'], function () {
             Route::group(['prefix' => 'informations','as'=>'informations.'], function () 
             {
                 Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\InformationController@index']);
-                Route::get('store', ['as' => 'store', 'uses' => 'Admin\Profile\ProfileController@Store']);
+                Route::post('store', ['as' => 'store', 'uses' => 'Admin\Profile\InformationController@Store']);
             });
             
             Route::group(['prefix' => 'projects','as'=>'projects.'], function () 

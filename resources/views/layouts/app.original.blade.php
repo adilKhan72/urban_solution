@@ -6,7 +6,7 @@
   <title>{{ config('app.name', 'The Urban Solutions') }}</title>
 
   <!-- setting a favicon icon for the app -->
-  <link rel="icon" href="{{ URL::asset('/project_images/favcion_navbar_logo.png') }}" type="image/x-icon"/>
+  <link rel="icon" href="{{ URL::asset('storage/project_images/favcion_navbar_logo.png') }}" type="image/x-icon"/>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ URL::asset('/project_images/urbanLogo.png') }}" alt="" width="90px">
+                <img src="{{ asset('storage/project_images/urbanLogo.png') }}" alt="" width="90px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

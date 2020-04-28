@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('employee_number', 255)->nullable();
-            $table->dateTime('joining_date')->nullable();
-            $table->dateTime('leaving_date')->nullable();
+            $table->date('joining_date')->nullable();
+            $table->date('leaving_date')->nullable();
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');
             $table->string('id_card_number', 20)->nullable();
             $table->text('description')->nullable();

@@ -74,6 +74,11 @@ $user_role = Auth::user()->roles->pluck('display_name');
 <script>
 $(document).ready(function(){
 //alert("jquery form layout/app");
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 });
 </script>
 
@@ -96,6 +101,7 @@ $(document).ready(function(){
  
  </script>
  @endif
+
 
 @yield('jquery')
 

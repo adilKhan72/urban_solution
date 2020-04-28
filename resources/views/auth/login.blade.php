@@ -12,7 +12,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <!-- setting a favicon icon for the app -->
-  <link rel="icon" href="{{ URL::asset('/project_images/favcion_navbar_logo.png') }}" type="image/x-icon"/>
+  <link rel="icon" href="{{ URL::asset('storage/project_images/favcion_navbar_logo.png') }}" type="image/x-icon"/>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
@@ -64,7 +64,7 @@
     @endif
 <div class="login-box">
   <div class="login-logo">
-  <img src="{{ URL::asset('/project_images/urbanLogo.png') }}" alt="" width="90%">
+  <img src="{{ asset('storage/project_images/urbanLogo.png') }}" alt="" width="90%">
     <!-- <a href="{{ url('/') }}"><b>{{ config('app.name', 'The Urban Solutions') }}</b></a> -->
   </div>
   <!-- /.login-logo -->

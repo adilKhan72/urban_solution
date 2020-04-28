@@ -35,11 +35,14 @@
 <script src="{{ asset('plugins/summernote/summernote-bs4.min.js') }}"></script>
 <!-- overlayScrollbars -->
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+
+<!-- disabled because it is for charts etc and occur error in other pages console -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <!-- PAGE SCRIPTS -->
-<script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+<!-- <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script> -->
 
 <!--
 Disabled because these are for other dashboard designs of this theme and showing js errors 
