@@ -27,7 +27,7 @@ Route::group(['middleware'=>'auth'], function () {
         Route::group(['prefix' => 'profile','as'=>'profile.'], function () 
         {
 
-            Route::get('view', ['as' => 'view', 'uses' => 'Admin\Profile\HomeController@index']);
+            Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\HomeController@index']);
 
             Route::group(['prefix' => 'informations','as'=>'informations.'], function () 
             {

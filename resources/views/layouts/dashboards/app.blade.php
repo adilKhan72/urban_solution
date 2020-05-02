@@ -41,7 +41,7 @@ $user_role = Auth::user()->roles->pluck('display_name');
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="float-sm-right">
-            {!! Breadcrumbs::render('home') !!}
+            {!! Breadcrumbs::render(request()->segment(count(request()->segments()))) !!}
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

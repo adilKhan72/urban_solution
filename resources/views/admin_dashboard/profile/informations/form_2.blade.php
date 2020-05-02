@@ -57,8 +57,14 @@
                     <strong>Info!</strong> Primary address should be entered as mentioned in the input .it is not required.
                     </div>
 
-                @if ($user->userinformation != null && $user->userinformation->primary_address != null)
-                <textarea name="primary_address" id="primary_address" class="form-control ajax_input" rows="3" value="{{$user->userinformation->primary_address}}"   placeholder="Enter Primary Address in the same order &#10; { Seperated with Comas, and type (underscore _ ) istead of space. } &#10; do not exceed 5 words of address every word seperated with coma &#10; e.g(House/Muhallah,Village/Town,City,Teh,Distt)"></textarea>
+                @if ($user->userinformation != null && $user->userinformation->primary_address != 'null' && $user->userinformation->primary_address != '' && $user->userinformation->primary_address != '[""]')
+                <?php
+                  $string1 = str_replace('"',"",$user->userinformation->primary_address);
+                  $string2 = str_replace('[',"",$string1);
+                  $string3 = str_replace(']',"",$string2);
+                ?>
+                <textarea name="primary_address" id="primary_address" class="form-control ajax_input" rows="3" 
+                   placeholder="Enter Primary Address in the same order &#10; { Seperated with Comas, and type (underscore _ ) istead of space. } &#10; do not exceed 5 words of address every word seperated with coma &#10; e.g(House/Muhallah,Village/Town,City,Teh,Distt)">{{$string3}}</textarea>
                 @else                
                 <textarea name="primary_address" id="primary_address" class="form-control ajax_input" rows="4"    placeholder="Enter Primary Address in the same order &#10; { Seperated with Comas, and type (underscore _ ) istead of space. } &#10; do not exceed 5 words of address every word seperated with coma &#10; e.g(House/Muhallah,Village/Town,City,Teh,Distt)"></textarea>
                 @endif
@@ -73,8 +79,13 @@
                     <strong>Info!</strong> Secondary address can be put as the primary address .it is not required.
                     </div>
 
-                @if ($user->userinformation != null && $user->userinformation->secondary_address != null)
-                <textarea name="secondary_address" id="secondary_address" class="form-control ajax_input" rows="4" value="{{$user->userinformation->secondary_address}}"  placeholder="Enter Primary Address in the same order&#10; { Seperated with Comas, and type (underscore _ ) istead of space. } &#10; do not exceed 5 words of address every word seperated with coma &#10; e.g(House/Muhallah,Village/Town,City,Teh,Distt)"></textarea>
+                @if ($user->userinformation != null && $user->userinformation->secondary_address != '[""]' && $user->userinformation->secondary_address != 'null' && $user->userinformation->secondary_address != '')
+                <?php
+                  $string1 = str_replace('"',"",$user->userinformation->secondary_address);
+                  $string2 = str_replace('[',"",$string1);
+                  $string3 = str_replace(']',"",$string2);
+                ?>
+                <textarea name="secondary_address" id="secondary_address" class="form-control ajax_input" rows="4"  placeholder="Enter Primary Address in the same order&#10; { Seperated with Comas, and type (underscore _ ) istead of space. } &#10; do not exceed 5 words of address every word seperated with coma &#10; e.g(House/Muhallah,Village/Town,City,Teh,Distt)">{{$string3}}</textarea>
 
                 @else
                 <textarea name="secondary_address" id="secondary_address" class="form-control ajax_input" rows="4"  placeholder="Enter Primary Address in the same order &#10; { Seperated with Comas, and type (underscore _ ) istead of space. } &#10; do not exceed 5 words of address every word seperated with coma &#10; e.g(House/Muhallah,Village/Town,City,Teh,Distt)"></textarea>
@@ -90,8 +101,8 @@
                     <strong>Info!</strong> Google location is the API details which will be shown here automatically. It is not required.
                     </div>
 
-                @if ($user->userinformation != null && $user->userinformation->google_location_pin != null)
-                <textarea name="google_location_pin" id="google_location_pin" class="form-control ajax_input" rows="4" value="{{$user->userinformation->google_location_pin}}"  placeholder="Google Location Pin e.g(copied from google API..one character string with no spacing)"></textarea>
+                @if($user->userinformation != 'null' && $user->userinformation->google_location_pin != 'null' && $user->userinformation->google_location_pin != '' && $user->userinformation->google_location_pin != '[""]')
+                <textarea name="google_location_pin" id="google_location_pin" class="form-control ajax_input" rows="4" placeholder="Google Location Pin e.g(copied from google API..one character string with no spacing)">{{$user->userinformation->google_location_pin}}</textarea>
                 @else
                 <textarea name="google_location_pin"id="google_location_pin" class="form-control ajax_input" rows="4" placeholder="Google Location Pin e.g(copied from google API.. one character string with no spacing)"></textarea>
                 @endif

@@ -5,9 +5,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use App\Skill;
-use App\User;
-use App\BloodGroup;
+use App\UserPersonalProject;
+
 
 class ProjectController extends Controller
 {
@@ -30,7 +29,20 @@ class ProjectController extends Controller
 
     public function index()
     {
-        return view('admin_dashboard.profile.projects.index');
+        $projects = UserPersonalProject::where('user_id',Auth::user()->id)->get();
+        return view('admin_dashboard.profile.projects.index',['projects'=>$projects]);
+    }
+
+    public function edit()
+    {
+        $projects = User::where('user_id',Auth::user()->id)->get();
+        return view('admin_dashboard.profile.projects.index',['projects'=>$projects]);
+    }
+
+    public function store()
+    {
+        $projects = User::where('user_id',Auth::user()->id)->get();
+        return view('admin_dashboard.profile.projects.index',['projects'=>$projects]);
     }
 
 

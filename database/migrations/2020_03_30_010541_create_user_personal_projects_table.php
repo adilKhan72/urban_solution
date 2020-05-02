@@ -18,8 +18,10 @@ class CreateUserPersonalProjectsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->string('project_name');
             $table->string('client_name');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->json('address');
+            $table->date('started');
+            $table->date('ended');
             $table->json('google_location_pin')->nullable();
             $table->timestamps();
         });

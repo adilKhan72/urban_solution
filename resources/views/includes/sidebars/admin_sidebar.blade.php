@@ -60,7 +60,7 @@
             </a>
             <ul class="nav nav-treeview">
             <li class="nav-item">
-                <a href="{{route('profile.view')}}" class="nav-link {{ (request()->is('profile/view')) ? 'active' : '' }}">
+                <a href="{{route('profile.index')}}" class="nav-link {{ (request()->is('profile')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profile View</p>
                 </a>
