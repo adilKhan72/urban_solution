@@ -13,7 +13,10 @@ Route::group(['middleware'=>'auth'], function () {
     Route::post('user_select_employee_status', ['as' => 'user_select_employee_status', 'uses' => 'UserController@SelectEmployeeStatus']);
     Route::post('blood_group_select', ['as' => 'blood_group_select', 'uses' => 'BloodGroupController@BloodGroupSelect']);
     Route::post('country_select', ['as' => 'country_select', 'uses' => 'CountryController@CountrySelect']);
+
     Route::post('city_select', ['as' => 'city_select', 'uses' => 'CityController@CitySelect']);
+
+    Route::post('educational_degree_select', ['as' => 'educational_degree_select', 'uses' => 'EducationalDegreeController@DegreeSelect']);
 
     //Admin Check middleware where if Role = admin so then the routes in this group can be accessed.
     //otherwise redirect to login page.
@@ -38,21 +41,38 @@ Route::group(['middleware'=>'auth'], function () {
             Route::group(['prefix' => 'projects','as'=>'projects.'], function () 
             {
                 Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\ProjectController@index']);
+                Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Profile\ProjectController@delete']);
+                Route::post('store', ['as' => 'store', 'uses' => 'Admin\Profile\ProjectController@store']);
+                Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Profile\ProjectController@fetch']);
+                Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Profile\ProjectController@edit']);
             });
 
             Route::group(['prefix' => 'qualitifcations','as'=>'qualitifcations.'], function () 
             {
                 Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\QualificationController@index']);
+                Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Profile\QualificationController@delete']);
+                Route::post('store', ['as' => 'store', 'uses' => 'Admin\Profile\QualificationController@store']);
+                Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Profile\QualificationController@fetch']);
+                Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Profile\QualificationController@edit']);
             });
 
             Route::group(['prefix' => 'experiences','as'=>'experiences.'], function () 
             {
                 Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\ExperienceController@index']);
+                Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Profile\ExperienceController@delete']);
+                Route::post('store', ['as' => 'store', 'uses' => 'Admin\Profile\ExperienceController@store']);
+                Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Profile\ExperienceController@fetch']);
+                Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Profile\ExperienceController@edit']);
             });
 
             Route::group(['prefix' => 'skills','as'=>'skills.'], function () 
             {
                 Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\SkillController@index']);
+                Route::get('getdatatable', ['as' => 'getdatatable', 'uses' => 'Admin\Profile\SkillController@getDataTable']);
+                Route::post('store', ['as' => 'store', 'uses' => 'Admin\Profile\SkillController@store']);
+                Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Profile\SkillController@delete']);
+                Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Profile\SkillController@fetch']);
+                Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Profile\SkillController@edit']);
             });
 
         });

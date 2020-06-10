@@ -66,8 +66,8 @@ class InformationController extends Controller
             $validatedData = $request->validate([
             'city_id' => 'required|Numeric',
             'country_id' => 'required|Numeric',
-            'primary_address' => 'nullable|regex:/^\s*(?:\w+\s*,\s*){4}(?:\w+\s*)$/',
-            'secondary_address' => 'nullable|regex:/^\s*(?:\w+\s*,\s*){4}(?:\w+\s*)$/',
+            'primary_address' => 'nullable|regex:/^\s*(?:[a-zA-Z0-9_ .]+\s*,\s*){4}(?:[a-zA-Z0-9_ .]+\s*)$/',
+            'secondary_address' => 'nullable|regex:/^\s*(?:[a-zA-Z0-9_ .]+\s*,\s*){4}(?:[a-zA-Z0-9_ .]+\s*)$/',
             'google_location_pin' => 'nullable|regex:/^\w+$/u'
             ]);
             $primary_address_arr = json_encode(explode(",",$request->primary_address));

@@ -16,6 +16,6 @@ class UserQualification extends Model
 
     public function educationaldegree()
     {
-        return $this->belongsTo('App\EducationalDegree');
+        return $this->belongsTo('App\EducationalDegree', 'educational_degree_id');
     }
 }

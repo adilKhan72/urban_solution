@@ -18,11 +18,12 @@ class CreateUserQualificationsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('educational_degree_id');
             $table->string('organisation');
+            $table->string('title');
             $table->text('description')->nullable();
             $table->smallInteger('marks');
             $table->enum('marks_type', ['gpa', 'percentage'])->default('percentage');
-            $table->dateTime('from_date');
-            $table->dateTime('to_date');
+            $table->date('from_date');
+            $table->date('to_date');
             $table->string('transcript_scan', 255)->nullable();
             $table->timestamps();
         });

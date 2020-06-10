@@ -157,7 +157,7 @@
                });
               Toast.fire({
                 type: 'success',
-                title: '{{Session::get('form_success')}}'
+                title: response.msg
               });
             $('.label_success_form_2').append('<i style="color:#218838;" class="fas fa-check"></i>');
             $('#success_form_2').append(response.msg);
