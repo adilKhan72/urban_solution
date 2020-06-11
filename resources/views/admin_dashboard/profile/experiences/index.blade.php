@@ -92,7 +92,7 @@
         value = $(this).attr("id");
         //alert("Hello");
         $.ajax({
-          url: '{{URL::route("profile.experiences.delete")}}',
+          url: '{{URL::route("admindashboard.profile.experiences.delete")}}',
           type:"POST",
           data:{
             id:value,

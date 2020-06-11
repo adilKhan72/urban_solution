@@ -119,7 +119,7 @@
         var password = $('#password').val();
         var confirmInputPassword = $('#confirmInputPassword').val();
         $.ajax({
-          url: '{{URL::route("profile.informations.store")}}',
+          url: '{{URL::route("admindashboard.profile.informations.store")}}',
           type:"POST",
           data:{
             form:'form_4',

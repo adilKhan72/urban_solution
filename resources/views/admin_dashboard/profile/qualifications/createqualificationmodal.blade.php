@@ -123,7 +123,7 @@
         //files.append('form','createqualificationform');
         
         $.ajax({
-          url: '{{URL::route("profile.qualitifcations.store")}}',
+          url: '{{URL::route("admindashboard.profile.qualitifcations.store")}}',
           type:"POST",
           dataType: "JSON",
           cache: false,

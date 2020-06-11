@@ -109,7 +109,7 @@
         var dob = $('#dob').val();
         var blood_group_id = $('#select_blood_group').val();
         $.ajax({
-          url: '{{URL::route("profile.informations.store")}}',
+          url: '{{URL::route("admindashboard.profile.informations.store")}}',
           type:"POST",
           data:{
             form:'form_1',

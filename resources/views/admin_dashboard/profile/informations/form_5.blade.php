@@ -159,7 +159,7 @@
         var employee_number = $('#employee_number').val();
         var description = $('#description').val();
         $.ajax({
-          url: '{{URL::route("profile.informations.store")}}',
+          url: '{{URL::route("admindashboard.profile.informations.store")}}',
           type:"POST",
           data:{
 

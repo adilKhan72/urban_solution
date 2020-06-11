@@ -92,7 +92,7 @@
         files = new FormData(this);
 
         $.ajax({
-          url: '{{URL::route("profile.experiences.store")}}',
+          url: '{{URL::route("admindashboard.profile.experiences.store")}}',
           type:"POST",
           dataType: "JSON",
           cache: false,

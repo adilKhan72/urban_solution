@@ -21,14 +21,14 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
 
             $user_role = Auth::user()->roles->pluck('display_name');
-            if ($user_role->contains('admin')) {
-                return redirect()->route('admin_dashboard');
-            }elseif($user_role->contains('principals')){
-                return redirect()->route('principal_dashboard');
-            }elseif($user_role->contains('assistants')){
-                return redirect()->route('assistant_dashboard');
+            if ($user_role->contains('admin') && Auth::user()->status == 'active') {
+                return redirect()->route('admindashboard.index');
+            }elseif($user_role->contains('principals') && Auth::user()->status == 'active'){
+                return redirect()->route('principaldashboard.index');
+            }elseif($user_role->contains('assistants') && Auth::user()->status == 'active'){
+                return redirect()->route('assistantdashboard.index');
             }else{
-                echo "not a roled user logged in";
+                echo "Not a Roled User Logged OR Not an Active(status) Account.";
             }
         }
 

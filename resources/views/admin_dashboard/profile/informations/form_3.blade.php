@@ -241,7 +241,7 @@
         files = new FormData(this);
         files.append('form','form_3');
         $.ajax({
-          url: '{{URL::route("profile.informations.store")}}',
+          url: '{{URL::route("admindashboard.profile.informations.store")}}',
           type:"POST",
           dataType: "JSON",
           cache: false,

@@ -81,8 +81,8 @@ class SkillController extends Controller
                 DB::table('skills')->where('id', $skillid->skill_id)->update(
                     [  'title' => $request->title, 'updated_at' => Carbon::now(),]
                 );
-                $arr = array('msg' => 'New Skill Edited Successfully', 'status' => true);
-                $request->session()->flash('form_success', 'New Skill Edited Successfully');
+                $arr = array('msg' => 'Skill Updated Successfully', 'status' => true);
+                $request->session()->flash('form_success', 'Skill Updated Successfully');
             } catch(\Illuminate\Database\QueryException $ex){ 
                 $arr = array('msg' => $ex->getMessage(), 'status' => false);
             }

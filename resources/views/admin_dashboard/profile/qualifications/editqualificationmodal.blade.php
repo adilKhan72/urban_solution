@@ -132,7 +132,7 @@
       var qualification_id = button.data('id');
       // alert(button.data('id'));
       $.ajax({
-          url: '{{URL::route("profile.qualitifcations.fetch")}}',
+          url: '{{URL::route("admindashboard.profile.qualitifcations.fetch")}}',
           type:"POST",
           data:{
             qualification_id:qualification_id,
@@ -163,7 +163,7 @@
 
         files = new FormData(this);
         $.ajax({
-          url: '{{URL::route("profile.qualitifcations.edit")}}',
+          url: '{{URL::route("admindashboard.profile.qualitifcations.edit")}}',
           type:"POST",
           dataType: "JSON",
           cache: false,

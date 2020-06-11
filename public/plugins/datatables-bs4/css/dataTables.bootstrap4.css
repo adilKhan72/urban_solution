@@ -1,4 +1,6 @@
 table.dataTable {
+  border: 1px solid #8690a8;
+  font-size:0.8em;
   clear: both;
   margin-top: 6px !important;
   margin-bottom: 6px !important;
@@ -126,6 +128,7 @@ table.dataTable thead .sorting_desc_disabled:after {
 
 div.dataTables_scrollHead table.dataTable {
   margin-bottom: 0 !important;
+
 }
 
 div.dataTables_scrollBody table {

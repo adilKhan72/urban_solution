@@ -137,7 +137,7 @@
         var secondary_address = $('#secondary_address').val();
         var google_location_pin = $('#google_location_pin').val();
         $.ajax({
-          url: '{{URL::route("profile.informations.store")}}',
+          url: '{{URL::route("admindashboard.profile.informations.store")}}',
           type:"POST",
           data:{
             form:'form_2',

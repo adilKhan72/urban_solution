@@ -100,7 +100,7 @@
       var experience_id = button.data('id');
       // alert(button.data('id'));
       $.ajax({
-          url: '{{URL::route("profile.experiences.fetch")}}',
+          url: '{{URL::route("admindashboard.profile.experiences.fetch")}}',
           type:"POST",
           data:{
             experience_id:experience_id,
@@ -129,7 +129,7 @@
 
         files = new FormData(this);
         $.ajax({
-          url: '{{URL::route("profile.experiences.edit")}}',
+          url: '{{URL::route("admindashboard.profile.experiences.edit")}}',
           type:"POST",
           dataType: "JSON",
           cache: false,

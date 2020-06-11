@@ -59,7 +59,7 @@
       var skill_id = button.data('id');
       // alert(button.data('id'));
       $.ajax({
-          url: '{{URL::route("profile.skills.fetch")}}',
+          url: '{{URL::route("admindashboard.profile.skills.fetch")}}',
           type:"POST",
           data:{
             skill_id:skill_id,

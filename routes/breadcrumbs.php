@@ -1,37 +1,45 @@
 <?php
 Breadcrumbs::for('admindashboard', function ($trail) {
-    $trail->push('Admin_Dashboard',route('admin_dashboard'));
+    $trail->push('admindashboard',route('admindashboard.index'));
 });
+
     Breadcrumbs::for('profile', function ($trail) {
         $trail->parent('admindashboard');
-        $trail->push('Profile', route('profile.index'));
+        $trail->push('Profile', route('admindashboard.profile.index'));
     });
+
         Breadcrumbs::for('informations', function ($trail) {
             $trail->parent('profile');
-            $trail->push('Informations', route('profile.informations.index'));
+            $trail->push('Informations', route('admindashboard.profile.informations.index'));
         });
         Breadcrumbs::for('projects', function ($trail) {
             $trail->parent('profile');
-            $trail->push('Projects', route('profile.projects.index'));
+            $trail->push('Projects', route('admindashboard.profile.projects.index'));
         });
         Breadcrumbs::for('qualitifcations', function ($trail) {
             $trail->parent('profile');
-            $trail->push('Qualitifcations', route('profile.qualitifcations.index'));
+            $trail->push('Qualitifcations', route('admindashboard.profile.qualitifcations.index'));
         });
         Breadcrumbs::for('experiences', function ($trail) {
             $trail->parent('profile');
-            $trail->push('Experiences', route('profile.experiences.index'));
+            $trail->push('Experiences', route('admindashboard.profile.experiences.index'));
         });
         Breadcrumbs::for('skills', function ($trail) {
             $trail->parent('profile');
-            $trail->push('Skills', route('profile.skills.index'));
+            $trail->push('Skills', route('admindashboard.profile.skills.index'));
         });
 
+    Breadcrumbs::for('users', function ($trail) {
+        $trail->parent('admindashboard');
+        $trail->push('users', route('admindashboard.users.index'));
+     });
+     
 
 Breadcrumbs::for('principaldashboard', function ($trail) {
-    $trail->push('Principal_Dashboard',route('principal_dashboard'));
+    $trail->push('principaldashboard',route('principaldashboard.index'));
 });
 
+
 Breadcrumbs::for('assistantdashboard', function ($trail) {
-    $trail->push('Assistant_Dashboard',route('assistant_dashboard'));
+    $trail->push('assistantdashboard',route('assistantdashboard.index'));
 });

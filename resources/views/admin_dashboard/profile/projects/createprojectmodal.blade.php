@@ -78,7 +78,7 @@
         var description = $('#description').val();
         var address = $('#address').val();
         $.ajax({
-          url: '{{URL::route("profile.projects.store")}}',
+          url: '{{URL::route("admindashboard.profile.projects.store")}}',
           type:"POST",
           data:{
             form:'createprojectform',

@@ -49,7 +49,19 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+
+
+
+
+
+
+
+
+
+
+
+          
+          <li class="nav-item has-treeview {{ (request()->is('principaldashboard/profile*')) ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
@@ -58,14 +70,58 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
+            <li class="nav-item">
+                <a href="{{route('principaldashboard.profile.index')}}" class="nav-link {{ (request()->is('principaldashboard/profile')) ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
+                  <p>Profile View</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('principaldashboard.profile.informations.index')}}" class="nav-link {{ (request()->is('principaldashboard/profile/informations')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Personal Information</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('principaldashboard.profile.projects.index')}}" class="nav-link {{ (request()->is('principaldashboard/profile/projects')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Personal Projects</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('principaldashboard.profile.qualitifcations.index')}}" class="nav-link {{ (request()->is('principaldashboard/profile/qualitifcations')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Personal Qualitifcation</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('principaldashboard.profile.experiences.index')}}" class="nav-link {{ (request()->is('principaldashboard/profile/experiences')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Personal Experience</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('principaldashboard.profile.skills.index')}}" class="nav-link {{ (request()->is('principaldashboard/profile/skills')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Personal Skills</p>
                 </a>
               </li>
             </ul>
           </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">

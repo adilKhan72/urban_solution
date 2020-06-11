@@ -73,7 +73,7 @@
       var project_id = button.data('id');
       // alert(button.data('id'));
       $.ajax({
-          url: '{{URL::route("profile.projects.fetch")}}',
+          url: '{{URL::route("admindashboard.profile.projects.fetch")}}',
           type:"POST",
           data:{
             project_id:project_id,
@@ -105,7 +105,7 @@
         var description = $('#description_edit').val();
         var address = $('#address_edit').val();
         $.ajax({
-          url: '{{URL::route("profile.projects.edit")}}',
+          url: '{{URL::route("admindashboard.profile.projects.edit")}}',
           type:"POST",
           data:{
             form:'editprojectform',

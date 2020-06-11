@@ -136,7 +136,7 @@
         value = $(this).attr("id");
         //alert("Hello");
         $.ajax({
-          url: '{{URL::route("profile.qualitifcations.delete")}}',
+          url: '{{URL::route("admindashboard.profile.qualitifcations.delete")}}',
           type:"POST",
           data:{
             id:value,

@@ -49,16 +49,16 @@ class LoginController extends Controller
     protected function authenticated($request, $user) {
         
         $user_role = $user->roles->pluck('display_name');
-		if ($user_role->contains('admin')) {
-			return redirect()->route('admin_dashboard');
-		}elseif($user_role->contains('principals')){
-            return redirect()->route('principal_dashboard');
-        }elseif($user_role->contains('assistants')){
-            return redirect()->route('assistant_dashboard');
+		if ($user_role->contains('admin') && $user->status == 'active') {
+			return redirect()->route('admindashboard.index');
+		}elseif($user_role->contains('principals') && $user->status == 'active'){
+            return redirect()->route('principaldashboard.index');
+        }elseif($user_role->contains('assistants') && $user->status == 'active'){
+            return redirect()->route('assistantdashboard.index');
         }else{
             $this->performLogOut($request);
-            $request->session()->flash('no_role_sign_in', "For signing in a role must be defined. No roles found in these list 'admin, principals, assistants'. May be Unfamiliar OR No role Assigned.");
-            return redirect()->route('main_home_page_login');
+            $request->session()->flash('no_role_sign_in', "For signing in a role must be defined and Must be of Status Active Account. Not an Active Account OR No role Assigned.");
+            return redirect()->route('main_home_page_login'); 
         }
 
     }

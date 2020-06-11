@@ -89,7 +89,7 @@
         value = $(this).attr("id");
         //alert("Hello");
         $.ajax({
-          url: '{{URL::route("profile.projects.delete")}}',
+          url: '{{URL::route("admindashboard.profile.projects.delete")}}',
           type:"POST",
           data:{
             id:value,

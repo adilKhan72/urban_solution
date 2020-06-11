@@ -65,7 +65,7 @@
       "autoWidth": true,
       processing: true,
       serverSide: true,
-      ajax: '{{URL::route("profile.skills.getdatatable")}}',
+      ajax: '{{URL::route("admindashboard.profile.skills.getdatatable")}}',
                columns: [
                         { data: 'title', name: 'title' },
                         { data: 'profeciency', name: 'profeciency' },
@@ -83,7 +83,7 @@
         //files.append('form','createskillform');
         
         $.ajax({
-          url: '{{URL::route("profile.skills.store")}}',
+          url: '{{URL::route("admindashboard.profile.skills.store")}}',
           type:"POST",
           dataType: "JSON",
           cache: false,
@@ -140,7 +140,7 @@
         $('.label_for_input').empty();
         files = new FormData(this);
         $.ajax({
-          url: '{{URL::route("profile.skills.edit")}}',
+          url: '{{URL::route("admindashboard.profile.skills.edit")}}',
           type:"POST",
           dataType: "JSON",
           cache: false,
@@ -195,7 +195,7 @@
         value = $(this).attr("id");
         //alert(value);
         $.ajax({
-          url: '{{URL::route("profile.skills.delete")}}',
+          url: '{{URL::route("admindashboard.profile.skills.delete")}}',
           type:"POST",
           data:{
             id:value,
