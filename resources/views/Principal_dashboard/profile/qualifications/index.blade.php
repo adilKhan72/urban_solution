@@ -69,8 +69,8 @@
 
     </section>
     <!-- /.content -->
-    @include('admin_dashboard.profile.qualifications.editqualificationmodal')
-    @include('admin_dashboard.profile.qualifications.createqualificationmodal')
+    @include('Principal_dashboard.profile.qualifications.editqualificationmodal')
+    @include('Principal_dashboard.profile.qualifications.createqualificationmodal')
     @endsection
   
   @section('javascript')

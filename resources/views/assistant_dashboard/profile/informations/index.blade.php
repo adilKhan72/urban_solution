@@ -7,13 +7,13 @@
       <div class="row">
      
       <div class="col-md-6">
-        @include('admin_dashboard.profile.informations.form_1')
-        @include('admin_dashboard.profile.informations.form_2')
-        @include('admin_dashboard.profile.informations.form_3')
+        @include('assistant_dashboard.profile.informations.form_1')
+        @include('assistant_dashboard.profile.informations.form_2')
+        @include('assistant_dashboard.profile.informations.form_3')
       </div>
       <div class="col-md-6">
-        @include('admin_dashboard.profile.informations.form_4')
-        @include('admin_dashboard.profile.informations.form_5')
+        @include('assistant_dashboard.profile.informations.form_4')
+        @include('assistant_dashboard.profile.informations.form_5')
       </div>
       
       </div>

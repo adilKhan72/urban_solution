@@ -65,8 +65,8 @@
 
     </section>
     <!-- /.content -->
-    @include('admin_dashboard.profile.experiences.editexperiencemodal')
-    @include('admin_dashboard.profile.experiences.createexperiencemodal')
+    @include('Principal_dashboard.profile.experiences.editexperiencemodal')
+    @include('Principal_dashboard.profile.experiences.createexperiencemodal')
     @endsection
   
   @section('javascript')

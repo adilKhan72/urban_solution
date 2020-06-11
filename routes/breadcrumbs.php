@@ -2,11 +2,35 @@
 Breadcrumbs::for('admindashboard', function ($trail) {
     $trail->push('admindashboard',route('admindashboard.index'));
 });
+Breadcrumbs::for('principaldashboard', function ($trail) {
+    $trail->push('principaldashboard',route('principaldashboard.index'));
+});
+Breadcrumbs::for('assistantdashboard', function ($trail) {
+    $trail->push('assistantdashboard',route('assistantdashboard.index'));
+});
 
+$user_role = Auth::user()->roles->pluck('display_name');
+if($user_role->contains('admin')){
     Breadcrumbs::for('profile', function ($trail) {
         $trail->parent('admindashboard');
         $trail->push('Profile', route('admindashboard.profile.index'));
     });
+}elseif($user_role->contains('principals')){
+    Breadcrumbs::for('profile', function ($trail) {
+        $trail->parent('principaldashboard');
+        $trail->push('Profile', route('admindashboard.profile.index'));
+    });
+}else{
+    Breadcrumbs::for('profile', function ($trail) {
+        $trail->parent('assistantdashboard');
+        $trail->push('Profile', route('admindashboard.profile.index'));
+    });
+}
+
+Breadcrumbs::for('users', function ($trail) {
+    $trail->parent('admindashboard');
+    $trail->push('users', route('admindashboard.users.index'));
+ });
 
         Breadcrumbs::for('informations', function ($trail) {
             $trail->parent('profile');
@@ -29,17 +53,6 @@ Breadcrumbs::for('admindashboard', function ($trail) {
             $trail->push('Skills', route('admindashboard.profile.skills.index'));
         });
 
-    Breadcrumbs::for('users', function ($trail) {
-        $trail->parent('admindashboard');
-        $trail->push('users', route('admindashboard.users.index'));
-     });
+
      
 
-Breadcrumbs::for('principaldashboard', function ($trail) {
-    $trail->push('principaldashboard',route('principaldashboard.index'));
-});
-
-
-Breadcrumbs::for('assistantdashboard', function ($trail) {
-    $trail->push('assistantdashboard',route('assistantdashboard.index'));
-});

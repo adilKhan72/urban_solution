@@ -63,8 +63,8 @@
 
     </section>
     <!-- /.content -->
-    @include('admin_dashboard.profile.projects.editprojectmodal')
-    @include('admin_dashboard.profile.projects.createprojectmodal')
+    @include('Principal_dashboard.profile.projects.editprojectmodal')
+    @include('Principal_dashboard.profile.projects.createprojectmodal')
     @endsection
   
   @section('javascript')

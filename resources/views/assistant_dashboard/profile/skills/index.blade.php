@@ -42,9 +42,9 @@
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    @include('admin_dashboard.profile.skills.createskillmodal')
-    @include('admin_dashboard.profile.skills.editskillmodal')
-    @include('admin_dashboard.profile.skills.deleteskillmodal')
+    @include('assistant_dashboard.profile.skills.createskillmodal')
+    @include('assistant_dashboard.profile.skills.editskillmodal')
+    @include('assistant_dashboard.profile.skills.deleteskillmodal')
     @endsection
   
   @section('javascript')

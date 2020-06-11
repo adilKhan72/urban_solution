@@ -156,7 +156,7 @@
                 function() 
                 {
                 location.reload(); 
-                }, 3000);
+                }, 1000);
            }else{
             $('#error_editexperienceform').append(response.msg);
            }
