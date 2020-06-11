@@ -20,9 +20,9 @@ class CheckAssistant
         $user_role = Auth::user()->roles->pluck('display_name');
         if(!$user_role->contains('assistants') || Auth::user()->status != 'active'){
 
-            if ($user_role->contains('admin') || Auth::user()->status == 'active') {
+            if ($user_role->contains('admin') && Auth::user()->status == 'active') {
                 return redirect()->route('admindashboard.index')->with('cant_access_direct', 'Cannot Access Assistants Dashboard Directly!');
-            }elseif($user_role->contains('principals') || Auth::user()->status == 'active'){
+            }elseif($user_role->contains('principals') && Auth::user()->status == 'active'){
                 return redirect()->route('principaldashboard.index')->with('cant_access_direct', 'Cannot Access Assistants Dashboard Directly!');
             }else{
                 $request->session()->flash('no_role_sign_in', "For signing in a role must be defined and Must be of Status Active Account. Not an Active Account OR No role Assigned.");
