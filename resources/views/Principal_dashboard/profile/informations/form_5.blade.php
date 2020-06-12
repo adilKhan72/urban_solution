@@ -9,25 +9,27 @@
             </div>
             <div class="card-body">
             <form action="javascript:;" autocomplete="off" method="post" class="" id="dates_numbers_Discriptions"  name="dates_numbers_Discriptions" role="form">
-              <div class="form-group">
+              
+            <div class="form-group">
                 <label for="inputEstimatedBudget"> <span class="label_for_input label_success_form_5" id="joining_date_label"></span> Joining Date</label>
 
 
-                <i class="fa fa-info-circle" style="color:#17a2b8"  data-toggle="collapse" data-target="#joining_date_info" title="Click for more Info"></i>
-                <div id="joining_date_info" class="collapse alert alert-info">
-                <strong>Info!</strong> Joining date must be a valid date. it is required
+                <i class="fa fa-info-circle" style="color:#dc3545"  data-toggle="collapse" data-target="#joining_date_info" title="Click for more Info"></i>
+                <div id="joining_date_info" class="collapse alert alert-danger">
+                <strong>Info!</strong> Joining date must be a valid date. it is required. Field must be enter by admin.
                 </div>
 
 
 
 
                 @if ($user->joining_date != null)
-                  <input name="joining_date" type="date" id="joining_date" class="form-control ajax_input" value="{{$user->joining_date}}" placeholder="Enter Your Joining Date" >
+                  <input name="joining_date" type="date" id="joining_date" class="form-control ajax_input" value="{{$user->joining_date}}" placeholder="Enter Your Joining Date" disabled>
                 @else
-                  <input name="joining_date" type="date" id="joining_date " class="form-control ajax_input" placeholder="Enter Your Joining Date" >
+                  <input name="joining_date" type="date" id="joining_date " class="form-control ajax_input" placeholder="Enter Your Joining Date" disabled>
                 @endif
                 <span class="text-danger ajax_errors" id="joining_date_error"> </span>
               </div>
+
               <div class="form-group">
                 <label for="inputEstimatedDuration"> <span class="label_for_input label_success_form_5" id="id_card_number_label"></span> Id Card Number</label>
 
@@ -45,6 +47,7 @@
                 @endif
                 <span class="text-danger ajax_errors" id="id_card_number_error"> </span>
               </div>
+
               <div class="form-group">
                 <label for="inputEstimatedDuration"> <span class="label_for_input label_success_form_5" id="description_label"></span> Personal Description</label>
 
@@ -58,7 +61,7 @@
 
               
                 @if ($user->description != null)
-                <textarea name="description" id="description" class="form-control ajax_input" value="$user->description" rows="3" placeholder="Enter about me discription..."></textarea>
+                <textarea name="description" id="description" class="form-control ajax_input"  rows="3" placeholder="Enter about me discription...">{{$user->description}}</textarea>
                 @else
                 <textarea name="description" id="description" class="form-control ajax_input"  rows="3" placeholder="Enter about me discription..."></textarea>
                 @endif
@@ -139,7 +142,7 @@
             </form>
             </div>
             <!-- /.card-body -->
-          </div>
+</div>
           <!-- /.card -->
 
 

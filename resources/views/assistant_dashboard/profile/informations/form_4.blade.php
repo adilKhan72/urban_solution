@@ -12,15 +12,15 @@
               <div class="form-group">
                 <label for="inputName"> <span class="label_for_input label_success_form_4" id="first_name_label"></span> First Name</label>
 
-                <i class="fa fa-info-circle" style="color:#fd7e14"  data-toggle="collapse" data-target="#first_name_info" title="Click for more Info"></i>
-                <div id="first_name_info" class="collapse alert alert-warning">
-                <strong>Warning!</strong>  First Name field is required.
+                <i class="fa fa-info-circle" style="color:#dc3545"  data-toggle="collapse" data-target="#first_name_info" title="Click for more Info"></i>
+                <div id="first_name_info" class="collapse alert alert-danger">
+                <strong>Warning!</strong>  First Name field is required. Field must be enter by admin.
                 </div>
 
                @if ($user->first_name != null)
-               <input name="first_name" type="text" id="first_name" class="form-control ajax_input" value="{{$user->first_name}}" placeholder="Enter Your First Name">
+               <input name="first_name" type="text" id="first_name" class="form-control ajax_input" value="{{$user->first_name}}" placeholder="Enter Your First Name" disabled>
                @else
-               <input name="first_name" type="text" id="first_name" class="form-control ajax_input" placeholder="Enter Your First Name">
+               <input name="first_name" type="text" id="first_name" class="form-control ajax_input" placeholder="Enter Your First Name" disabled>
                @endif
                <span class="text-danger ajax_errors" id="first_name_error"> </span>
               </div>
@@ -40,31 +40,50 @@
                @endif
                <span class="text-danger ajax_errors" id="middle_name_error"> </span>
               </div>
+
               <div class="form-group">
                 <label for="inputName"> <span class="label_for_input label_success_form_4" id="last_name_label"></span>  Last Name</label>
 
-                <i class="fa fa-info-circle" style="color:#17a2b8"  data-toggle="collapse" data-target="#last_name_info" title="Click for more Info"></i>
-                <div id="last_name_info" class="collapse alert alert-info">
-                <strong>Info!</strong> Last Name Field is not Required. It must be a single Word.
+                <i class="fa fa-info-circle" style="color:#dc3545"  data-toggle="collapse" data-target="#last_name_info" title="Click for more Info"></i>
+                <div id="last_name_info" class="collapse alert alert-danger">
+                <strong>Info!</strong> Last Name Field is not Required. It must be a single Word. Field must be enter by admin.
                 </div>
+                
 
                 @if ($user->last_name != null)
-                <input name="last_name" type="text" id="last_name" class="form-control ajax_input" value="{{$user->last_name}}" placeholder="Enter Your Last Name">
+                <input name="last_name" type="text" id="last_name" class="form-control ajax_input" value="{{$user->last_name}}" placeholder="Enter Your Last Name" disabled>
                @else
-               <input name="last_name" type="text" id="last_name" class="form-control ajax_input"  placeholder="Enter Your Last Name">
+               <input name="last_name" type="text" id="last_name" class="form-control ajax_input"  placeholder="Enter Your Last Name" disabled>
                @endif
                <span class="text-danger ajax_errors" id="last_name_error"> </span>
+              
               </div>
               <div class="form-group">
+                <label for="inputName"> <span class="label_for_input label_success_form_4" id="designation_label"></span>  Designation</label>
+
+                <i class="fa fa-info-circle" style="color:#dc3545"  data-toggle="collapse" data-target="#designation_info" title="Click for more Info"></i>
+                <div id="designation_info" class="collapse alert alert-danger">
+                <strong>Info!</strong> Designation Field must be enter by admin.
+                </div>
+
+                @if ($user->designation != null)
+                <input name="designation" type="text" id="designation" class="form-control ajax_input" value="{{$user->designation}}" placeholder="Enter Your designation" disabled>
+               @else
+               <input name="designation" type="text" id="designation" class="form-control ajax_input"  placeholder="Enter Your designation" disabled>
+               @endif
+               <span class="text-danger ajax_errors" id="designation_error"> </span>
+              </div>
+
+              <div class="form-group">
                 <label for="inputName"> <span class="label_for_input label_success_form_4" id="email_label"></span>  Email</label>
-                <i class="fa fa-info-circle" style="color:#fd7e14"  data-toggle="collapse" data-target="#email_info" title="Click for more Info"></i>
-                <div id="email_info" class="collapse alert alert-warning">
-                <strong>Warning!</strong>  Email filed is required for login. Email should be reachable. <br/>Emails will be send to this email. Email should be unique
+                <i class="fa fa-info-circle" style="color:#dc3545"  data-toggle="collapse" data-target="#email_info" title="Click for more Info"></i>
+                <div id="email_info" class="collapse alert alert-danger">
+                <strong>Warning!</strong>  Email filed is required for login. Email should be reachable. <br/>Emails will be send to this email. Email should be unique. Field must be enter by admin.
                 </div>
                 @if ($user->email != null)
-                <input type="email" name="email" class="form-control ajax_input" id="email" value="{{$user->email}}" placeholder="Enter Your Email">
+                <input type="email" name="email" class="form-control ajax_input" id="email" value="{{$user->email}}" placeholder="Enter Your Email" disabled>
                 @else
-                <input type="email" name="email" class="form-control ajax_input" id="email" placeholder="Enter Your Email">
+                <input type="email" name="email" class="form-control ajax_input" id="email" placeholder="Enter Your Email" disabled>
                 @endif
                <span class="text-danger ajax_errors" id="email_error"> </span>
                 </div>
@@ -101,7 +120,7 @@
             </form>
             </div>
             <!-- /.card-body -->
-          </div>
+</div>
           <!-- /.card -->
           @section('jquery')
 @parent

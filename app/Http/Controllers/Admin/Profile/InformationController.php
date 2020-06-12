@@ -112,15 +112,12 @@ class InformationController extends Controller
         }
         if($request->form == "form_4"){
             $validatedData = $request->validate([
-            'first_name' => 'bail|alpha|required|nullable|',
             'middle_name' => 'bail|alpha|nullable|',
-            'last_name' => 'bail|alpha|nullable|',
-            'email' => 'bail|required|unique:users,email,'.Auth::user()->id.',id',
             ]);
             try { 
                 DB::table('users')
                 ->where('id', Auth::user()->id)
-                ->update(['first_name' => $request->first_name,'middle_name' => $request->middle_name,'last_name' => $request->last_name,'email' => $request->email,]);
+                ->update(['middle_name' => $request->middle_name,]);
                 $arr = array('msg' => 'Fields Updated Successfully', 'status' => true);
                 $request->session()->flash('form_success', 'Fields Updated Successfully');
             } catch(\Illuminate\Database\QueryException $ex){ 
@@ -130,17 +127,16 @@ class InformationController extends Controller
         if($request->form == "form_5"){
             
             $validatedData = $request->validate([
-            'joining_date' => 'required',
             'id_card_number' => 'nullable|unique:users,id_card_number,'.Auth::user()->id.',id',
             'description' => 'nullable|regex:/[^A-Za-z0-9]/'
             ]);
 
             //rules for making employee number from joing date (timestamp) plus user id plus 00. 
-            $employee_number = '00'.Auth::user()->id.'_'.strtotime($request->joining_date);
+            //$employee_number = '00'.Auth::user()->id.'_'.strtotime($request->joining_date);
             try { 
                 DB::table('users')
                 ->where('id', Auth::user()->id)
-                ->update(['joining_date' => $request->joining_date,'id_card_number' => $request->id_card_number,'description' => $request->description,'employee_number'=> $employee_number]);
+                ->update(['id_card_number' => $request->id_card_number,'description' => $request->description]);
                 $arr = array('msg' => 'Fields Updated Successfully', 'status' => true);
                 $request->session()->flash('form_success', 'Fields Updated Successfully');
             } catch(\Illuminate\Database\QueryException $ex){ 

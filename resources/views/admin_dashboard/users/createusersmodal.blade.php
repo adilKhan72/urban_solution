@@ -16,6 +16,11 @@
   <div class="form-group">
 
     <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="first_name_label"></span> Enter User First Name</label>
+ 
+    <i class="fa fa-info-circle text-info"   data-toggle="collapse" data-target="#first_name_info" title="Click for more Info"></i>
+                <div id="first_name_info" class="collapse alert alert-info">
+                <strong>Info!</strong>  First Name field is required.
+                </div>
 
     <input type="text" class="form-control ajax_input" name="first_name" id="first_name"  placeholder="Enter First Name">
 
@@ -27,9 +32,32 @@
 
     <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="last_name_label"></span> Enter User Last Name</label>
 
+
+    <i class="fa fa-info-circle text-info"   data-toggle="collapse" data-target="#last_name_info" title="Click for more Info"></i>
+                <div id="last_name_info" class="collapse alert alert-info">
+                <strong>Info!</strong> Last Name Field is not Required. It must be a single Word.
+                </div>
+
+
     <input type="text" class="form-control ajax_input" name="last_name" id="last_name"  placeholder="Enter Last Name">
 
     <span class="text-danger ajax_errors" id="last_name_error"> </span>
+
+  </div>
+
+  <div class="form-group">
+
+    <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="designation_label"></span> Enter User Designation</label>
+
+    <i class="fa fa-info-circle text-info"   data-toggle="collapse" data-target="#designation_info" title="Click for more Info"></i>
+                <div id="designation_info" class="collapse alert alert-info">
+                <strong>Info!</strong> Designation is important to know the role of the user.
+                </div>
+
+
+    <input type="text" class="form-control ajax_input" name="designation" id="designation"  placeholder="Enter Designation">
+
+    <span class="text-danger ajax_errors" id="designation_error"> </span>
 
   </div>
 
@@ -37,6 +65,12 @@
 <div class="form-group">
 
 <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="email_label"></span> Enter User Email</label>
+
+<i class="fa fa-info-circle text-info"   data-toggle="collapse" data-target="#email_info" title="Click for more Info"></i>
+                <div id="email_info" class="collapse alert alert-info">
+                <strong>Info!</strong>  Email filed is required for login. Email should be reachable. <br/>Emails will be send to this email. Email should be unique.
+                </div>
+
 
 <input type="email" class="form-control ajax_input" name="email" id="email"  placeholder="Enter Email">
 
@@ -49,6 +83,13 @@
 
 <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="joining_date_label"></span> Enter User joining_date</label>
 
+
+
+<i class="fa fa-info-circle text-info"  data-toggle="collapse" data-target="#joining_date_info" title="Click for more Info"></i>
+<div id="joining_date_info" class="collapse alert alert-info">
+<strong>Info!</strong> Joining date must be a valid date. it is required. The employee number is populated by joining data.
+</div>
+
 <input type="date" class="form-control ajax_input" name="joining_date" id="joining_date"  placeholder="Enter joining_date">
 
 <span class="text-danger ajax_errors" id="joining_date_error"> </span>
@@ -59,6 +100,13 @@
 <div class="form-group">
 
 <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="password_label"></span> Enter User password</label>
+
+
+<i class="fa fa-info-circle text-info"   data-toggle="collapse" data-target="#password_info" title="Click for more Info"></i>
+                <div id="password_info" class="collapse alert alert-info">
+                <strong>Info!</strong> User Password can be reset from login page. <strong>RESET YOUR PASSWORD </strong>link is given on login page. <br/>
+                  The Reset Password link will be sent to your email which is mentioned in this form.
+                </div>
 
 <input type="password" class="form-control ajax_input" name="password" id="password"  placeholder="Enter password">
 
@@ -78,6 +126,11 @@
 
 <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="leaving_date_label"></span> Enter User leaving_date</label>
 
+<i class="fa fa-info-circle text-info"   data-toggle="collapse" data-target="#leaving_date_info" title="Click for more Info"></i>
+                <div id="leaving_date_info" class="collapse alert alert-info">
+                <strong>Info!</strong> Only leave date put If the employee left the Company.
+                </div>
+
 <input type="date" class="form-control ajax_input" name="leaving_date" id="leaving_date"  placeholder="Enter leaving_date">
 
 <span class="text-danger ajax_errors" id="leaving_date_error"> </span>
@@ -87,6 +140,12 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="status_label"></span>Select Account Status</label>
+
+    <i class="fa fa-info-circle text-info" data-toggle="collapse" data-target="#status_info" title="Click for more Info"></i>
+                <div id="status_info" class="collapse alert alert-info">
+                <strong>Info!</strong> If status is not active the user wont be able to login to this portal. Defining a status is very important.
+                </div>
+
 
     <select name="status" id="select_status"  class="select2" data-placeholder="Select status" style="width: 100%;">
     <option value="" selected>Select Account Status</option>
@@ -101,6 +160,13 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1"> <span class="label_for_input label_success_createuserform" id="role_label"></span>Select User Role</label>
+
+    <i class="fa fa-info-circle text-info" data-toggle="collapse" data-target="#role_info" title="Click for more Info"></i>
+                <div id="role_info" class="collapse alert alert-info">
+                <strong>Info!</strong> Defining a specific role will define the user tasks and access level.
+                </div>
+
+
 
     <select name="role" id="select_role"  class="select2" data-placeholder="Select role" style="width: 100%;">
     <option value="" selected>Select User Role</option>

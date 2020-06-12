@@ -16,10 +16,10 @@ class CreateUserInformationTable extends Migration
         Schema::create('user_information', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('blood_group_id');
-            $table->unsignedInteger('city_id');
-            $table->unsignedInteger('country_id');
-            $table->enum('gender', ['male', 'female', 'other'])->default('other');
+            $table->unsignedInteger('blood_group_id')->nullable();;
+            $table->unsignedInteger('city_id')->nullable();;
+            $table->unsignedInteger('country_id')->nullable();;
+            $table->enum('gender', ['male', 'female', 'other'])->default('null');
             $table->string('phone', 15)->nullable();
             $table->date('dob')->nullable();
             $table->json('primary_address')->nullable();

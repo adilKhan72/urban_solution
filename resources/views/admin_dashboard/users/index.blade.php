@@ -19,6 +19,7 @@
                      <th>Name</th>
                      <th>Email</th>
                      <th>Employee_Number</th>
+                     <th>Designation</th>
                      <th>Dates</th>
                      <th>Status</th>
                      <th>Role</th>
@@ -34,6 +35,7 @@
                      <th>Name</th>
                      <th>Email</th>
                      <th>Employee_Number</th>
+                     <th>Designation</th>
                      <th>Dates</th>
                      <th>Status</th>
                      <th>Role</th>
@@ -82,6 +84,7 @@
                         { data: 'name', name: 'name' },
                         { data: 'email', name: 'email' },
                         { data: 'employee_number', name: 'employee_number' },
+                        { data: 'designation', name: 'designation' },
                         { data: 'dates', name: 'dates' },
                         { data: 'status', name: 'status' },
                         { data: 'role', name: 'role' },

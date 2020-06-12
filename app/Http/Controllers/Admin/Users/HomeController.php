@@ -115,9 +115,9 @@ class HomeController extends Controller
         $validatedData = $request->validate([
             'first_name' => 'bail|alpha|required',
             'last_name' => 'bail|alpha|required',
+            'designation' => 'bail|required',
             'email' => 'bail|required|unique:users,email,'.$request->custId.',id',
             'joining_date' => 'bail|required|before:'.$Date,
-            'leaving_date' => 'bail|before:'.$Date,
             'status' => 'bail|required',
             'role' => 'bail|required',
             ]);
@@ -135,6 +135,7 @@ class HomeController extends Controller
                 DB::table('users')->where('id', $request->custId)->update([                
                     'first_name' => $request->first_name,
                     'last_name' => $request->last_name,
+                    'designation' => $request->designation,
                     'email' => $request->email,
                     'joining_date' => $request->joining_date,
                     'leaving_date' => $request->leaving_date,
@@ -156,9 +157,9 @@ class HomeController extends Controller
         $validatedData = $request->validate([
             'first_name' => 'bail|alpha|required',
             'last_name' => 'bail|alpha|required',
+            'designation' => 'bail|required',
             'email' => 'bail|required|unique:users',
             'joining_date' => 'bail|required|before:'.$Date,
-            'leaving_date' => 'bail|before:'.$Date,
             'status' => 'bail|required',
             'role' => 'bail|required',
             'password' => 'bail|required|string|min:8|confirmed',
@@ -166,17 +167,28 @@ class HomeController extends Controller
 
         try {
 
+            
 
             $user_id = DB::table('users')->insertGetId([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
+                'designation' => $request->designation,
                 'email' => $request->email,
                 'joining_date' => $request->joining_date,
                 'leaving_date' => $request->leaving_date,
+                'employee_number' => $request->leaving_date,
                 'status' => $request->status,
                 'password' => Hash::make($request->password),
                 'created_at' => Carbon::now(),
             ]);
+
+            $employee_number = '00'.$user_id.'_'.strtotime($request->joining_date);
+
+            DB::table('users')->where('id', $user_id)->update(
+                ['employee_number' => $employee_number,]
+            );
+
+            DB::table('user_information')->insert(['user_id' => $user_id]);
 
             $role = DB::table('roles')->where('display_name', $request->role)->first();
             
@@ -197,12 +209,13 @@ class HomeController extends Controller
 
     public function delete(Request $request)
     {
-       // dd($request->all());
+       //dd($request->all());
        
        try { 
-                $skillid = DB::table('role_user')->where('id', $request->id)->first();
+                $role_user = DB::table('role_user')->where('user_id', $request->id)->first();
 
-                DB::table('role_user')->delete($skillid->id);
+                //dd($role_user);
+                DB::table('role_user')->delete($role_user->id);
 
                 DB::table('users')->delete($request->id);
 
