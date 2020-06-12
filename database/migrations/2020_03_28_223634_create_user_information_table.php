@@ -23,6 +23,7 @@ class CreateUserInformationTable extends Migration
             $table->string('phone', 15)->nullable();
             $table->date('dob')->nullable();
             $table->json('primary_address')->nullable();
+            $table->json('languages')->nullable();
             $table->json('secondary_address')->nullable();
             $table->json('google_location_pin')->nullable();
 

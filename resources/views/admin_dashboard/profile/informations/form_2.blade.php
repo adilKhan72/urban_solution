@@ -71,6 +71,36 @@
                 <span class="text-danger ajax_errors" id="primary_address_error"> </span>
               </div>
 
+
+
+
+
+              <div class="form-group">
+                <label for="inputEstimatedDuration"> <span class="label_for_input label_success_form_2" id="languages_label"></span> Put Languages</label>
+               
+                <i class="fa fa-info-circle" style="color:#17a2b8"  data-toggle="collapse" data-target="#languages_info" title="Click for more Info"></i>
+                    <div id="languages_info" class="collapse alert alert-info">
+                    <strong>Info!</strong> Put languages you can speak.
+                    </div>
+
+                @if ($user->userinformation != null && $user->userinformation->languages != 'null' && $user->userinformation->languages != '' && $user->userinformation->languages != '[""]')
+                <?php
+                  $string1 = str_replace('"',"",$user->userinformation->languages);
+                  $string2 = str_replace('[',"",$string1);
+                  $string3 = str_replace(']',"",$string2);
+                ?>
+                <textarea name="languages" id="languages" class="form-control ajax_input" rows="3" 
+                   placeholder="Enter languages seperate by coma">{{$string3}}</textarea>
+                @else                
+                <textarea name="languages" id="languages" class="form-control ajax_input" rows="4"    placeholder="Enter languages seperate by coma"></textarea>
+                @endif
+                <span class="text-danger ajax_errors" id="languages_error"> </span>
+              </div>
+
+
+
+
+
               <div class="form-group">
                 <label for="inputEstimatedDuration">  <span class="label_for_input label_success_form_2" id="secondary_address_label"></span> Secondary Address</label>
 
@@ -134,6 +164,7 @@
         var city_id = $('#select_city').val();
         var country_id = $('#select_country').val();
         var primary_address = $('#primary_address').val();
+        var languages = $('#languages').val();
         var secondary_address = $('#secondary_address').val();
         var google_location_pin = $('#google_location_pin').val();
         $.ajax({
@@ -144,6 +175,7 @@
             city_id:city_id,
             country_id:country_id,
             primary_address:primary_address,
+            languages:languages,
             secondary_address:secondary_address,
             google_location_pin:google_location_pin,
           },

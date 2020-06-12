@@ -67,16 +67,18 @@ class InformationController extends Controller
             'city_id' => 'required|Numeric',
             'country_id' => 'required|Numeric',
             'primary_address' => 'nullable|regex:/^\s*(?:[a-zA-Z0-9_ .]+\s*,\s*){4}(?:[a-zA-Z0-9_ .]+\s*)$/',
+            'languages' => 'nullable|regex:/^\s*(?:[a-zA-Z0-9_ .]+\s*,\s*){0,}(?:[a-zA-Z0-9_ .]+\s*)$/',
             'secondary_address' => 'nullable|regex:/^\s*(?:[a-zA-Z0-9_ .]+\s*,\s*){4}(?:[a-zA-Z0-9_ .]+\s*)$/',
             'google_location_pin' => 'nullable|regex:/^\w+$/u'
             ]);
+            $languages_array = json_encode(explode(",",$request->languages));
             $primary_address_arr = json_encode(explode(",",$request->primary_address));
             $secondary_address_arr = json_encode(explode(",",$request->secondary_address));
             $google_location_pin_arr = json_encode($request->google_location_pin);
             try { 
                 DB::table('user_information')
                 ->where('user_id', Auth::user()->id)
-                ->update(['city_id' => $request->city_id,'country_id' => $request->country_id,'primary_address' => $primary_address_arr,'secondary_address' => $secondary_address_arr,'google_location_pin' => $google_location_pin_arr,]);
+                ->update(['city_id' => $request->city_id,'country_id' => $request->country_id,'primary_address' => $primary_address_arr,'languages' => $languages_array,'secondary_address' => $secondary_address_arr,'google_location_pin' => $google_location_pin_arr,]);
                 $arr = array('msg' => 'Fields Updated Successfully', 'status' => true);
                 $request->session()->flash('form_success', 'Fields Updated Successfully');
             } catch(\Illuminate\Database\QueryException $ex){ 

@@ -36,7 +36,7 @@
                 @if ($user->middle_name != null)
                 <input name="middle_name" type="text" id="middle_name" class="form-control ajax_input" value="{{$user->middle_name}}" placeholder="Enter Your Middle Name">
                @else
-               <input name="middle_name" type="text" id="middle_name" class="form-control ajax_input" placeholder="Enter Your Middle Name">
+               <input name="middle_name" type="text" id="middle_name" class="form-control ajax_input" placeholder="Enter Your Middle Name" >
                @endif
                <span class="text-danger ajax_errors" id="middle_name_error"> </span>
               </div>
