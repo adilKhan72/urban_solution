@@ -106,6 +106,12 @@
                   <p>Personal Skills</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('assistantdashboard.profile.emergency_contacts.index')}}" class="nav-link {{ (request()->is('admindashboard/profile/emergency_contacts')) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Emergency Contacts</p>
+                </a>
+              </li>
             </ul>
           </li>
 
