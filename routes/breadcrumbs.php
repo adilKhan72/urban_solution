@@ -52,6 +52,10 @@ Breadcrumbs::for('users', function ($trail) {
             $trail->parent('profile');
             $trail->push('Skills', route('admindashboard.profile.skills.index'));
         });
+        Breadcrumbs::for('emergency_contacts', function ($trail) {
+            $trail->parent('profile');
+            $trail->push('emergency_contacts', route('admindashboard.profile.emergency_contacts.index'));
+        });
 
 
      

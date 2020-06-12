@@ -71,16 +71,26 @@ Route::group(['middleware'=>'auth'], function () {
                     Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Profile\SkillController@fetch']);
                     Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Profile\SkillController@edit']);
                 });
+                Route::group(['prefix' => 'emergency_contacts','as'=>'emergency_contacts.'], function () 
+                {
+                    
+                    Route::get('/', ['as' => 'index', 'uses' => 'Admin\Profile\EmergencyContactController@index']);
+                    Route::get('getdatatable', ['as' => 'getdatatable', 'uses' => 'Admin\Profile\EmergencyContactController@getDataTable']);
+                    Route::post('store', ['as' => 'store', 'uses' => 'Admin\Profile\EmergencyContactController@store']);
+                    Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Profile\EmergencyContactController@delete']);
+                    Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Profile\EmergencyContactController@fetch']);
+                    Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Profile\EmergencyContactController@edit']);
+                });
             });
 
             Route::group(['prefix' => 'users','as'=>'users.'], function () 
             {
-                Route::get('/', ['as' => 'index', 'uses' => 'Admin\Users\HomeController@index']);
-                Route::get('getdatatable', ['as' => 'getdatatable', 'uses' => 'Admin\Users\HomeController@getDataTable']);
-                Route::post('store', ['as' => 'store', 'uses' => 'Admin\Users\HomeController@store']);
-                Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Users\HomeController@fetch']);
-                Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Users\HomeController@edit']);
-                Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Users\HomeController@delete']);
+                Route::get('/', ['as' => 'index', 'uses' => 'Admin\Users\EmergencyContactController@index']);
+                Route::get('getdatatable', ['as' => 'getdatatable', 'uses' => 'Admin\Users\EmergencyContactController@getDataTable']);
+                Route::post('store', ['as' => 'store', 'uses' => 'Admin\Users\EmergencyContactController@store']);
+                Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\Users\EmergencyContactController@fetch']);
+                Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\Users\EmergencyContactController@edit']);
+                Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Users\EmergencyContactController@delete']);
             });
 
         });
