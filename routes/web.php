@@ -240,6 +240,9 @@ Route::group(['middleware'=>'auth'], function () {
 
 
 Route::get('routes_list', function () {
+
+    echo " User Last ACtivity: ".Session::previousUrl();
+
     $routeCollection = Route::getRoutes();
 
     echo "<table style='width:100%; font-size:0.9em;   font-family:  Arial, Helvetica, sans-serif;

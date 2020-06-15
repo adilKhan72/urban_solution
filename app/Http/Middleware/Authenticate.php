@@ -14,7 +14,6 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-
         if (! $request->expectsJson()) {
             Session::flash('un_authorise_access', "Please Sign in before you access the dashboards.");
             return route('main_home_page_login');

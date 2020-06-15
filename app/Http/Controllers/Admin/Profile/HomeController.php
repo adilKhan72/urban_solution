@@ -28,6 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $sesssions = DB::table('sessions')->where('user_id',Auth::user()->id)->first();
+        // dd(unserialize(base64_decode($sesssions->payload)));
         //dd(Auth::user()->id);
         //$user = User::where('id',Auth::user()->id)->with(['roles','skills','userinformation','userqualification.educationaldegree'])->first();
         //dd($user);
