@@ -5,8 +5,11 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request as REQ;
 use Session, Request, Helper;
+use Illuminate\Support\Carbon;
 use App\User;
 
 class LoginController extends Controller
@@ -41,13 +44,29 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function logout(Request $request){
+     
+        //Insert Logout record in database.
+        DB::table('users_log_activity')->insert(
+            ['user_id' => Auth::user()->id,'activity_type' => 'logout','action_by' => 'manual', 'activity_time' => Carbon::now()->getTimestamp(),'created_at' => Carbon::now(),]
+        );
+        Auth::logout();
+        return redirect()->route('main_home_page_login'); 
+    }
+
     public function showLoginForm() {
         $current_url = Request::path();
-		return view('auth.login');
+        return view('auth.login');
     }
     
     protected function authenticated($request, $user) {
         
+        //Insert Login record in database.
+        DB::table('users_log_activity')->insert(
+            ['user_id' => Auth::user()->id,'activity_type' => 'login','action_by' => 'manual', 'activity_time' => Carbon::now()->getTimestamp(),'created_at' => Carbon::now(),]
+        );
+
+
         $user_role = $user->roles->pluck('display_name');
 		if ($user_role->contains('admin') && $user->status == 'active') {
 			return redirect()->route('admindashboard.index');
