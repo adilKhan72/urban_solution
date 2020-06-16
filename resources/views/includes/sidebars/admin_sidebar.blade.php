@@ -18,7 +18,7 @@
         @endif
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}  {{ Auth::user()->last_name }}</a>
+          <a href="{{route('admindashboard.profile.index')}}" class="d-block">{{ Auth::user()->first_name }} {{ Auth::user()->middle_name }}  {{ Auth::user()->last_name }}</a>
         </div>
       </div>
 

@@ -14,9 +14,9 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$todays_log_time_duation}}</h3>
 
-                <p>New Orders</p>
+                <p>Today's Total Logged Time</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
