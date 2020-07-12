@@ -19,7 +19,7 @@ class CreateUserInformationTable extends Migration
             $table->unsignedInteger('blood_group_id')->nullable();;
             $table->unsignedInteger('city_id')->nullable();;
             $table->unsignedInteger('country_id')->nullable();;
-            $table->enum('gender', ['male', 'female', 'other'])->default('null');
+            $table->enum('gender', ['male', 'female', 'other'])->default('other');
             $table->string('phone', 15)->nullable();
             $table->date('dob')->nullable();
             $table->json('primary_address')->nullable();
