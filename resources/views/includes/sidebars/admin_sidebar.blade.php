@@ -1,7 +1,7 @@
 
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
-      <img src="{{ asset('storage/project_images/favcion_navbar_logo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="{{ asset('storage/project_images/favcion_navbar_logo.png') }}" alt="Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">{{ config('app.name', 'The Urban Solutions') }}</span>
     </a>
@@ -12,7 +12,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
         @if (Auth::user()->profile_pic != "" || Auth::user()->profile_pic != null)
-          <img src="{{ asset('storage/user_files/profile_pic/'.Auth::user()->profile_pic) }}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('storage/user_files/profile_pic/'.Auth::user()->profile_pic) }}" class="img-circle elevation-2" alt="User Img">
         @else
           <img src="{{ asset('storage/default_images/avatar.jpg') }}" class="img-circle elevation-2" alt="User Image">
         @endif
