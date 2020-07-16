@@ -27,6 +27,57 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+          
+
+          <li class="nav-item has-treeview {{ (request()->is('admindashboard/profile*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-book"></i>
+              <p>
+                Projects
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-book nav-icon"></i>
+                  <p>Projects List</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>New Project</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+               <li class="nav-item has-treeview {{ (request()->is('admindashboard/profile*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-tasks"></i>
+              <p>
+                Tasks List
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>Tasks</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+
+
           <li class="nav-item has-treeview {{ (request()->is('option*')) ? 'menu-open' : '' }}" >
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -47,6 +98,158 @@
                                         @csrf
                                     </form>
               </li>
+
+
+              <li class="nav-item has-treeview {{ (request()->is('admindashboard/profile*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-cogs"></i>
+              <p>
+                System Settings
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>Basic</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+
+          <li class="nav-item has-treeview {{ (request()->is('admindashboard/profile*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-wrench"></i>
+              <p>
+                Project Settings
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            
+
+            <li class="nav-item has-treeview {{ (request()->is('admindashboard/profile*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-tasks"></i>
+              <p>
+                Tasks
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>Tasks List</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>CheckList</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item has-treeview {{ (request()->is('admindashboard/profile*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-sitemap"></i>
+              <p>
+                Scope & Services
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>Scopes&Types</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>Services</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
+
+          <li class="nav-item has-treeview {{ (request()->is('admindashboard/profile*')) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-columns"></i>
+              <p>
+                Requirements
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-arrow-right nav-icon"></i>
+                  <p>Types & Details</p>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+
+          <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="nav-icon fa fa-globe"></i>
+                  <p>Area_Unit Types</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="nav-icon fa fa-bullseye"></i>
+                  <p>Zones</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-user-secret nav-icon"></i>
+                  <p>Clients</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-th nav-icon"></i>
+                  <p>Mouzas</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
+                  <i class="fa fa-cubes nav-icon"></i>
+                  <p>Societies</p>
+                </a>
+              </li>
+
+
+            </ul>
+          </li>
+
+
+
+
+
             </ul>
           </li>
 
@@ -69,43 +272,43 @@
             <ul class="nav nav-treeview">
             <li class="nav-item">
                 <a href="{{route('admindashboard.profile.index')}}" class="nav-link {{ (request()->is('admindashboard/profile')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Profile View</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admindashboard.profile.informations.index')}}" class="nav-link {{ (request()->is('admindashboard/profile/informations')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Personal Information</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admindashboard.profile.projects.index')}}" class="nav-link {{ (request()->is('admindashboard/profile/projects')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Personal Projects</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admindashboard.profile.qualitifcations.index')}}" class="nav-link {{ (request()->is('admindashboard/profile/qualitifcations')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Personal Qualitifcation</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admindashboard.profile.experiences.index')}}" class="nav-link {{ (request()->is('admindashboard/profile/experiences')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Personal Experience</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admindashboard.profile.skills.index')}}" class="nav-link {{ (request()->is('admindashboard/profile/skills')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Personal Skills</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{route('admindashboard.profile.emergency_contacts.index')}}" class="nav-link {{ (request()->is('admindashboard/profile/emergency_contacts')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Emergency Contacts</p>
                 </a>
               </li>
@@ -142,7 +345,7 @@
             <ul class="nav nav-treeview">
             <li class="nav-item">
                 <a href="{{route('admindashboard.users.index')}}" class="nav-link {{ (request()->is('admindashboard/users')) ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>View Users</p>
                 </a>
               </li>
@@ -201,13 +404,13 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="pages/charts/chartjs.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-arrow-right nav-icon"></i>
                   <p>ChartJS</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fa fa-arrow-right nav-icon"></i>
                   <p>Flot</p>
                 </a>
               </li>
