@@ -12,11 +12,11 @@ class TaskAssignment extends Model
     }
     public function assignedby()
     {
-        return $this->belongsTo('App\Task', 'assigned_by');
+        return $this->belongsTo('App\User', 'assigned_by');
     }
     public function assignedto()
     {
-        return $this->belongsTo('App\Task', 'assigned_to');
+        return $this->belongsTo('App\User', 'assigned_to');
     }
     public function taskchecklist()
     {
