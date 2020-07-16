@@ -15,4 +15,8 @@ class Role extends Model
     {
         return $this->belongsToMany('App\User');
     }
+    public function roleuser()
+    {
+        return $this->hasOne('App\RoleUser');
+    }
 }
