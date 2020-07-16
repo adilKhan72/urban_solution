@@ -21,7 +21,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
-
+    public function roleuser()
+    {
+        return $this->hasOne('App\RoleUser');
+    }
     public function skills()
     {
         return $this->belongsToMany('App\Skill');
