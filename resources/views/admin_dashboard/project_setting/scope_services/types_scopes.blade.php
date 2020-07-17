@@ -1,8 +1,14 @@
 @extends('layouts.dashboards.app')
 
 @section('content')
-
-    @endsection
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+            
+      </div>
+    </section>
+    <!-- /.content -->
+@endsection
   
 @section('javascript')
 <script>
