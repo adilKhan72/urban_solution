@@ -1,0 +1,7 @@
+.custom-systemsettingstyle{
+    background-color: white;
+    border-radius: 4px 4px 4px 4px; 
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-top: 6px solid #007bff;
+}
