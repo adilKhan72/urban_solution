@@ -20,14 +20,51 @@ Route::group(['middleware'=>'auth'], function () {
     //otherwise redirect to login page.
     Route::group(['middleware'=>'admin'], function () {
         //Route::get('admindashboard', ['as' => 'admin_dashboard', 'uses' => 'Admin\HomeController@index']);
- 
 
         Route::group(['prefix' => 'admindashboard','as'=>'admindashboard.'], function () { 
             Route::get('/', ['as' => 'index', 'uses' => 'Admin\HomeController@index']);
 
-            Route::group(['prefix' => 'option','as'=>'option.'], function () {
-                //Route::get('view', ['as' => 'view', 'uses' => 'Admin\ProfileController@index']);
-            });
+            
+
+                Route::group(['prefix' => 'projecttab','as'=>'projecttab.'], function () {
+                    Route::get('/', ['as' => 'index', 'uses' => 'Admin\Projects\HomeController@index']);
+                    Route::get('newproject', ['as' => 'newproject', 'uses' => 'Admin\Projects\HomeController@newProject']);
+                });
+
+                Route::group(['prefix' => 'tasks','as'=>'tasks.'], function () {
+                    Route::get('/', ['as' => 'index', 'uses' => 'Admin\Tasks\HomeController@index']);
+                    
+                });
+
+
+                Route::group(['prefix' => 'systemsetting','as'=>'systemsetting.'], function () {
+                    Route::get('/', ['as' => 'index', 'uses' => 'Admin\SystemSettings\SystemSettingBasicController@index']);
+                });
+
+
+                Route::group(['prefix' => 'projectsetting','as'=>'projectsetting.'], function () {
+                    
+                    Route::group(['prefix' => 'tasks','as'=>'tasks.'], function () {
+                        Route::get('list', ['as' => 'list', 'uses' => 'Admin\ProjectSettings\TasksController@index']);
+                        Route::get('checklist', ['as' => 'checklist', 'uses' => 'Admin\ProjectSettings\ChecklistController@index']);
+                    });
+
+                    Route::group(['prefix' => 'scopeandservice','as'=>'scopeandservice.'], function () {
+                        Route::get('listscopeandservices', ['as' => 'listscopeandservices', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@index']);
+                        Route::get('services', ['as' => 'services', 'uses' => 'Admin\ProjectSettings\ServicesController@index']);
+                    });
+
+                    Route::group(['prefix' => 'requirements','as'=>'requirements.'], function () {
+                        Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\RequirementsController@index']);
+                    });
+                    Route::get('areaunit', ['as' => 'areaunit', 'uses' => 'Admin\ProjectSettings\AreaUnitController@index']);
+                    Route::get('zones', ['as' => 'zones', 'uses' => 'Admin\ProjectSettings\ZonesController@index']);
+                    Route::get('clients', ['as' => 'clients', 'uses' => 'Admin\ProjectSettings\ClientsController@index']);
+                    Route::get('mouzas', ['as' => 'mouzas', 'uses' => 'Admin\ProjectSettings\MouzasController@index']);
+                    Route::get('societies', ['as' => 'societies', 'uses' => 'Admin\ProjectSettings\SocietiesController@index']);
+                });
+
+          
 
             Route::group(['prefix' => 'profile','as'=>'profile.'], function () 
             {
