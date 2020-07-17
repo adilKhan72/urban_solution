@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @endsection
+@endsection
   
 @section('javascript')
 <script>
