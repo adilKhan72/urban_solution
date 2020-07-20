@@ -221,13 +221,7 @@
 @parent
 <script>
   $(document).ready(function(){
-
-
-
     bsCustomFileInput.init();
-
-
-
         //this ajax request is modified for files upload
         $('#files').on('submit',function(event){
        $('.ajax_input').removeClass("is-invalid");

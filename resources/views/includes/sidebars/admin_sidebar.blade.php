@@ -1,7 +1,11 @@
 
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
-      <img src="{{ asset('storage/project_images/favcion_navbar_logo.png') }}" alt="Logo" class="brand-image img-circle elevation-3"
+      <img src="
+      @isset($header_logo->setting_value)
+      {{ URL::asset('storage/system_files/'.$header_logo->setting_value) }}
+      @endif
+      " alt="Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">{{ config('app.name', 'The Urban Solutions') }}</span>
     </a>
