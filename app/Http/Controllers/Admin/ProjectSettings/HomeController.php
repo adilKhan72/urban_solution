@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Admin\ProjectSettings;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Validator,Redirect,Response;
+use Carbon\Carbon;
+use DataTables;
 
 class HomeController extends Controller
 {
@@ -23,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //code here
+        Return view('admin_dashboard.project_setting.index');
     }
 
 }

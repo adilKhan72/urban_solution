@@ -190,39 +190,13 @@
 
 
           <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.areaunit')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/areaunit')) ? 'active' : '' }}">
-                  <i class="nav-icon fa fa-globe"></i>
-                  <p>Area_Unit Types</p>
+                <a href="{{route('admindashboard.projectsetting.other')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/other')) ? 'active' : '' }}">
+                  <i class="nav-icon fa fa-cubes"></i>
+                  <p>Other Settings</p>
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.zones')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/zones')) ? 'active' : '' }}">
-                  <i class="nav-icon fa fa-bullseye"></i>
-                  <p>Zones</p>
-                </a>
-              </li>
 
-              <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.clients')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/clients')) ? 'active' : '' }}">
-                  <i class="fa fa-user-secret nav-icon"></i>
-                  <p>Clients</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.mouzas')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/mouzas')) ? 'active' : '' }}">
-                  <i class="fa fa-th nav-icon"></i>
-                  <p>Mouzas</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.societies')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/societies')) ? 'active' : '' }}">
-                  <i class="fa fa-cubes nav-icon"></i>
-                  <p>Societies</p>
-                </a>
-              </li>
 
 
             </ul>

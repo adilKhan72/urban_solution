@@ -111,7 +111,10 @@ Breadcrumbs::for('users', function ($trail) {
             $trail->push('societies', route('admindashboard.projectsetting.societies'));
         });
 
-
+        Breadcrumbs::for('other', function ($trail) {
+            $trail->parent('admindashboard');
+            $trail->push('other', route('admindashboard.projectsetting.other'));
+        });
 
 
 

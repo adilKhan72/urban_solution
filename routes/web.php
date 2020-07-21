@@ -60,6 +60,7 @@ Route::group(['middleware'=>'auth'], function () {
                     Route::group(['prefix' => 'requirements','as'=>'requirements.'], function () {
                         Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\RequirementsController@index']);
                     });
+                    Route::get('other', ['as' => 'other', 'uses' => 'Admin\ProjectSettings\HomeController@index']);
                     Route::get('areaunit', ['as' => 'areaunit', 'uses' => 'Admin\ProjectSettings\AreaUnitController@index']);
                     Route::get('zones', ['as' => 'zones', 'uses' => 'Admin\ProjectSettings\ZonesController@index']);
                     Route::get('clients', ['as' => 'clients', 'uses' => 'Admin\ProjectSettings\ClientsController@index']);

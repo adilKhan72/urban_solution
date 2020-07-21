@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Admin\ProjectSettings;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Validator,Redirect,Response;
+use Carbon\Carbon;
+use DataTables;
 
 class MouzasController extends Controller
 {
@@ -23,7 +28,7 @@ class MouzasController extends Controller
      */
     public function index()
     {
-        Return view('admin_dashboard.project_setting.mouzas');
+        echo "MouzasController";
     }
 
 }
