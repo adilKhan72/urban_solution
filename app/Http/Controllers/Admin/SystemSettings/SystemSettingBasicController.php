@@ -26,6 +26,9 @@ class SystemSettingBasicController extends Controller
      */
     public function index()
     {
+        // $favicon_logo = DB::table('system_settings')->select( 'setting_value')->where('setting_field', 'favicon_logo')->first();
+        // $header_logo = DB::table('system_settings')->select('setting_value')->where('setting_field', 'header_logo')->first();
+        //$header_logo = DB::table('system_settings')->select('setting_value')->where('setting_field', 'header_logo')->first();
         Return view('admin_dashboard.system_setting.index');
     }
 
@@ -37,7 +40,6 @@ class SystemSettingBasicController extends Controller
                 'dimensions' => 'The :attribute dimensions must be square e.g ( 800/800 pixels ).',
             ]);
             $files_array = $request->all(); 
-            unset($files_array['form']);
             //dd($request->file());
             try { 
 
@@ -60,10 +62,9 @@ class SystemSettingBasicController extends Controller
     public function updateHeaderLogo(Request $request)
     {
         $validatedData = $request->validate([
-            'header_logo' => 'bail|mimes:jpeg|max:1999',
+            'header_logo' => 'bail|mimes:png|max:1999',
             ]);
             $files_array = $request->all(); 
-            unset($files_array['form']);
             //dd($request->file());
             try { 
 
@@ -74,6 +75,23 @@ class SystemSettingBasicController extends Controller
                     $path = $request->file('header_logo')->storeAs('public/system_files/', $name_to_store);
                     DB::table('system_settings')->updateOrInsert(['setting_field' => 'header_logo','setting_value' => $name_to_store]);
 
+                $arr = array('msg' => 'Fields Updated Successfully', 'status' => true);
+                $request->session()->flash('form_success', 'Fields Updated Successfully');
+            } catch(\Illuminate\Database\QueryException $ex){ 
+                $arr = array('msg' => $ex->getMessage(), 'status' => false);
+            }
+        
+            return Response()->json($arr);
+    }
+
+    public function updateAppName(Request $request)
+    {
+        $validatedData = $request->validate([
+            'app_name' => 'required',
+            ]);
+            //dd($request->all());
+            try { 
+                DB::table('system_settings')->updateOrInsert(['setting_field' => 'app_name'],['setting_value' => $request->app_name]);
                 $arr = array('msg' => 'Fields Updated Successfully', 'status' => true);
                 $request->session()->flash('form_success', 'Fields Updated Successfully');
             } catch(\Illuminate\Database\QueryException $ex){ 

@@ -2,8 +2,8 @@
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
       <img src="
-      @isset($header_logo->setting_value)
-      {{ URL::asset('storage/system_files/'.$header_logo->setting_value) }}
+      @isset($favicon_logo->setting_value)
+      {{ URL::asset('storage/system_files/'.$favicon_logo->setting_value) }}
       @endif
       " alt="Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
