@@ -15,8 +15,8 @@ class CreateUnitForAreasTable extends Migration
     {
         Schema::create('unit_for_areas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 255);
-            $table->string('area', 255)->nullable();
+            $table->string('unit_type', 255);
+            $table->string('area_in_feet', 255)->nullable();
             $table->timestamps();
         });
     }

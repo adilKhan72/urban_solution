@@ -41,6 +41,7 @@ Route::group(['middleware'=>'auth'], function () {
                     Route::get('/', ['as' => 'index', 'uses' => 'Admin\SystemSettings\SystemSettingBasicController@index']);
                     Route::post('updatefavicon', ['as' => 'updatefavicon', 'uses' => 'Admin\SystemSettings\SystemSettingBasicController@updateFavicon']);
                     Route::post('updateheaderlogo', ['as' => 'updateheaderlogo', 'uses' => 'Admin\SystemSettings\SystemSettingBasicController@updateHeaderLogo']);
+                    Route::post('updateappname', ['as' => 'updateappname', 'uses' => 'Admin\SystemSettings\SystemSettingBasicController@updateAppName']);
                 });
 
 
