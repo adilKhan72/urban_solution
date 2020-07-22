@@ -60,12 +60,51 @@ Route::group(['middleware'=>'auth'], function () {
                     Route::group(['prefix' => 'requirements','as'=>'requirements.'], function () {
                         Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\RequirementsController@index']);
                     });
+                    
                     Route::get('other', ['as' => 'other', 'uses' => 'Admin\ProjectSettings\HomeController@index']);
-                    Route::get('areaunit', ['as' => 'areaunit', 'uses' => 'Admin\ProjectSettings\AreaUnitController@index']);
-                    Route::get('zones', ['as' => 'zones', 'uses' => 'Admin\ProjectSettings\ZonesController@index']);
-                    Route::get('clients', ['as' => 'clients', 'uses' => 'Admin\ProjectSettings\ClientsController@index']);
-                    Route::get('mouzas', ['as' => 'mouzas', 'uses' => 'Admin\ProjectSettings\MouzasController@index']);
-                    Route::get('societies', ['as' => 'societies', 'uses' => 'Admin\ProjectSettings\SocietiesController@index']);
+
+                    Route::group(['prefix' => 'areaunits','as'=>'areaunits.'], function () {
+                        Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\AreaUnitController@index']);
+                        Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\ProjectSettings\AreaUnitController@edit']);
+                        Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\ProjectSettings\AreaUnitController@delete']);
+                        Route::post('store', ['as' => 'store', 'uses' => 'Admin\ProjectSettings\AreaUnitController@store']);
+                        Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\ProjectSettings\AreaUnitController@fetch']);
+                    });
+
+
+                    Route::group(['prefix' => 'clients','as'=>'clients.'], function () {
+                        Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\ClientsController@index']);
+                        Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\ProjectSettings\ClientsController@edit']);
+                        Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\ProjectSettings\ClientsController@delete']);
+                        Route::post('store', ['as' => 'store', 'uses' => 'Admin\ProjectSettings\ClientsController@store']);
+                        Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\ProjectSettings\ClientsController@fetch']);
+                    });
+
+
+                    Route::group(['prefix' => 'mouzas','as'=>'mouzas.'], function () {
+                        Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\MouzasController@index']);
+                        Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\ProjectSettings\MouzasController@edit']);
+                        Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\ProjectSettings\MouzasController@delete']);
+                        Route::post('store', ['as' => 'store', 'uses' => 'Admin\ProjectSettings\MouzasController@store']);
+                        Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\ProjectSettings\MouzasController@fetch']);
+                    });
+
+                    Route::group(['prefix' => 'zones','as'=>'zones.'], function () {
+                        Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\ZonesController@index']);
+                        Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\ProjectSettings\ZonesController@edit']);
+                        Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\ProjectSettings\ZonesController@delete']);
+                        Route::post('store', ['as' => 'store', 'uses' => 'Admin\ProjectSettings\ZonesController@store']);
+                        Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\ProjectSettings\ZonesController@fetch']);
+                    });
+
+                    Route::group(['prefix' => 'societies','as'=>'societies.'], function () {
+                        Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\SocietiesController@index']);
+                        Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\ProjectSettings\SocietiesController@edit']);
+                        Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\ProjectSettings\SocietiesController@delete']);
+                        Route::post('store', ['as' => 'store', 'uses' => 'Admin\ProjectSettings\SocietiesController@store']);
+                        Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\ProjectSettings\SocietiesController@fetch']);
+                    });
+
                 });
 
           
