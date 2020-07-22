@@ -17,6 +17,7 @@ class CreateProjectUnitForAreasTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('project_id');
             $table->unsignedInteger('unit_for_area_id');
+            $table->string('area_of_project', 255);
             $table->timestamps();
         });
     }
