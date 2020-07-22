@@ -45,4 +45,71 @@ class AreaUnitController extends Controller
         ->make(true);
     }
 
+    public function edit(Request $request)
+    {
+        
+        $validatedData = $request->validate([
+            'area_in_feet' => 'bail|required',
+            'unit_type' => 'bail|required',
+            ]);
+            try {
+                DB::table('unit_for_areas')->where('id', $request->custId)->update(
+                    ['area_in_feet' => $request->area_in_feet,'unit_type' => $request->unit_type, 'updated_at' => Carbon::now(),]
+                );
+
+                $arr = array('msg' => 'Skill Updated Successfully', 'status' => true);
+                $request->session()->flash('form_success', 'Skill Updated Successfully');
+            } catch(\Illuminate\Database\QueryException $ex){ 
+                $arr = array('msg' => $ex->getMessage(), 'status' => false);
+            }
+            return Response()->json($arr);
+    }
+
+    public function fetch(Request $request)
+    {
+
+        $skill = DB::table('unit_for_areas')->where('id',$request->areaunit_id)->select('id','unit_type', 'area_in_feet')->first();
+        $arr = array('data' => $skill, 'status' => true);
+        return Response()->json($arr);
+    }
+
+
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'area_in_feet' => 'bail|required',
+            'unit_type' => 'bail|required',
+            ]);
+        
+        try {
+
+            DB::table('unit_for_areas')->insert(
+                ['area_in_feet' => $request->area_in_feet,'unit_type' => $request->unit_type, 'created_at' => Carbon::now(),]
+            );
+
+            $arr = array('msg' => 'New Skill Added Successfully', 'status' => true);
+            $request->session()->flash('form_success', 'New Skill Added Successfully');
+        } catch(\Illuminate\Database\QueryException $ex){ 
+            $arr = array('msg' => $ex->getMessage(), 'status' => false);
+        }
+
+        return Response()->json($arr);
+
+        //dd($request->all());
+    }
+
+    public function delete(Request $request)
+    {
+       // dd($request->all());
+       
+       try { 
+                DB::table('unit_for_areas')->delete($request->id);
+            } catch(\Illuminate\Database\QueryException $ex){ 
+                $arr = array('msg' => $ex->getMessage(), 'status' => false);
+            }
+        $request->session()->flash('skill_deleted', 'Skill Deleted Successfully');
+        $arr = array('msg' => 'Skill Deleted Successfully', 'status' => true );
+        return Response()->json($arr);
+    }
+
 }
