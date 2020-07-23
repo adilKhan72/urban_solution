@@ -39,7 +39,9 @@
 @parent
 <script>
   $(document).ready(function(){
-
+    $('#createsocietiemodal').on('shown.bs.modal', function (event) {
+      $('#name').val('');
+    });
     });
 </script>
 @endsection

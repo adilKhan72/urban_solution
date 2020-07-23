@@ -59,6 +59,9 @@ Route::group(['middleware'=>'auth'], function () {
 
                     Route::group(['prefix' => 'requirements','as'=>'requirements.'], function () {
                         Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\RequirementsController@index']);
+                        Route::get('fetchreqtypedatatable', ['as' => 'fetchreqtypedatatable', 'uses' => 'Admin\ProjectSettings\RequirementsController@fetchReqTypeDataTable']);
+                        Route::post('requirementtypestore', ['as' => 'requirementtypestore', 'uses' => 'Admin\ProjectSettings\RequirementsController@requirementTypeStore']);
+                        Route::post('requirementtypedelete', ['as' => 'requirementtypedelete', 'uses' => 'Admin\ProjectSettings\RequirementsController@requirementTypeDelete']);
                     });
                     
                     Route::get('other', ['as' => 'other', 'uses' => 'Admin\ProjectSettings\HomeController@index']);
