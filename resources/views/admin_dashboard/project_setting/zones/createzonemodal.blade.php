@@ -18,7 +18,7 @@
   <div class="form-group">
     <label for="exampleInputEmail1"> <span class="label_for_input_createzoneform label_success_createzoneform" id="name_label"></span> Enter Area in Feet</label>
 
-    <input type="text" class="form-control ajax_input_createzoneform" name="name" id="name"  placeholder="Enter zone Name">
+    <input type="text" class="form-control ajax_input_createzoneform" name="name" id="name1122"  placeholder="Enter zone Name">
 
     <span class="text-danger ajax_errors_createzoneform" id="name_error"> </span>
   </div>
@@ -39,7 +39,9 @@
 @parent
 <script>
   $(document).ready(function(){
-
+    $('#createzonemodal').on('shown.bs.modal', function (event) {
+      $('#name1122').val('');
+    });
     });
 </script>
 @endsection

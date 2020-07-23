@@ -16,7 +16,7 @@
       <div class="form-group">
     <label for="exampleInputEmail1"> <span class="label_for_input_createmouzaform label_success_createmouzaform" id="name_label"></span> Enter Area Unit type</label>
 
-    <input type="text" class="form-control ajax_input_createmouzaform" name="name" id="name"  placeholder="Enter mouza Name">
+    <input type="text" class="form-control ajax_input_createmouzaform" name="name" id="name12"  placeholder="Enter mouza Name">
 
     <span class="text-danger ajax_errors_createmouzaform" id="name_error"> </span>
   </div>
@@ -45,7 +45,10 @@
 @parent
 <script>
   $(document).ready(function(){
-
+    $('#createmouzamodal').on('shown.bs.modal', function (event) {
+      $('#name12').val('');
+      $('#area').val('');
+    });
     });
 </script>
 @endsection
