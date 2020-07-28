@@ -8,6 +8,6 @@ class RequirementCustomField extends Model
 {
     public function requirementtype()
     {
-        return $this->belongsTo('App\RequirementType');
+        return $this->belongsTo('App\RequirementType', 'requirement_type_id');
     }
 }

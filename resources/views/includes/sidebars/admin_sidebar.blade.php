@@ -141,51 +141,25 @@
 
 
 
-          <li class="nav-item has-treeview {{ (request()->is('admindashboard/projectsetting/scopeandservice*')) ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link">
+          <li class="nav-item {{ (request()->is('admindashboard/projectsetting/scopeandservice*')) ? 'menu-open' : '' }}">
+          <a href="{{route('admindashboard.projectsetting.scopeandservice.listscopeandservices')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/scopeandservice/listscopeandservices')) ? 'active' : '' }}">
               <i class="nav-icon fa fa-sitemap"></i>
               <p>
                 Scope & Services
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.scopeandservice.listscopeandservices')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/scopeandservice/listscopeandservices')) ? 'active' : '' }}">
-                  <i class="fa fa-arrow-right nav-icon"></i>
-                  <p>Scopes&Types</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.scopeandservice.services')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/scopeandservice/services')) ? 'active' : '' }}">
-                  <i class="fa fa-arrow-right nav-icon"></i>
-                  <p>Services</p>
-                </a>
-              </li>
-            </ul>
           </li>
 
 
 
 
-          <li class="nav-item has-treeview {{ (request()->is('admindashboard/projectsetting/requirements*')) ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link">
+          <li class="nav-item {{ (request()->is('admindashboard/projectsetting/requirements*')) ? 'menu-open' : '' }}">
+            <a href="{{route('admindashboard.projectsetting.requirements.index')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/requirements')) ? 'active' : '' }}">
               <i class="nav-icon fa fa-columns"></i>
               <p>
                 Requirements
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="{{route('admindashboard.projectsetting.requirements.index')}}" class="nav-link {{ (request()->is('admindashboard/projectsetting/requirements')) ? 'active' : '' }}">
-                  <i class="fa fa-arrow-right nav-icon"></i>
-                  <p>Types & Details</p>
-                </a>
-              </li>
-
-            </ul>
           </li>
 
 

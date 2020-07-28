@@ -53,15 +53,37 @@ Route::group(['middleware'=>'auth'], function () {
                     });
 
                     Route::group(['prefix' => 'scopeandservice','as'=>'scopeandservice.'], function () {
+
+
                         Route::get('listscopeandservices', ['as' => 'listscopeandservices', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@index']);
+
+                        
+
                         Route::get('services', ['as' => 'services', 'uses' => 'Admin\ProjectSettings\ServicesController@index']);
+
+
                     });
 
                     Route::group(['prefix' => 'requirements','as'=>'requirements.'], function () {
+
                         Route::get('/', ['as' => 'index', 'uses' => 'Admin\ProjectSettings\RequirementsController@index']);
+
                         Route::get('fetchreqtypedatatable', ['as' => 'fetchreqtypedatatable', 'uses' => 'Admin\ProjectSettings\RequirementsController@fetchReqTypeDataTable']);
+                        Route::get('fetchsubfielddataTable', ['as' => 'fetchsubfielddataTable', 'uses' => 'Admin\ProjectSettings\RequirementsController@fetchsubFieldDataTable']);
+
                         Route::post('requirementtypestore', ['as' => 'requirementtypestore', 'uses' => 'Admin\ProjectSettings\RequirementsController@requirementTypeStore']);
+                        Route::post('subfieldstore', ['as' => 'subfieldstore', 'uses' => 'Admin\ProjectSettings\RequirementsController@subFieldStore']);
+
                         Route::post('requirementtypedelete', ['as' => 'requirementtypedelete', 'uses' => 'Admin\ProjectSettings\RequirementsController@requirementTypeDelete']);
+                        Route::post('subfielddelete', ['as' => 'subfielddelete', 'uses' => 'Admin\ProjectSettings\RequirementsController@subFieldDelete']);
+
+
+                        Route::post('requirementtypeedit', ['as' => 'requirementtypeedit', 'uses' => 'Admin\ProjectSettings\RequirementsController@requirementTypeEdit']);
+                        Route::post('subfieldedit', ['as' => 'subfieldedit', 'uses' => 'Admin\ProjectSettings\RequirementsController@subFieldEdit']);
+
+                        Route::post('requirementtypefetch', ['as' => 'requirementtypefetch', 'uses' => 'Admin\ProjectSettings\RequirementsController@requirementTypeFetch']);
+                        Route::post('subfieldfetch', ['as' => 'subfieldfetch', 'uses' => 'Admin\ProjectSettings\RequirementsController@subFieldFetch']);
+
                     });
                     
                     Route::get('other', ['as' => 'other', 'uses' => 'Admin\ProjectSettings\HomeController@index']);
