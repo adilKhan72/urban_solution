@@ -4,7 +4,16 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-            
+       
+
+
+
+      <div class="row">
+     <div class="col-md-12 col-xl-12">
+       @include('admin_dashboard.project_setting.scope_services.scopes.index')
+       </div>
+      </div>
+
       </div>
     </section>
     <!-- /.content -->
