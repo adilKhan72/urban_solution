@@ -54,10 +54,20 @@ Route::group(['middleware'=>'auth'], function () {
 
                     Route::group(['prefix' => 'scopeandservice','as'=>'scopeandservice.'], function () {
 
-
                         Route::get('listscopeandservices', ['as' => 'listscopeandservices', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@index']);
 
-                        
+                        Route::get('fetchscopedatatable', ['as' => 'fetchscopedatatable', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@fetchScopeDataTable']);
+                        Route::post('edit', ['as' => 'edit', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@edit']);
+                        Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@delete']);
+                        Route::post('store', ['as' => 'store', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@store']);
+                        Route::post('fetch', ['as' => 'fetch', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@fetch']);
+
+
+                        Route::get('fetchscopesubtypedatatable', ['as' => 'fetchscopesubtypedatatable', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@fetchScopeSubtypeDataTable']);
+                        Route::post('storesubtypes', ['as' => 'storesubtypes', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@storeSubTypes']);
+                        Route::post('deletesubtype', ['as' => 'deletesubtype', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@deleteSubType']);
+                        Route::post('fetchsubtype', ['as' => 'fetchsubtype', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@fetchSubType']);
+                        Route::post('editsubtype', ['as' => 'editsubtype', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@editSubType']);
 
                         Route::get('services', ['as' => 'services', 'uses' => 'Admin\ProjectSettings\ServicesController@index']);
 
