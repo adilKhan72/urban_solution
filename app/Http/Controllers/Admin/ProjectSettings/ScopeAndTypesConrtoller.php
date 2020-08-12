@@ -85,6 +85,9 @@ class ScopeAndTypesConrtoller extends Controller
     }
 
 
+    
+
+
     public function edit(Request $request)
     {
         
@@ -188,7 +191,6 @@ class ScopeAndTypesConrtoller extends Controller
 
     public function delete(Request $request)
     {
-       // dd($request->all());
        
        try { 
                 DB::table('scope_of_project_subtypes')->where('scope_of_project_id', $request->id)->delete();
@@ -203,7 +205,6 @@ class ScopeAndTypesConrtoller extends Controller
 
     public function deleteSubType(Request $request)
     {
-       // dd($request->all());
        
        try { 
                 DB::table('scope_of_project_subtypes')->delete($request->id);
