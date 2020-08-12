@@ -69,9 +69,12 @@ Route::group(['middleware'=>'auth'], function () {
                         Route::post('fetchsubtype', ['as' => 'fetchsubtype', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@fetchSubType']);
                         Route::post('editsubtype', ['as' => 'editsubtype', 'uses' => 'Admin\ProjectSettings\ScopeAndTypesConrtoller@editSubType']);
 
-                        Route::get('services', ['as' => 'services', 'uses' => 'Admin\ProjectSettings\ServicesController@index']);
-
-
+                        
+                        Route::get('fetchservicedatatable', ['as' => 'fetchservicedatatable', 'uses' => 'Admin\ProjectSettings\ServicesController@fetchServiceDataTable']);
+                        Route::post('storeservice', ['as' => 'storeservice', 'uses' => 'Admin\ProjectSettings\ServicesController@store']);
+                        Route::post('deleteservice', ['as' => 'deleteservice', 'uses' => 'Admin\ProjectSettings\ServicesController@delete']);
+                        Route::post('fetchservice', ['as' => 'fetchservice', 'uses' => 'Admin\ProjectSettings\ServicesController@fetch']);
+                        Route::post('editservice', ['as' => 'editservice', 'uses' => 'Admin\ProjectSettings\ServicesController@edit']);
                     });
 
                     Route::group(['prefix' => 'requirements','as'=>'requirements.'], function () {
