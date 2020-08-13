@@ -9,7 +9,7 @@ use Validator,Redirect,Response;
 use Carbon\Carbon;
 use DataTables;
 
-class HomeController extends Controller
+class NewProjectController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,5 +26,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function index()
+    {
+        Return view('admin_dashboard.project.index');
+    }
+    public function newProject()
+    {
+        Return view('admin_dashboard.project.newproject');
+    }
 
 }

@@ -8,10 +8,10 @@ class TaskChecklist extends Model
 {
     public function taskassignment()
     {
-        return $this->belongsTo('App\TaskAssignment');
+        return $this->belongsTo('App\TaskAssignment','task_assignment_id');
     }
         public function checklist()
     {
-        return $this->hasMany('App\Checklist');
+        return $this->belongsTo('App\Checklist','checklist_id');
     }
 }

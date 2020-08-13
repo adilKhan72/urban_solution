@@ -27,8 +27,8 @@ Route::group(['middleware'=>'auth'], function () {
             
 
                 Route::group(['prefix' => 'projecttab','as'=>'projecttab.'], function () {
-                    Route::get('/', ['as' => 'index', 'uses' => 'Admin\Projects\HomeController@index']);
-                    Route::get('newproject', ['as' => 'newproject', 'uses' => 'Admin\Projects\HomeController@newProject']);
+                    Route::get('/', ['as' => 'index', 'uses' => 'Admin\Projects\NewProjectController@index']);
+                    Route::get('newproject', ['as' => 'newproject', 'uses' => 'Admin\Projects\NewProjectController@newProject']);
                 });
 
                 Route::group(['prefix' => 'tasks','as'=>'tasks.'], function () {

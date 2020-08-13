@@ -8,6 +8,6 @@ class Checklist extends Model
 {
     public function taskchecklist()
     {
-        return $this->belongsTo('App\TaskChecklist');
+        return $this->hasMany('App\TaskChecklist');
     }
 }
