@@ -15,9 +15,8 @@ class CreateChecklistsTable extends Migration
     {
         Schema::create('checklists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('task_checklist_id');
-            $table->string('filed_name', 255);
-            $table->text('field_value')->nullable();
+            $table->string('name', 255);
+            $table->text('discription')->nullable();
             $table->timestamps();
         });
     }

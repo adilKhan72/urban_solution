@@ -10,4 +10,9 @@ class RequirementCustomField extends Model
     {
         return $this->belongsTo('App\RequirementType', 'requirement_type_id');
     }
+
+    public function reqcusfieldanswers()
+    {
+        return $this->hasMany('App\ReqCusFieldAnswers');
+    }
 }
