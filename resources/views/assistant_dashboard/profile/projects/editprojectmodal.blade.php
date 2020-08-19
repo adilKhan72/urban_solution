@@ -138,7 +138,7 @@
                 function() 
                 {
                 location.reload(); 
-                }, 3000);
+                }, 1000);
            }else{
             $('#error_editprojectform').append(response.msg);
            }

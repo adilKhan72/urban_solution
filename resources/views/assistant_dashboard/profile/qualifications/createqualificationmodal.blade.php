@@ -152,7 +152,7 @@
                 function() 
                 {
                 location.reload(); 
-                }, 3000);
+                }, 1000);
 
 
            }else{
