@@ -57,8 +57,8 @@ class SocietiesController extends Controller
                     ['name' => $request->name,'updated_at' => Carbon::now(),]
                 );
 
-                $arr = array('msg' => 'Skill Updated Successfully', 'status' => true);
-                $request->session()->flash('form_success', 'Skill Updated Successfully');
+                $arr = array('msg' => 'Societie Updated Successfully', 'status' => true);
+                $request->session()->flash('form_success', 'Societie Updated Successfully');
             } catch(\Illuminate\Database\QueryException $ex){ 
                 $arr = array('msg' => $ex->getMessage(), 'status' => false);
             }
@@ -106,8 +106,8 @@ class SocietiesController extends Controller
             } catch(\Illuminate\Database\QueryException $ex){ 
                 $arr = array('msg' => $ex->getMessage(), 'status' => false);
             }
-        $request->session()->flash('skill_deleted', 'Skill Deleted Successfully');
-        $arr = array('msg' => 'Skill Deleted Successfully', 'status' => true );
+        $request->session()->flash('skill_deleted', 'Societie Deleted Successfully');
+        $arr = array('msg' => 'Societie Deleted Successfully', 'status' => true );
         return Response()->json($arr);
     }
 }

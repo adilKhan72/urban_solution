@@ -48,8 +48,23 @@ Route::group(['middleware'=>'auth'], function () {
                 Route::group(['prefix' => 'projectsetting','as'=>'projectsetting.'], function () {
                     
                     Route::group(['prefix' => 'tasks','as'=>'tasks.'], function () {
+
                         Route::get('list', ['as' => 'list', 'uses' => 'Admin\ProjectSettings\TasksController@index']);
+                        Route::get('fetchtaskdatatable', ['as' => 'fetchtaskdatatable', 'uses' => 'Admin\ProjectSettings\TasksController@fetchtaskdatatable']);
+                        Route::post('taskstore', ['as' => 'taskstore', 'uses' => 'Admin\ProjectSettings\TasksController@store']);
+                        Route::post('taskdelete', ['as' => 'taskdelete', 'uses' => 'Admin\ProjectSettings\TasksController@delete']);
+                        Route::post('taskfetch', ['as' => 'taskfetch', 'uses' => 'Admin\ProjectSettings\TasksController@fetch']);
+                        Route::post('taskedit', ['as' => 'taskedit', 'uses' => 'Admin\ProjectSettings\TasksController@edit']);
+
+
                         Route::get('checklist', ['as' => 'checklist', 'uses' => 'Admin\ProjectSettings\ChecklistController@index']);
+                        Route::get('fetchchecklistdatatable', ['as' => 'fetchchecklistdatatable', 'uses' => 'Admin\ProjectSettings\ChecklistController@fetchchecklistdatatable']);
+                        Route::post('checkliststore', ['as' => 'checkliststore', 'uses' => 'Admin\ProjectSettings\ChecklistController@store']);
+                        Route::post('checklistdelete', ['as' => 'checklistdelete', 'uses' => 'Admin\ProjectSettings\ChecklistController@delete']);
+                        Route::post('checklistfetch', ['as' => 'checklistfetch', 'uses' => 'Admin\ProjectSettings\ChecklistController@fetch']);
+                        Route::post('checklistedit', ['as' => 'checklistedit', 'uses' => 'Admin\ProjectSettings\ChecklistController@edit']);
+
+
                     });
 
                     Route::group(['prefix' => 'scopeandservice','as'=>'scopeandservice.'], function () {
