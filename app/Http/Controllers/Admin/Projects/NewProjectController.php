@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Validator,Redirect,Response;
 use Carbon\Carbon;
 use DataTables;
+use App\RequirementType;
 
 class NewProjectController extends Controller
 {
@@ -32,7 +33,15 @@ class NewProjectController extends Controller
     }
     public function newProject()
     {
-        Return view('admin_dashboard.project.newproject');
+        Return view('admin_dashboard.project.newproject.index');
+    }
+
+    public function FetchReqDetailsById(Request $request)
+    {
+        $requirementtype = RequirementType::where('id',$request->requirements_performa_id)->with('requirementcustomfield')->get();
+        //dd($requirementtype);
+        $arr = array('data' => $requirementtype, 'status' => true);
+        return Response()->json($arr);
     }
 
 }

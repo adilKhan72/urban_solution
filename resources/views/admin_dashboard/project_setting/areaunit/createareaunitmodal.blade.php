@@ -2,9 +2,9 @@
 <div class="modal fade" id="createareaunitmodal" tabindex="-1" role="dialog" aria-labelledby="createareaunitmodal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add areaunit</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-header cardheadercolor" >
+        <h5 class="modal-title" id="exampleModalLabel">Add New Area Unit</h5>
+        <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

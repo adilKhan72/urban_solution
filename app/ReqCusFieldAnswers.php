@@ -10,5 +10,8 @@ class ReqCusFieldAnswers extends Model
     {
         return $this->belongsTo('App\RequirementCustomField', 'requirement_custom_field_id');
     }
-
+    public function project()
+    {
+        return $this->belongsTo('App\Project','project_id');
+    }
 }

@@ -1,5 +1,5 @@
 <div class="card card-default">
-            <div class="card-header">
+            <div class="card-header cardheadercolor">
               <h3 class="card-title">Name Email & Password</h3>
 
               <div class="card-tools">

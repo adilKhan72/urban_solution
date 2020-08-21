@@ -3,9 +3,9 @@
 <div class="modal fade" id="editsubfieldmodal" tabindex="-1" role="dialog" aria-labelledby="editsubfieldmodal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header cardheadercolor">
         <h5 class="modal-title" id="exampleModalLabel">Edit subfield details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -16,18 +16,18 @@
 
 
   <div class="form-group">
-    <label for="exampleInputEmail1"> <span class="label_for_input_editsubfieldform label_success_editsubfieldform" id="filed_name_label_edit"></span> Enter filed_name</label>
+    <label for="exampleInputEmail1"> <span class="label_for_input_editsubfieldform label_success_editsubfieldform" id="filed_name_label_edit"></span> Enter Title</label>
 
-    <input type="text" class="form-control ajax_input_editsubfieldform" name="filed_name" id="filed_name_edit"  placeholder="Enter subfield filed_name">
+    <input type="text" class="form-control ajax_input_editsubfieldform" name="filed_name" id="filed_name_edit"  placeholder="Enter  Title">
 
     <span class="text-danger ajax_errors_editsubfieldform" id="filed_name_error_edit"> </span>
   </div>
 
   <div class="form-group">
-    <label for="exampleInputEmail1"> <span class="label_for_input_editsubfieldform label_success_editsubfieldform" id="field_value_label_edit"></span> Enter Society field_value</label>
+    <label for="exampleInputEmail1"> <span class="label_for_input_editsubfieldform label_success_editsubfieldform" id="field_value_label_edit"></span> Enter  Discription</label>
 
-    <input type="text" class="form-control ajax_input_editsubfieldform" name="field_value" id="field_value_edit"  placeholder="Enter subfield field_value">
-
+    <textarea type="text" class="form-control ajax_input_editsubfieldform" name="field_value" id="field_value_edit"  placeholder=" Enter  Discription">
+</textarea>
     <span class="text-danger ajax_errors_editsubfieldform" id="field_value_error_edit"> </span>
   </div>
 
@@ -64,7 +64,7 @@
           success:function(response){
             if(response.status == true){
               $('#filed_name_edit').val(response.data.filed_name);
-              $('#field_value_edit').val(response.data.field_value);
+              $('#field_value_edit').text(response.data.field_value);
               $('#hiddenidsubfield_edit').val(response.data.id);
             }
           }

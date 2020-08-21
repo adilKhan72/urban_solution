@@ -3,9 +3,9 @@
 <div class="modal fade" id="editareaunitmodal" tabindex="-1" role="dialog" aria-labelledby="editareaunitmodal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header cardheadercolor">
         <h5 class="modal-title" id="exampleModalLabel">Edit areaunit details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
