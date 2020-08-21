@@ -1,5 +1,5 @@
 <div class="card card-default">
-            <div class="card-header">
+            <div class="card-header cardheadercolor">
               <h3 class="card-title">Gender Phone Date-Of-Birth & Blood-Group</h3>
 
               <div class="card-tools">

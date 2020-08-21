@@ -22,7 +22,7 @@ class CreateProjectsTable extends Migration
             $table->string('progress_in_percent', 255)->nullable();
             $table->string('status', 255)->nullable();
             $table->integer('completed_at')->nullable();
-            $table->integer('expected_completion_date')->nullable();
+            $table->date('expected_completion_date')->nullable();
             $table->timestamps();
         });
     }

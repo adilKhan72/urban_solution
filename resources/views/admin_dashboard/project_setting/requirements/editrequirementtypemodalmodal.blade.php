@@ -3,9 +3,9 @@
 <div class="modal fade" id="editrequirementtypemodal" tabindex="-1" role="dialog" aria-labelledby="editrequirementtypemodal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header cardheadercolor">
         <h5 class="modal-title" id="exampleModalLabel">Edit requirementtype details</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -26,8 +26,8 @@
   <div class="form-group">
     <label for="exampleInputEmail1"> <span class="label_for_input_editequirementtypeform label_success_editequirementtypeform" id="discription_label_edit"></span> Enter Society discription</label>
 
-    <input type="text" class="form-control ajax_input_editequirementtypeform" name="discription" id="discription_edit"  placeholder="Enter requirementtype discription">
-
+    <textarea type="text" class="form-control ajax_input_editequirementtypeform" name="discription" id="discription_edit"  placeholder="Enter requirementtype discription">
+</textarea>
     <span class="text-danger ajax_errors_editequirementtypeform" id="discription_error_edit"> </span>
   </div>
 
@@ -62,7 +62,7 @@
           },
           success:function(response){
             if(response.status == true){
-              $('#discription_edit').val(response.data.discription);
+              $('#discription_edit').text(response.data.discription);
               $('#type_edit').val(response.data.type);
               $('#hiddenidrequirementtype').val(response.data.id);
             }

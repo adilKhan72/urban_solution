@@ -16,6 +16,14 @@ Route::group(['middleware'=>'auth'], function () {
     Route::post('city_select', ['as' => 'city_select', 'uses' => 'CityController@CitySelect']);
     Route::post('educational_degree_select', ['as' => 'educational_degree_select', 'uses' => 'EducationalDegreeController@DegreeSelect']);
 
+
+
+    Route::post('unit_for_area_select', ['as' => 'unit_for_area_select', 'uses' => 'UnitForAreaController@UnitSelect']);
+    Route::post('project_zone_select', ['as' => 'project_zone_select', 'uses' => 'ZonesController@ZoneSelect']);
+    Route::post('project_mouza_select', ['as' => 'project_mouza_select', 'uses' => 'MouzasController@MouzaSelect']);
+    Route::post('project_societies_select', ['as' => 'project_societies_select', 'uses' => 'SocietiesController@SocietySelect']);
+    Route::post('project_requirement_select', ['as' => 'project_requirement_select', 'uses' => 'RequirementController@RequirementSelect']);
+
     //Admin Check middleware where if Role = admin so then the routes in this group can be accessed.
     //otherwise redirect to login page.
     Route::group(['middleware'=>'admin'], function () {
@@ -28,7 +36,9 @@ Route::group(['middleware'=>'auth'], function () {
 
                 Route::group(['prefix' => 'projecttab','as'=>'projecttab.'], function () {
                     Route::get('/', ['as' => 'index', 'uses' => 'Admin\Projects\NewProjectController@index']);
+
                     Route::get('newproject', ['as' => 'newproject', 'uses' => 'Admin\Projects\NewProjectController@newProject']);
+                    Route::post('fetchrequirementsperformadetails', ['as' => 'fetchrequirementsperformadetails', 'uses' => 'Admin\Projects\NewProjectController@FetchReqDetailsById']);
                 });
 
                 Route::group(['prefix' => 'tasks','as'=>'tasks.'], function () {

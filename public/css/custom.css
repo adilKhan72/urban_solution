@@ -5,3 +5,8 @@
     border: 1px solid rgba(0,0,0,.125);
     border-top: 6px solid #007bff;
 }
+
+.cardheadercolor{
+    color: white;
+    background-color: #494e54;
+}

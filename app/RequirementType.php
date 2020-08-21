@@ -12,6 +12,6 @@ class RequirementType extends Model
     }
     public function requirementcustomfield()
     {
-        return $this->hasOne('App\RequirementCustomField');
+        return $this->hasMany('App\RequirementCustomField');
     }
 }

@@ -14,8 +14,9 @@ class CreateReqCusFieldAnswersTable extends Migration
     public function up()
     {
         Schema::create('req_cus_field_answers', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('requirement_custom_field_id');
+            $table->increments('id');
+            $table->integer('requirement_custom_field_id')->unsigned();
+            $table->integer('project_id')->unsigned();
             $table->string('answer', 255);
             $table->text('discription')->nullable();
             $table->timestamps();

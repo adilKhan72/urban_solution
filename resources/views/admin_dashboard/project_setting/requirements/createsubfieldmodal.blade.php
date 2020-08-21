@@ -2,9 +2,9 @@
 <div class="modal fade" id="createsubfieldmodal" tabindex="-1" role="dialog" aria-labelledby="createsubfieldmodal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header cardheadercolor">
         <h5 class="modal-title" id="exampleModalLabel">Add subfield</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" style="color:white" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -14,18 +14,18 @@
       <form action="javascript:;" autocomplete="off" enctype=multipart/form-data method="post" class="" id="createsubfieldform" name="createsubfieldform" role="form">
 
       <div class="form-group">
-    <label for="exampleInputEmail1"> <span class="label_for_input_createsubfieldform label_success_createsubfieldform" id="filed_name_label"></span> Enter Field Name</label>
+    <label for="exampleInputEmail1"> <span class="label_for_input_createsubfieldform label_success_createsubfieldform" id="filed_name_label"></span> Enter Title</label>
 
-    <input type="text" class="form-control ajax_input_createsubfieldform" name="filed_name" id="filed_name"  placeholder="Enter subfield Type">
+    <input type="text" class="form-control ajax_input_createsubfieldform" name="filed_name" id="filed_name"  placeholder="Enter  Title">
 
     <span class="text-danger ajax_errors_createsubfieldform" id="filed_name_error"> </span>
   </div>
 
   <div class="form-group">
-    <label for="exampleInputEmail1"> <span class="label_for_input_createsubfieldform label_success_createsubfieldform" id="field_value_label"></span> Enter Field Value</label>
+    <label for="exampleInputEmail1"> <span class="label_for_input_createsubfieldform label_success_createsubfieldform" id="field_value_label"></span> Enter  Discription</label>
 
-    <input type="text" class="form-control ajax_input_createsubfieldform" name="field_value" id="field_value"  placeholder="Enter subfield discription">
-
+    <textarea type="text" class="form-control ajax_input_createsubfieldform" name="field_value" id="field_value"  placeholder="Enter  discription">
+</textarea>
     <span class="text-danger ajax_errors_createsubfieldform" id="field_value_error"> </span>
   </div>
 

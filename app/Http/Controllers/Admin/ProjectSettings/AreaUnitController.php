@@ -57,8 +57,8 @@ class AreaUnitController extends Controller
                     ['area_in_feet' => $request->area_in_feet,'unit_type' => $request->unit_type, 'updated_at' => Carbon::now(),]
                 );
 
-                $arr = array('msg' => 'Skill Updated Successfully', 'status' => true);
-                $request->session()->flash('form_success', 'Skill Updated Successfully');
+                $arr = array('msg' => 'Unit Updated Successfully', 'status' => true);
+                $request->session()->flash('form_success', 'Unit Updated Successfully');
             } catch(\Illuminate\Database\QueryException $ex){ 
                 $arr = array('msg' => $ex->getMessage(), 'status' => false);
             }
@@ -68,8 +68,8 @@ class AreaUnitController extends Controller
     public function fetch(Request $request)
     {
 
-        $skill = DB::table('unit_for_areas')->where('id',$request->areaunit_id)->select('id','unit_type', 'area_in_feet')->first();
-        $arr = array('data' => $skill, 'status' => true);
+        $unit = DB::table('unit_for_areas')->where('id',$request->areaunit_id)->select('id','unit_type', 'area_in_feet')->first();
+        $arr = array('data' => $unit, 'status' => true);
         return Response()->json($arr);
     }
 
@@ -87,8 +87,8 @@ class AreaUnitController extends Controller
                 ['area_in_feet' => $request->area_in_feet,'unit_type' => $request->unit_type, 'created_at' => Carbon::now(),]
             );
 
-            $arr = array('msg' => 'New Skill Added Successfully', 'status' => true);
-            $request->session()->flash('form_success', 'New Skill Added Successfully');
+            $arr = array('msg' => 'New Unit Added Successfully', 'status' => true);
+            $request->session()->flash('form_success', 'New Unit Added Successfully');
         } catch(\Illuminate\Database\QueryException $ex){ 
             $arr = array('msg' => $ex->getMessage(), 'status' => false);
         }
@@ -107,8 +107,8 @@ class AreaUnitController extends Controller
             } catch(\Illuminate\Database\QueryException $ex){ 
                 $arr = array('msg' => $ex->getMessage(), 'status' => false);
             }
-        $request->session()->flash('skill_deleted', 'Skill Deleted Successfully');
-        $arr = array('msg' => 'Skill Deleted Successfully', 'status' => true );
+        $request->session()->flash('Unit_deleted', 'Unit Deleted Successfully');
+        $arr = array('msg' => 'Unit Deleted Successfully', 'status' => true );
         return Response()->json($arr);
     }
 
