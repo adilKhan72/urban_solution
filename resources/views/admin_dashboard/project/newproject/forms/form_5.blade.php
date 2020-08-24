@@ -26,7 +26,7 @@
                 <strong>Information!</strong>  Unit is used for the area you defined above. Please ask the Client about project Unit before entering the project unit. Unit is used for automatic converstion from one unit to another.
                 </div>
 
-               <select name="project_client" class="select2" id="select_project_client" multiple="" data-placeholder="Select a Client" style="width: 100%;">
+               <select name="project_client[]" class="select2" id="select_project_client" multiple="" data-placeholder="Select a Client" style="width: 100%;">
                   </select>
 
                <span class="text-danger ajax_errors" id="project_client_error"> </span>

@@ -44,4 +44,9 @@ class NewProjectController extends Controller
         return Response()->json($arr);
     }
 
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
+
 }

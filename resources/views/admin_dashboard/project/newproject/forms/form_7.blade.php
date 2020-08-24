@@ -26,7 +26,7 @@
                 <strong>Information!</strong>  service is used for the area you defined above. Please ask the service about project service before entering the project service. service is used for automatic converstion from one service to another.
                 </div>
 
-               <select name="project_service" class="select2" id="select_project_service" multiple="" data-placeholder="Select services " style="width: 100%;">
+               <select name="project_service[]" class="select2" id="select_project_service" multiple="" data-placeholder="Select services " style="width: 100%;">
                   </select>
 
                <span class="text-danger ajax_errors" id="project_service_error"> </span>

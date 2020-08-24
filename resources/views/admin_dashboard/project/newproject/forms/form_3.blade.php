@@ -26,7 +26,7 @@
                 <strong>Information!</strong>  Unit is used for the area you defined above. Please ask the Client about project Unit before entering the project unit. Unit is used for automatic converstion from one unit to another.
                 </div>
 
-               <select name="project_zone" class="select2" id="select_project_zone" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
+               <select name="project_zone[]" class="select2" id="select_project_zone" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
                   </select>
 
                <span class="text-danger ajax_errors" id="project_zone_error"> </span>
@@ -44,7 +44,7 @@
                 <strong>Information!</strong>  Unit is used for the area you defined above. Please ask the Client about project Unit before entering the project unit. Unit is used for automatic converstion from one unit to another.
                 </div>
 
-               <select name="project_mouza" class="select2" id="select_project_mouza" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
+               <select name="project_mouza[]" class="select2" id="select_project_mouza" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
                   </select>
 
                <span class="text-danger ajax_errors" id="project_mouza_error"> </span>
@@ -62,7 +62,7 @@
                 <strong>Information!</strong>  Unit is used for the area you defined above. Please ask the Client about project Unit before entering the project unit. Unit is used for automatic converstion from one unit to another.
                 </div>
 
-               <select name="project_societies" class="select2" id="select_project_societies" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
+               <select name="project_societies[]" class="select2" id="select_project_societies" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
                   </select>
 
                <span class="text-danger ajax_errors" id="project_societies_error"> </span>

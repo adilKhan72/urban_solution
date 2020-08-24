@@ -24,9 +24,7 @@ Route::group(['middleware'=>'auth'], function () {
     Route::post('project_societies_select', ['as' => 'project_societies_select', 'uses' => 'SocietiesController@SocietySelect']);
     Route::post('project_client_select', ['as' => 'project_client_select', 'uses' => 'ClientsController@ClientSelect']);
     Route::post('project_type_select', ['as' => 'project_type_select', 'uses' => 'ProjectTypeController@ProjectTypeSelect']);
-
     Route::post('project_service_select', ['as' => 'project_service_select', 'uses' => 'ServicesController@ServiceSelect']);
-
     Route::post('project_requirement_select', ['as' => 'project_requirement_select', 'uses' => 'RequirementController@RequirementSelect']);
 
     //Admin Check middleware where if Role = admin so then the routes in this group can be accessed.
@@ -40,10 +38,15 @@ Route::group(['middleware'=>'auth'], function () {
             
 
                 Route::group(['prefix' => 'projecttab','as'=>'projecttab.'], function () {
+
                     Route::get('/', ['as' => 'index', 'uses' => 'Admin\Projects\NewProjectController@index']);
 
                     Route::get('newproject', ['as' => 'newproject', 'uses' => 'Admin\Projects\NewProjectController@newProject']);
+                    
+                    Route::post('store', ['as' => 'store', 'uses' => 'Admin\Projects\NewProjectController@store']);
+
                     Route::post('fetchrequirementsperformadetails', ['as' => 'fetchrequirementsperformadetails', 'uses' => 'Admin\Projects\NewProjectController@FetchReqDetailsById']);
+
                 });
 
                 Route::group(['prefix' => 'tasks','as'=>'tasks.'], function () {
