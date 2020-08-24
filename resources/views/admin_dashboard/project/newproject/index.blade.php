@@ -5,7 +5,8 @@
     <section class="content">
       <div class="container-fluid">
       
-      <form action="javascript:;" autocomplete="off"  method="post" class="" id="newprojectform_1" name="newprojectform1" role="form">
+      <form action="javascript:;" autocomplete="off"  method="post" class="" id="newprojectform_1" files="true" name="newprojectform_1" enctype="multipart/form-data"  role="form">
+
 
       <div class="row">
      
@@ -60,6 +61,74 @@
 $(document).ready(function(){
 
   bsCustomFileInput.init();
+
+
+
+
+
+
+  $('#newprojectform_1').on('submit',function(event){
+        files = new FormData(this);
+        files.append('form','form_3');
+        $.ajax({
+          url: '{{URL::route("admindashboard.projecttab.store")}}',
+          type:"POST",
+          dataType: "JSON",
+          cache: false,
+          contentType: false,
+          processData: false,
+          data:files,
+          success:function(response){
+              if(response.status == true){
+                const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000
+               });
+              Toast.fire({
+                type: 'success',
+                title: response.msg
+              });
+            $('.label_success_form_3').append('<i style="color:#218838;" class="fas fa-check"></i>');
+            $('#success_form_3').append(response.msg);
+           }else{
+            $('#errors_form_3').append(response.msg);
+           }
+          },
+          error: function(jqXHR, exception){
+            
+            if (jqXHR.status == 422) {
+              $.each(jqXHR.responseJSON.errors, function (key, value)
+              { 
+                var errorid = "#"+key+"_error";
+                var id = "#"+key;
+                var labelid = "#"+key+"_label";
+                $(id).addClass("is-invalid");
+                $(errorid).append(value);
+                $(labelid).append('<i style="color:#dc3545;" class="far fa-times-circle "></i>');
+              });
+            }
+        },
+         });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   $('#createareaunitform').on('submit',function(event){
         $('.ajax_input_createareaunitform').removeClass("is-invalid");

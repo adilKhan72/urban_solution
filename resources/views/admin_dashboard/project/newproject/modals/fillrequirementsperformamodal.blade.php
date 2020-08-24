@@ -53,8 +53,9 @@
 
               $.each(response.data[0].requirementcustomfield, function( index, value ) {
                 console.log(value.filed_name);
-                $('<div class="form-group reqanswercusfieldstodltclass"><label for="inputarea"> <span class="label_for_input" id="req_cus_field_answer_answer_label"></span>'+value.filed_name+' </label><i class="fa fa-info-circle" style="color:#17a2b8"  data-toggle="collapse" data-target="#aaa'+value.id+' " title="Click for more Info"></i><div id="aaa'+value.id+'" class="collapse alert alert-info"><strong>Discription:</strong> '+value.field_value+'</div><textarea name="req_cus_field_answer_answer[]" type="text" id="req_cus_field_answer_answer" data-id="'+value.id+'" class="form-control ajax_input" value="" placeholder="Enter: '+value.filed_name+' Answer" >'+value.filed_name+'</textarea><span class="text-danger ajax_errors" id="req_cus_field_answer_answer_error"> </span></div>').insertAfter("#addformfieldsofrequirementperformaafterheading");
+                $('<div class="form-group reqanswercusfieldstodltclass"><label for="inputarea"> <span class="label_for_input" id="req_cus_field_answer_answer_label"></span>'+value.filed_name+' </label><i class="fa fa-info-circle" style="color:#17a2b8"  data-toggle="collapse" data-target="#aaa'+value.id+' " title="Click for more Info"></i><div id="aaa'+value.id+'" class="collapse alert alert-info"><strong>Discription:</strong> '+value.field_value+'</div><input type="hidden" id="req_cus_field_answer_answer_id" name="req_cus_field_answer_answer_id[]" value="'+value.id+'"><textarea name="req_cus_field_answer_answer[]" type="text" id="req_cus_field_answer_answer" data-id="'+value.id+'" class="form-control ajax_input" value="" placeholder="Enter: '+value.filed_name+' Answer" >'+value.filed_name+'</textarea><span class="text-danger ajax_errors" id="req_cus_field_answer_answer_error"> </span></div>').insertAfter("#addformfieldsofrequirementperformaafterheading");
               });
+
 
               $("#fillrequirementsperformaModalLabeltype").html("<span class='badge badge-light'> Title:  " + response.data[0].type + "</span>");
 
