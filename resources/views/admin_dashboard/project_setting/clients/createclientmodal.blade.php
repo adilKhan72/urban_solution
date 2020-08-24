@@ -22,6 +22,14 @@
   </div>
 
   <div class="form-group">
+    <label for="exampleInputname1"> <span class="label_for_input_createclientform label_success_createclientform" id="name_label"></span> Enter name</label>
+
+    <input type="text" class="form-control ajax_input_createclientform" name="name" id="name"  placeholder="Enter client name">
+
+    <span class="text-danger ajax_errors_createclientform" id="name_error"> </span>
+  </div>
+
+  <div class="form-group">
     <label for="exampleInputEmail1"> <span class="label_for_input_createclientform label_success_createclientform" id="email_label"></span> Enter email</label>
 
     <input type="text" class="form-control ajax_input_createclientform" name="email" id="email"  placeholder="Enter client email">

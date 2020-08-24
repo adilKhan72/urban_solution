@@ -14,6 +14,7 @@
             <table id="clienttable" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                <th>name</th>
                      <th>phone</th>
                      <th>email</th>
                      <th>designation</th>
@@ -48,6 +49,7 @@
       serverSide: true,
       ajax: '{{URL::route("admindashboard.projectsetting.clients.index")}}',
                columns: [
+                         { data: 'name', name: 'name' },
                         { data: 'phone', name: 'phone' },
                         { data: 'email', name: 'email' },
                         { data: 'designation', name: 'designation' },
