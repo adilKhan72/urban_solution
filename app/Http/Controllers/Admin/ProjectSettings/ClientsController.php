@@ -28,7 +28,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients_contact_users =  DB::table('clients_contact_users')->select('id','phone', 'email','designation','secondary_phone', 'address')->get();
+        $clients_contact_users =  DB::table('clients_contact_users')->select('id','phone','name','email','designation','secondary_phone', 'address')->get();
 
         return Datatables::of($clients_contact_users)
 
@@ -51,13 +51,14 @@ class ClientsController extends Controller
         $validatedData = $request->validate([
             'phone' => 'bail|required',
             'email' => 'bail|required',
+            'name' => 'bail|required',
             'designation' => 'bail|required',
             'secondary_phone' => 'bail|required',
             'address' => 'bail|required',
             ]);
             try {
                 DB::table('clients_contact_users')->where('id', $request->custId)->update(
-                    ['phone' => $request->phone,'email' => $request->email,'designation' => $request->designation,'secondary_phone' => $request->secondary_phone, 'address' => $request->address,  'updated_at' => Carbon::now(),]
+                    ['phone' => $request->phone,'email' => $request->email,'name' => $request->name,'designation' => $request->designation,'secondary_phone' => $request->secondary_phone, 'address' => $request->address,  'updated_at' => Carbon::now(),]
                 );
 
                 $arr = array('msg' => 'Skill Updated Successfully', 'status' => true);
@@ -71,7 +72,7 @@ class ClientsController extends Controller
     public function fetch(Request $request)
     {
 
-        $skill = DB::table('clients_contact_users')->where('id',$request->client_id)->select('id','phone', 'email','designation','secondary_phone', 'address')->first();
+        $skill = DB::table('clients_contact_users')->where('id',$request->client_id)->select('id','phone','name', 'email','designation','secondary_phone', 'address')->first();
         $arr = array('data' => $skill, 'status' => true);
         return Response()->json($arr);
     }
@@ -82,6 +83,7 @@ class ClientsController extends Controller
         $validatedData = $request->validate([
             'phone' => 'bail|required',
             'email' => 'bail|required',
+            'name' => 'bail|required',
             'designation' => 'bail|required',
             'secondary_phone' => 'bail|required',
             'address' => 'bail|required',
@@ -90,7 +92,7 @@ class ClientsController extends Controller
         try {
 
             DB::table('clients_contact_users')->insert(
-                ['phone' => $request->phone,'email' => $request->email,'designation' => $request->designation,'secondary_phone' => $request->secondary_phone, 'address' => $request->address,  'created_at' => Carbon::now(),]
+                ['phone' => $request->phone,'email' => $request->email,'name' => $request->name,'designation' => $request->designation,'secondary_phone' => $request->secondary_phone, 'address' => $request->address,  'created_at' => Carbon::now(),]
             );
 
             $arr = array('msg' => 'New Skill Added Successfully', 'status' => true);

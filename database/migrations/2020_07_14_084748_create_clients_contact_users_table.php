@@ -16,6 +16,7 @@ class CreateClientsContactUsersTable extends Migration
         Schema::create('clients_contact_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('phone', 255)->nullable();
+            $table->string('name', 255)->nullable();
             $table->string('email', 255)->nullable();
             $table->string('designation', 255)->nullable();
             $table->string('secondary_phone', 255)->nullable();

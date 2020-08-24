@@ -23,6 +23,15 @@
   </div>
 
   <div class="form-group">
+    <label for="exampleInputname1"> <span class="label_for_input_editclientform label_success_editclientform" id="name_label_edit"></span> Enter client name</label>
+
+    <input type="text" class="form-control ajax_input_edit_editclientform" name="name" id="name_edit"  placeholder="Enter client name">
+
+    <span class="text-danger ajax_errors_edit_editclientform" id="name_error_edit"> </span>
+  </div>
+
+
+  <div class="form-group">
     <label for="exampleInputEmail1"> <span class="label_for_input_editclientform label_success_editclientform" id="email_label_edit"></span> Enter client email</label>
 
     <input type="text" class="form-control ajax_input_edit_editclientform" name="email" id="email_edit"  placeholder="Enter client email">
@@ -87,6 +96,7 @@
               console.log(response.data);
                 $('#phone_edit').val(response.data.phone);
                 $('#email_edit').val(response.data.email);
+                $('#name_edit').val(response.data.name);
                 $('#secondary_phone_edit').val(response.data.secondary_phone);
                 $('#designation_edit').val(response.data.designation);
                 $('#address_edit').val(response.data.address);

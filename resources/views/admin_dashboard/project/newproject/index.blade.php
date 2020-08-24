@@ -10,16 +10,32 @@
       <div class="row">
      
      <div class="col-md-6">
-      
+  
+
       @include('admin_dashboard.project.newproject.forms.form_1')
       @include('admin_dashboard.project.newproject.forms.form_3')
+      @include('admin_dashboard.project.newproject.forms.form_8')
+
+      
      </div>
      <div class="col-md-6">
+     @include('admin_dashboard.project.newproject.forms.form_5')
+     @include('admin_dashboard.project.newproject.forms.form_6')
+     @include('admin_dashboard.project.newproject.forms.form_7')
      @include('admin_dashboard.project.newproject.forms.form_4')
      @include('admin_dashboard.project.newproject.forms.form_2')
+     
+     
      </div>
      
      </div>
+
+     <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Create Project</button>
+      <span class="text-danger ajax_errors" id="error_createuserform"> </span>
+        <span class="text-success ajax_errors" id="success_createuserform"> </span>
+      </div>
+
      </form>
       </div>
     </section>
@@ -29,6 +45,8 @@
 @include('admin_dashboard.project_setting.societies.createsocietiemodal')
 @include('admin_dashboard.project_setting.mouzas.createmouzamodal')
 @include('admin_dashboard.project_setting.zones.createzonemodal')
+@include('admin_dashboard.project_setting.clients.createclientmodal')
+@include('admin_dashboard.project_setting.scope_services.scopes.createservicemodal')
 
 @endsection
   
@@ -99,6 +117,127 @@ $(document).ready(function(){
         }
          });
     });
+
+
+    $('#createserviceform').on('submit',function(event){
+        $('.ajax_input_createserviceform').removeClass("is-invalid");
+        $('.ajax_errors_createserviceform').empty(); 
+        $('.label_for_input_createserviceform').empty();
+        files = new FormData(this);
+        //files.append('form','createserviceform');
+        
+        $.ajax({
+          url: '{{URL::route("admindashboard.projectsetting.scopeandservice.storeservice")}}',
+          type:"POST",
+          dataType: "JSON",
+          cache: false,
+          contentType: false,
+          processData: false,
+          data:files,
+          success:function(response){
+              if(response.status == true){
+
+                const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000
+               });
+              Toast.fire({
+                type: 'success',
+                title: response.msg
+              });
+
+            $('.label_success_createserviceform').append('<i style="color:#218838;" class="fas fa-check"></i>');
+            $('#success_createserviceform').append(response.msg);
+
+            setTimeout(
+                function() 
+                {
+                 
+                  $("#createserviceform")[0].reset();
+                  $('#createservicemodal').modal('hide');
+                }, 1000);
+           }else{
+            $('#error_createserviceform').append(response.msg);
+           }
+          },
+          error: function(jqXHR, exception){
+            
+            if (jqXHR.status == 422) {
+              $.each(jqXHR.responseJSON.errors, function (key, value)
+              { 
+                var errorid = "#"+key+"_error";
+                var id = "#"+key;
+                var labelid = "#"+key+"_label";
+                $(id).addClass("is-invalid");
+                $(errorid).append(value);
+                $(labelid).append('<i style="color:#dc3545;" class="far fa-times-circle "></i>');
+              });
+            }
+        }
+         });
+    });
+
+
+    $('#createclientform').on('submit',function(event){
+        $('.ajax_input_createclientform').removeClass("is-invalid");
+        $('.ajax_errors_createclientform').empty(); 
+        $('.label_for_input_createclientform').empty();
+        files = new FormData(this);
+        //files.append('form','createclientform');
+        
+        $.ajax({
+          url: '{{URL::route("admindashboard.projectsetting.clients.store")}}',
+          type:"POST",
+          dataType: "JSON",
+          cache: false,
+          contentType: false,
+          processData: false,
+          data:files,
+          success:function(response){
+              if(response.status == true){
+
+                const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 5000
+               });
+              Toast.fire({
+                type: 'success',
+                title: response.msg
+              });
+
+            $('.label_success_createclientform').append('<i style="color:#218838;" class="fas fa-check"></i>');
+            $('#success_createclientform').append(response.msg);
+
+            setTimeout(
+                function() 
+                {
+                  $('#createclientmodal').modal('hide');
+                }, 1000);
+           }else{
+            $('#error_createclientform').append(response.msg);
+           }
+          },
+          error: function(jqXHR, exception){
+            
+            if (jqXHR.status == 422) {
+              $.each(jqXHR.responseJSON.errors, function (key, value)
+              { 
+                var errorid = "#"+key+"_error";
+                var id = "#"+key;
+                var labelid = "#"+key+"_label";
+                $(id).addClass("is-invalid");
+                $(errorid).append(value);
+                $(labelid).append('<i style="color:#dc3545;" class="far fa-times-circle "></i>');
+              });
+            }
+        }
+         });
+    });
+
 
 
     $('#createsocietieform').on('submit',function(event){
@@ -346,6 +485,72 @@ $(document).ready(function(){
     $('#select_project_societies').select2({
       ajax: {
         url: '{{URL::route("project_societies_select")}}',
+        type: "post",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+           return {
+            "_token": "{{ csrf_token() }}",
+              searchTerm: params.term // search term
+           };
+        },
+        processResults: function (response) {
+           return {
+              results: response
+           };
+        },
+        cache: true
+      }
+    });
+
+
+
+
+    $('#select_project_client').select2({
+      ajax: {
+        url: '{{URL::route("project_client_select")}}',
+        type: "post",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+           return {
+            "_token": "{{ csrf_token() }}",
+              searchTerm: params.term // search term
+           };
+        },
+        processResults: function (response) {
+           return {
+              results: response
+           };
+        },
+        cache: true
+      }
+    });
+
+    $('#select_project_service').select2({
+      ajax: {
+        url: '{{URL::route("project_service_select")}}',
+        type: "post",
+        dataType: 'json',
+        delay: 250,
+        data: function (params) {
+           return {
+            "_token": "{{ csrf_token() }}",
+              searchTerm: params.term // search term
+           };
+        },
+        processResults: function (response) {
+           return {
+              results: response
+           };
+        },
+        cache: true
+      }
+    });
+
+    $('#select_project_type').select2({
+      ajax: {
+        url: '{{URL::route("project_type_select")}}',
         type: "post",
         dataType: 'json',
         delay: 250,
