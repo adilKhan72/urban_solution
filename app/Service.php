@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    public function projectscopeofprojectsubtypeservice()
+    public function projectscope()
     {
-        return $this->hasMany('App\ProjectScopeOfProjectSubtypeService');
+        return $this->hasMany('App\ProjectScope');
     }
     public function servicetask()
     {

@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProjectScopeOfProjectSubtypeService extends Model
+class ProjectScope extends Model
 {
-    public function scopeofprojectsubtype()
+    public function project()
     {
-        return $this->belongsTo('App\ScopeOfProjectSubtype');
+        return $this->belongsTo('App\Project');
     }
+    
     public function service()
     {
         return $this->belongsTo('App\Service');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectScopeOfProjectSubtypeServicesTable extends Migration
+class CreateProjectServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateProjectScopeOfProjectSubtypeServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_scope_of_project_subtype_services', function (Blueprint $table) {
+        Schema::create('project_services', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('service_id');
-            $table->unsignedInteger('scope_of_project_subtypes');
+            $table->unsignedInteger('project_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateProjectScopeOfProjectSubtypeServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_scope_of_project_subtype_services');
+        Schema::dropIfExists('project_services');
     }
 }
