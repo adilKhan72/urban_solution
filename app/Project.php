@@ -47,4 +47,10 @@ class Project extends Model
     {
         return $this->hasMany('App\ProjectScopeOfProjectSubtypesTable');
     }
+
+    public function projectscope()
+    {
+        return $this->hasMany('App\ProjectScope');
+    }
+
 }

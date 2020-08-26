@@ -68,6 +68,9 @@ $(document).ready(function(){
 
 
   $('#newprojectform_1').on('submit',function(event){
+    $('.ajax_input').removeClass("is-invalid");
+        $('.ajax_errors').empty(); 
+        $('.label_for_input').empty();
         files = new FormData(this);
         files.append('form','form_3');
         $.ajax({
@@ -92,6 +95,13 @@ $(document).ready(function(){
               });
             $('.label_success_form_3').append('<i style="color:#218838;" class="fas fa-check"></i>');
             $('#success_form_3').append(response.msg);
+
+            setTimeout(
+                function() 
+                {
+                location.reload(); 
+                }, 1000);
+
            }else{
             $('#errors_form_3').append(response.msg);
            }
