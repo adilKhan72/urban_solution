@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use DataTables;
 use App\RequirementType;
 use App\Project;
+use Illuminate\Support\Facades\URL;
 
 class NewProjectController extends Controller
 {
@@ -36,6 +37,68 @@ class NewProjectController extends Controller
     {
         Return view('admin_dashboard.project.newproject.index');
     }
+
+    public function edit()
+    {
+        Return view('admin_dashboard.project.newproject.index');
+    }
+
+    public function getdatatable()
+    {
+        $projects = Project::with('projectrequirementtype','projectunitforarea.unitforarea','user','reqcusfieldanswers.requirementcustomfield.requirementtype','projectservice','projectscopeofprojectsubtype.scopeofprojectsubtype')->get();
+
+        //dd($projects);
+        return Datatables::of($projects)
+        ->addColumn('basic', function ($projects) {
+            $html = ' <div class="list-group">
+            
+            <li  class="list-group-item cardheadercolor" >Name <span class="badge float-right" style="font-size: 100%;">'.$projects->name.'</span></li>
+            <li  class="list-group-item">Status<span class="badge float-right" style="font-size: 100%;">'.$projects->status.'</span></li>
+            <li  class="list-group-item">Progress<span class="badge float-right" style="font-size: 100%;">'.$projects->progress_in_percent.'%</span></li>
+            <li  class="list-group-item">Area<span class="badge float-right" style="font-size: 100%;">'.$projects->area.'</span></li>
+            <li  class="list-group-item">Unit<span class="badge float-right" style="font-size: 100%;">'.$projects->projectunitforarea->unitforarea->unit_type.'</span></li>
+          </div> ';
+            return $html;
+        })
+        ->addColumn('details', function ($projects) {
+            $html = ' <div class="list-group">
+            <li  class="list-group-item cardheadercolor">Number <span class="badge float-right" style="font-size: 100%;">'.$projects->project_number.'</span></li>
+            <li  class="list-group-item">Created By<span class="badge float-right" style="font-size: 100%;">'.$projects->user->first_name.'</span></li>
+            <li  class="list-group-item">Completion date<span class="badge float-right" style="font-size: 100%;">'.$projects->expected_completion_date.'</span></li>
+            <li  class="list-group-item">Project Type<span class="badge float-right" style="font-size: 100%;">'.$projects->projectscopeofprojectsubtype->scopeofprojectsubtype->name.'</span></li>
+            <li  class="list-group-item">Req Performa<span class="badge float-right" style="font-size: 100%;">'.$projects->reqcusfieldanswers->requirementcustomfield->requirementtype->type.'</span></li>
+
+          </div> ';
+            return $html;
+        })
+        ->addColumn('action', function ($projects) {
+
+            $html = '<a class="fa fa-edit" href="'.URL::route("admindashboard.projecttab.edit").'" style="color:#0069d9; font-size: 30px; padding:5px" title="Edit This project"></a>';
+
+            $html .= ' <i class="fa fa-trash " data-toggle="modal" data-target="#deleteprojectmodal" style="color:#c82333; padding:5px; font-size: 30px; "id="'.$projects->id.'" title="Delete This project" data-id="'.$projects->id.'"></i>';
+
+            return $html;  
+
+        })
+        ->rawColumns(['action','basic','details'])
+        ->make(true);
+    }
+
+
+    public function delete(Request $request)
+    {
+       // dd($request->all());
+       
+       try { 
+                DB::table('projects')->delete($request->id);
+            } catch(\Illuminate\Database\QueryException $ex){ 
+                $arr = array('msg' => $ex->getMessage(), 'status' => false);
+            }
+        $request->session()->flash('skill_deleted', 'checklist Deleted Successfully');
+        $arr = array('msg' => 'checklist Deleted Successfully', 'status' => true );
+        return Response()->json($arr);
+    }
+
 
     public function FetchReqDetailsById(Request $request)
     {

@@ -37,20 +37,31 @@ class Project extends Model
     }
     public function projectrequirementtype()
     {
-        return $this->hasMany('App\ProjectRequirementType');
+        return $this->hasOne('App\ProjectRequirementType');
     }
+
+    public function reqcusfieldanswers()
+    {
+        return $this->hasOne('App\ReqCusFieldAnswers');
+    }
+
     public function projectzone()
     {
         return $this->hasMany('App\ProjectZone');
     }
-    public function projectscopeofprojectsubtypestable()
+    public function projectscopeofprojectsubtype()
     {
-        return $this->hasMany('App\ProjectScopeOfProjectSubtypesTable');
+        return $this->hasOne('App\ProjectScopeOfProjectSubtype');
     }
 
     public function projectscope()
     {
         return $this->hasMany('App\ProjectScope');
+    }
+
+    public function projectservice()
+    {
+        return $this->hasMany('App\ProjectService');
     }
 
 }
