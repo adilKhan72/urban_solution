@@ -59,14 +59,11 @@ Breadcrumbs::for('users', function ($trail) {
             $trail->parent('admindashboard');
             $trail->push('listscopeandservices', route('admindashboard.projectsetting.scopeandservice.listscopeandservices'));
         });
+
         Breadcrumbs::for('services', function ($trail) {
             $trail->parent('admindashboard');
             $trail->push('services', route('admindashboard.projectsetting.scopeandservice.services'));
         });
-
-
-
-
 
 
         Breadcrumbs::for('projecttab', function ($trail) {
@@ -77,6 +74,11 @@ Breadcrumbs::for('users', function ($trail) {
         Breadcrumbs::for('newproject', function ($trail) {
             $trail->parent('admindashboard');
             $trail->push('newproject', route('admindashboard.projecttab.newproject'));
+        });
+
+        Breadcrumbs::for('edit', function ($trail) {
+            $trail->parent('admindashboard');
+            $trail->push('edit', route('admindashboard.projecttab.edit'));
         });
 
         Breadcrumbs::for('tasks', function ($trail) {

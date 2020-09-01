@@ -41,8 +41,12 @@ Route::group(['middleware'=>'auth'], function () {
 
                     Route::get('/', ['as' => 'index', 'uses' => 'Admin\Projects\NewProjectController@index']);
 
+                    Route::get('getdatatable', ['as' => 'getdatatable', 'uses' => 'Admin\Projects\NewProjectController@getdatatable']);
+                    Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Projects\NewProjectController@delete']);
+
                     Route::get('newproject', ['as' => 'newproject', 'uses' => 'Admin\Projects\NewProjectController@newProject']);
-                    
+                    Route::get('edit', ['as' => 'edit', 'uses' => 'Admin\Projects\NewProjectController@edit']);
+
                     Route::post('store', ['as' => 'store', 'uses' => 'Admin\Projects\NewProjectController@store']);
 
                     Route::post('fetchrequirementsperformadetails', ['as' => 'fetchrequirementsperformadetails', 'uses' => 'Admin\Projects\NewProjectController@FetchReqDetailsById']);

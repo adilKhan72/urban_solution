@@ -8,7 +8,7 @@ class ProjectScopeOfProjectSubtype extends Model
 {
     public function scopeofprojectsubtype()
     {
-        return $this->belongsTo('App\ScopeOfProjectSubtype');
+        return $this->belongsTo('App\ScopeOfProjectSubtype','scope_of_project_subtype_id');
     }
     public function project()
     {

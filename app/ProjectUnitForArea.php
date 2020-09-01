@@ -12,6 +12,6 @@ class ProjectUnitForArea extends Model
     }
     public function unitforarea()
     {
-        return $this->belongsTo('App\UnitForArea');
+        return $this->belongsTo('App\UnitForArea','unit_for_area_id');
     }
 }
