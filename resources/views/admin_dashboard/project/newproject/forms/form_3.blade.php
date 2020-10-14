@@ -27,6 +27,22 @@
                 </div>
 
                <select name="project_zone[]" class="select2" id="select_project_zone" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
+                  
+               <?php 
+               
+               if(isset($project) && !empty($project->projectzone)){ 
+              
+              
+                foreach ($project->projectzone as $zone) {
+                  ?>
+                  <option value="{{ $zone->zone->id }}" selected="selected">{{ $zone->zone->name }}</option>
+                  <?php
+
+                }
+              
+              }
+              ?>  
+                  
                   </select>
 
                <span class="text-danger ajax_errors" id="project_zone_error"> </span>
@@ -45,6 +61,24 @@
                 </div>
 
                <select name="project_mouza[]" class="select2" id="select_project_mouza" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
+
+
+               <?php 
+               
+               if(isset($project) && !empty($project->projectmouza)){ 
+              
+              
+                foreach ($project->projectmouza as $mouza) {
+                  ?>
+                  <option value="{{ $mouza->mouza->id }}" selected="selected">{{ $mouza->mouza->name }}</option>
+                  <?php
+
+                }
+              
+              }
+              ?> 
+
+
                   </select>
 
                <span class="text-danger ajax_errors" id="project_mouza_error"> </span>
@@ -63,6 +97,22 @@
                 </div>
 
                <select name="project_societies[]" class="select2" id="select_project_societies" multiple="" data-placeholder="Select Unit for Area Above" style="width: 100%;">
+                  
+               <?php 
+               
+               if(isset($project) && !empty($project->projectsociety)){ 
+              
+              
+                foreach ($project->projectsociety as $society) {
+                  ?>
+                  <option value="{{ $society->society->id }}" selected="selected">{{ $society->society->name }}</option>
+                  <?php
+
+                }
+              
+              }
+              ?> 
+                  
                   </select>
 
                <span class="text-danger ajax_errors" id="project_societies_error"> </span>

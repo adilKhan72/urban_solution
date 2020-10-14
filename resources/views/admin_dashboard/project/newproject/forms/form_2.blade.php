@@ -20,7 +20,14 @@
                  You can leave the project home and inset it later on.
                 </div>
 
-               <input name="project_home" type="text" id="project_home" class="form-control ajax_input" value="" placeholder="Enter project_home" >
+               <input name="project_home" type="text" id="project_home" class="form-control ajax_input" 
+               
+               <?php if(isset($project) &&  !empty($project->projectstreetaddress)){ echo "value=".$project->projectstreetaddress->home;} ?>
+
+              placeholder="Enter project_home" >
+
+
+
 
                <span class="text-danger ajax_errors" id="project_home_error"> </span>
               </div>
@@ -36,7 +43,11 @@
                  You can leave the project plot and inset it later on.
                 </div>
 
-               <input name="project_plot" type="text" id="project_plot" class="form-control ajax_input" value="" placeholder="Enter project_plot" >
+               <input name="project_plot" type="text" id="project_plot" class="form-control ajax_input" 
+               
+               <?php if(isset($project) && !empty($project->projectstreetaddress)){ echo "value=".$project->projectstreetaddress->plot;} ?>
+
+              placeholder="Enter project_plot" >
 
                <span class="text-danger ajax_errors" id="project_plot_error"> </span>
               </div>
@@ -53,7 +64,11 @@
                  You can leave the project street and inset it later on.
                 </div>
 
-               <input name="project_street" type="text" id="project_street" class="form-control ajax_input" value="" placeholder="Enter project_street" >
+               <input name="project_street" type="text" id="project_street" class="form-control ajax_input" 
+               
+               <?php if(isset($project) && !empty($project->projectstreetaddress)){ echo "value=".$project->projectstreetaddress->street;} ?>
+               
+                placeholder="Enter project_street" >
 
                <span class="text-danger ajax_errors" id="project_street_error"> </span>
               </div>
@@ -69,7 +84,11 @@
                 You can leave the project phase and inset it later on.
                 </div>
 
-               <input name="project_phase" type="text" id="project_phase" class="form-control ajax_input" value="" placeholder="Enter project_phase" >
+               <input name="project_phase" type="text" id="project_phase" class="form-control ajax_input" 
+               
+               <?php if(isset($project) && !empty($project->projectstreetaddress)){ echo "value=".$project->projectstreetaddress->phase;} ?> 
+              
+              placeholder="Enter project_phase" >
 
                <span class="text-danger ajax_errors" id="project_phase_error"> </span>
               </div>
@@ -85,7 +104,11 @@
                 You can leave the project sector and inset it later on.
                 </div>
 
-               <input name="project_sector" type="text" id="project_sector" class="form-control ajax_input" value="" placeholder="Enter project_sector" >
+               <input name="project_sector" type="text" id="project_sector" class="form-control ajax_input" 
+               
+               <?php if(isset($project) && !empty($project->projectstreetaddress)){ echo "value=".$project->projectstreetaddress->sector;} ?>
+
+                placeholder="Enter project_sector" >
 
                <span class="text-danger ajax_errors" id="project_sector_error"> </span>
               </div>
@@ -100,7 +123,11 @@
                  You can leave the project society and inset it later on.
                 </div>
 
-               <input name="project_society" type="text" id="project_society" class="form-control ajax_input" value="" placeholder="Enter project_society" >
+               <input name="project_society" type="text" id="project_society" class="form-control ajax_input" 
+               
+               <?php if(isset($project) && !empty($project->projectstreetaddress)){ echo "value=".$project->projectstreetaddress->society;} ?>
+
+                placeholder="Enter project_society" >
 
                <span class="text-danger ajax_errors" id="project_society_error"> </span>
               </div>
@@ -117,7 +144,11 @@
                 You can leave the project city and inset it later on.
                 </div>
 
-               <input name="project_city" type="text" id="project_city" class="form-control ajax_input" value="" placeholder="Enter project_city" >
+               <input name="project_city" type="text" id="project_city" class="form-control ajax_input" 
+               
+               <?php if(isset($project) && !empty($project->projectstreetaddress)){ echo "value=".$project->projectstreetaddress->city;} ?>
+
+                placeholder="Enter project_city" >
 
                <span class="text-danger ajax_errors" id="project_city_error"> </span>
               </div>

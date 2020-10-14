@@ -76,10 +76,16 @@ Breadcrumbs::for('users', function ($trail) {
             $trail->push('newproject', route('admindashboard.projecttab.newproject'));
         });
 
-        Breadcrumbs::for('edit', function ($trail) {
-            $trail->parent('admindashboard');
-            $trail->push('edit', route('admindashboard.projecttab.edit'));
-        });
+
+
+        if(is_numeric(request()->segment(count(request()->segments())))){
+            $id = request()->segment(count(request()->segments()));
+            Breadcrumbs::for($id, function ($trail) {
+                $trail->parent('admindashboard');
+                $trail->push('edit', route('admindashboard.projecttab.edit',['id' => 'id']));
+            });
+        }
+
 
         Breadcrumbs::for('tasks', function ($trail) {
             $trail->parent('admindashboard');

@@ -38,10 +38,7 @@ class NewProjectController extends Controller
         Return view('admin_dashboard.project.newproject.index');
     }
 
-    public function edit()
-    {
-        Return view('admin_dashboard.project.newproject.index');
-    }
+
 
     public function getdatatable()
     {
@@ -66,14 +63,15 @@ class NewProjectController extends Controller
             <li  class="list-group-item">Created By<span class="badge float-right" style="font-size: 100%;">'.$projects->user->first_name.'</span></li>
             <li  class="list-group-item">Completion date<span class="badge float-right" style="font-size: 100%;">'.$projects->expected_completion_date.'</span></li>
             <li  class="list-group-item">Project Type<span class="badge float-right" style="font-size: 100%;">'.$projects->projectscopeofprojectsubtype->scopeofprojectsubtype->name.'</span></li>
-            <li  class="list-group-item">Req Performa<span class="badge float-right" style="font-size: 100%;">'.$projects->reqcusfieldanswers->requirementcustomfield->requirementtype->type.'</span></li>
+            
+            <li  class="list-group-item">Req Performa<span class="badge float-right" style="font-size: 100%;">'.$projects->reqcusfieldanswers[0]->requirementcustomfield->requirementtype->type.'</span></li>
 
           </div> ';
             return $html;
         })
         ->addColumn('action', function ($projects) {
 
-            $html = '<a class="fa fa-edit" href="'.URL::route("admindashboard.projecttab.edit").'" style="color:#0069d9; font-size: 30px; padding:5px" title="Edit This project"></a>';
+            $html = '<a class="fa fa-edit" href="'.URL::route("admindashboard.projecttab.edit",['id' => $projects->id]).'" style="color:#0069d9; font-size: 30px; padding:5px" title="Edit This project"></a>';
 
             $html .= ' <i class="fa fa-trash " data-toggle="modal" data-target="#deleteprojectmodal" style="color:#c82333; padding:5px; font-size: 30px; "id="'.$projects->id.'" title="Delete This project" data-id="'.$projects->id.'"></i>';
 

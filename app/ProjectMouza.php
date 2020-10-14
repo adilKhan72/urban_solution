@@ -12,6 +12,6 @@ class ProjectMouza extends Model
     }
     public function mouza()
     {
-        return $this->belongsTo('App\mouza');
+        return $this->belongsTo('App\Mouza');
     }
 }

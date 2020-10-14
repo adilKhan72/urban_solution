@@ -42,12 +42,17 @@ class Project extends Model
 
     public function reqcusfieldanswers()
     {
-        return $this->hasOne('App\ReqCusFieldAnswers');
+        return $this->hasMany('App\ReqCusFieldAnswers');
     }
 
     public function projectzone()
     {
         return $this->hasMany('App\ProjectZone');
+    }
+
+    public function projectsociety()
+    {
+        return $this->hasMany('App\ProjectSociety');
     }
     public function projectscopeofprojectsubtype()
     {
