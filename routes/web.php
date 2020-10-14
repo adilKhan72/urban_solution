@@ -45,12 +45,14 @@ Route::group(['middleware'=>'auth'], function () {
                     Route::post('delete', ['as' => 'delete', 'uses' => 'Admin\Projects\NewProjectController@delete']);
 
                     Route::get('newproject', ['as' => 'newproject', 'uses' => 'Admin\Projects\NewProjectController@newProject']);
-                    Route::get('edit', ['as' => 'edit', 'uses' => 'Admin\Projects\NewProjectController@edit']);
+                    
 
                     Route::post('store', ['as' => 'store', 'uses' => 'Admin\Projects\NewProjectController@store']);
 
                     Route::post('fetchrequirementsperformadetails', ['as' => 'fetchrequirementsperformadetails', 'uses' => 'Admin\Projects\NewProjectController@FetchReqDetailsById']);
 
+                    Route::get('edit/{id?}', ['as' => 'edit', 'uses' => 'Admin\Projects\EditProjectController@index']);
+                    Route::post('editstore', ['as' => 'editstore', 'uses' => 'Admin\Projects\EditProjectController@store']);
                 });
 
                 Route::group(['prefix' => 'tasks','as'=>'tasks.'], function () {

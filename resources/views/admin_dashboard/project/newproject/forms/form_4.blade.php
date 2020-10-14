@@ -29,7 +29,31 @@
                 </div>
 
                <select name="project_requirement" class="select2" id="select_project_requirement" data-placeholder="Select requirement Performa" style="width: 100%;">
-                  </select>
+                
+               <option 
+               
+               <?php if(isset($project) && !empty($project->reqcusfieldanswers)){ 
+                 
+                 echo "value=".$project->reqcusfieldanswers[0]->requirementcustomfield->requirementtype->id; 
+
+                 }
+                 ?>
+
+               selected="selected">
+               
+               <?php
+
+                if(isset($project) && !empty($project->reqcusfieldanswers)){ 
+                  
+                  echo $project->reqcusfieldanswers[0]->requirementcustomfield->requirementtype->type;  
+                  
+                  }
+                  
+                  ?>
+               
+               </option>
+                
+              </select>
 
                <span class="text-danger ajax_errors" id="project_requirement_error"> </span>
               </div>

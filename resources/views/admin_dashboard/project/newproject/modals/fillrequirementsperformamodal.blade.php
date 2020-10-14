@@ -61,7 +61,7 @@
 
               $("#fillrequirementsperformaModalLabeldiscription").html(" <span > <b> Discription:</b> " + response.data[0].discription + "</span>");
 
-             //console.log(response.data[0].discription + " || " +response.data[0].type);
+                //console.log(response.data[0].discription + " || " +response.data[0].type);
                 // $('#area_in_feet_edit').val(response.data.area_in_feet);
                 // $('#unit_type_edit').val(response.data.unit_type);
                 // $('#hiddenidareaunit').val(response.data.id);

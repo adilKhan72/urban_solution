@@ -25,12 +25,40 @@
                 </div>
 
 
+                <?php 
+                
+                if(isset($project) && !empty($project->projectpreviousdesign)){
+
+                  $arr = [];
+                  foreach ($project->projectpreviousdesign as $key) {
+
+                    $substr = substr($key->design_document,7);
+
+                    $arrexploded = explode("/",$substr);
+                    $arrexploded2 = explode(".",$arrexploded[3]);
+                    $arr[$arrexploded2[0]] = "storage/".$substr;
+
+                  };
+                } 
+                ?>
+
+
+                <?php 
+                if(isset($arr['project_design_1']) && isset($project) && !empty($project->projectpreviousdesign)){
+                ?>
+                <a href="{{url($arr['project_design_1'])}}" target="_blank" >project_design_1</a>
+                <?php
+                } 
+                ?>
+
+
                 <div class="custom-file">
                       <input name="project_design_1" type="file" class="custom-file-input" id="project_design_1">
                       <label class="custom-file-label project_design_1_clear" for="exampleInputFile">Choose New project_design_1</label>
                       </div>
 
-               
+
+
 
                <span class="text-danger ajax_errors" id="project_project_design_1_error"> </span>
               </div>
@@ -47,6 +75,18 @@
                 <div id="project_project_design_2_info" class="collapse alert alert-info">
                 <strong>Information!</strong>  project_design_2 is used for the area you defined above. Please ask the project_design_2 about project project_design_2 before entering the project project_design_2. project_design_2 is used for automatic converstion from one project_design_2 to another.
                 </div>
+
+
+
+                <?php 
+                if(isset($arr['project_design_2']) && isset($project) && !empty($project->projectpreviousdesign)){
+                ?>
+                <a href="{{url($arr['project_design_2'])}}" target="_blank" >project_design_2</a>
+                <?php
+                } 
+                ?>
+
+
 
 
                 <div class="custom-file">
@@ -74,6 +114,18 @@
                 </div>
 
 
+
+                <?php 
+                if(isset($arr['nic_scan']) && isset($project) && !empty($project->projectpreviousdesign)){
+                ?>
+                <a href="{{url($arr['nic_scan'])}}" target="_blank">nic_scan</a>
+                <?php
+                } 
+                ?>
+
+
+
+
                 <div class="custom-file">
                       <input name="nic_scan" type="file" class="custom-file-input" id="nic_scan">
                       <label class="custom-file-label nic_scan_clear" for="exampleInputFile">Choose New nic_scan</label>
@@ -96,6 +148,19 @@
                 <div id="project_allotment_letter_scan_info" class="collapse alert alert-info">
                 <strong>Information!</strong>  allotment_letter_scan is used for the area you defined above. Please ask the allotment_letter_scan about project allotment_letter_scan before entering the project allotment_letter_scan. allotment_letter_scan is used for automatic converstion from one allotment_letter_scan to another.
                 </div>
+
+
+
+
+                <?php 
+                if(isset($arr['allotment_letter_scan']) && isset($project) && !empty($project->projectpreviousdesign)){
+                ?>
+                <a href="{{url($arr['allotment_letter_scan'])}}" target="_blank" >allotment_letter_scan</a>
+                <?php
+                } 
+                ?>
+
+
 
 
                 <div class="custom-file">
@@ -121,6 +186,18 @@
                 <div id="project_fard_scan_info" class="collapse alert alert-info">
                 <strong>Information!</strong>  fard_scan is used for the area you defined above. Please ask the fard_scan about project fard_scan before entering the project fard_scan. fard_scan is used for automatic converstion from one fard_scan to another.
                 </div>
+
+
+
+                <?php 
+                if(isset($arr['fard_scan']) && isset($project) && !empty($project->projectpreviousdesign)){
+                ?>
+                <a href="{{url($arr['fard_scan'])}}" target="_blank" >fard_scan</a>
+                <?php
+                } 
+                ?>
+
+
 
 
                 <div class="custom-file">
@@ -151,6 +228,19 @@
                 </div>
 
 
+
+                <?php 
+                if(isset($arr['asc_scan']) && isset($project) && !empty($project->projectpreviousdesign)){
+                ?>
+                <a href="{{url($arr['asc_scan'])}}" target="_blank">asc_scan</a>
+                <?php
+                } 
+                ?>
+
+
+
+
+
                 <div class="custom-file">
                       <input name="asc_scan" type="file" class="custom-file-input" id="asc_scan">
                       <label class="custom-file-label asc_scan_clear" for="exampleInputFile">Choose New asc_scan</label>
@@ -178,6 +268,14 @@
                 <div id="project_company_document_scan_info" class="collapse alert alert-info">
                 <strong>Information!</strong>  company_document_scan is used for the area you defined above. Please ask the company_document_scan about project company_document_scan before entering the project company_document_scan. company_document_scan is used for automatic converstion from one company_document_scan to another.
                 </div>
+
+                <?php 
+                if(isset($arr['company_document_scan']) && isset($project) && !empty($project->projectpreviousdesign)){
+                ?>
+                <a href="{{url($arr['company_document_scan'])}}" target="_blank">company_document_scan</a>
+                <?php
+                } 
+                ?>
 
 
                 <div class="custom-file">

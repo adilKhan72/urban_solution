@@ -12,7 +12,7 @@ class ProjectClient extends Model
     }
     public function clientscontactuser()
     {
-        return $this->belongsTo('App\ClientsContactUser');
+        return $this->belongsTo('App\ClientsContactUser','clients_contact_user_id');
     }
 
 }

@@ -28,8 +28,17 @@
                 </div>
 
                <select name="project_project_type" class="select2" id="select_project_type" data-placeholder="Select Project Type" style="width: 100%;">
-                  </select>
+                  
 
+                  <option 
+               
+               <?php if(isset($project) && !empty($project->projectscopeofprojectsubtype)){ echo "value=".$project->projectscopeofprojectsubtype->scopeofprojectsubtype->id; }?>
+
+               selected="selected"><?php if(isset($project) && !empty($project->projectscopeofprojectsubtype)){ echo $project->projectscopeofprojectsubtype->scopeofprojectsubtype->name;  }?></option>
+
+
+
+               </select>
                <span class="text-danger ajax_errors" id="project_project_type_error"> </span>
               </div>
 

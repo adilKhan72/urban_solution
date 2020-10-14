@@ -27,6 +27,25 @@
                 </div>
 
                <select name="project_client[]" class="select2" id="select_project_client" multiple="" data-placeholder="Select a Client" style="width: 100%;">
+
+               
+               
+               <?php 
+               
+               if(isset($project) && !empty($project->projectclient)){ 
+              
+              
+                foreach ($project->projectclient as $client) {
+                  ?>
+                  <option value="{{ $client->clientscontactuser->id }}" selected="selected">{{ $client->clientscontactuser->name }}</option>
+                  <?php
+
+                }
+              
+              }
+              ?>
+
+
                   </select>
 
                <span class="text-danger ajax_errors" id="project_client_error"> </span>
