@@ -32,7 +32,7 @@
      </div>
 
      <div class="modal-footer">
-      <button type="submit" class="btn btn-primary">Create Project</button>
+      <button type="submit" class="btn btn-primary">Edit Project</button>
       <span class="text-danger ajax_errors" id="error_createuserform"> </span>
         <span class="text-success ajax_errors" id="success_createuserform"> </span>
       </div>
